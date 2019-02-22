@@ -1,4 +1,4 @@
-## User Experior Integration Guide {docsify-ignore}
+## User Experior Integration Guide 
 
 UserExperior is used by UI/UX designers, Product Managers, Mobile App developers to understand user experince issues experienced by their customers.
 
