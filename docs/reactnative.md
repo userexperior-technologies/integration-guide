@@ -4,39 +4,40 @@
 
 1. **Install & Link UserExperior Plugin**
 
-  - ##### Install
+  - **Install**
 
     ```
     npm install --save react-native-userexperior@latest
     ```
 
-  - ##### Link
+  - **Link**
 
     ```
     react-native link react-native-userexperior
     ```
 
-1. **Start UserExperior Plugin**
+2. **Start UserExperior Plugin**
 
   ```
   var UserExperior = require('react-native-userexperior');
-   UserExperior.startRecording("your-version-key-here");
+  UserExperior.startRecording("your-version-key-here");
   ```
 
   Call the above method when your app starts (when your root component loads)
 
-2. Note:
+
+- **Note**
 
   Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 5-7 minutes on the dashboard.
 
-  - **Proguard Rules**
+- **Proguard Rules**
 
-    If you are using Proguard in your project, you must add the following lines to your configuration:
+  If you are using Proguard in your project, you must add the following lines to your configuration:
 
-    ```
-    -dontwarn com.userexperior.**  
-    -keep class com.userexperior.** { *; }
-    ```
+  ```
+  -dontwarn com.userexperior.**  
+  -keep class com.userexperior.** { *; }
+  ```
 
 ## Customizing UserExperior with Key APIs
 
@@ -68,9 +69,9 @@
 
   Using this API, you can add:
 
-  1. <u>Events</u>
+  - **Events**
 
-    : In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use **"EVENT"** in 2nd parameter.
+    In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use **"EVENT"** in 2nd parameter.
 
     e.g. "Txn Completed", "Checkout Done", "COD Payment", "Debit Card Payment", "Login", "Check Balance", "Fund Transfer" etc.
 
@@ -82,9 +83,9 @@
     UserExperior.setCustomTag("Mobile Top-up",  "EVENT");
     ```
 
-  2. <u>Messages</u>
+  - **Messages**
 
-    : A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use **"MSG"** in 2nd parameter.
+    A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use **"MSG"** in 2nd parameter.
 
     e.g. "Please select location", "Enable location permission", "User Name or Password is incorrect", etc.
 
@@ -94,9 +95,9 @@
     UserExperior.setCustomTag("Please select location!", "MSG");
     ```
 
-  3. <u>Tags</u>
+  - **Tags**
 
-    : In UserExperior terms, a tag is a kind of behaviour in the user's session. You can add Tag to even create segments of users based on behaviour or a certain condition, you can define your own tags for your app. To define your own tag, use **"TAG"** in 2nd parameter.
+    In UserExperior terms, a tag is a kind of behaviour in the user's session. You can add Tag to even create segments of users based on behaviour or a certain condition, you can define your own tags for your app. To define your own tag, use **"TAG"** in 2nd parameter.
 
     e.g. "Free User", "Paid User", "Burgundy User", "No Txn by User", "Free Subscription", etc.
 
@@ -130,7 +131,7 @@
 
   ```
   void startTimer(String timerName)
-   void endTimer(String timerName)
+  void endTimer(String timerName)
   ```
 
   Note: Max `timerName` limit is 250 chars only
@@ -141,13 +142,13 @@
 
   ```
   // Call it at API call  
-   UserExperior.startTimer("Load Money API call");  
+  UserExperior.startTimer("Load Money API call");  
 
-   // call it at API response  
-   UserExperior.endTimer("Load Money API call");
+  // call it at API response  
+  UserExperior.endTimer("Load Money API call");
   ```
 
-1. **Control Recording**
+5. **Control Recording**
 
   UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
 
@@ -169,7 +170,7 @@
 
   This API resumes the recording if it is paused.
 
-2. **Get Precise User Location**
+6. **Get Precise User Location**
 
   UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the gps location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
 
@@ -181,10 +182,10 @@
 
   ```
   // These are hardcoded lat, long, you can pass actual lat, long if your app uses gps  
-   UserExperior.setDeviceLocation(19.154023, 72.945204);
+  UserExperior.setDeviceLocation(19.154023, 72.945204);
   ```
 
-1. **Sleep Mode**
+7. **Sleep Mode**
 
   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for certain duration. e.g. map based navigation apps, video player apps, etc.
 
@@ -200,8 +201,8 @@
 
   ```
   <meta-data  
-       android:name="com.userexperior.ueSleepModeTimeInSeconds"  
-       android:value="5"/>
+      android:name="com.userexperior.ueSleepModeTimeInSeconds"  
+      android:value="5"/>
   ```
 
 ## FAQs
@@ -264,9 +265,9 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
   ```
   public void onCreate(Bundle arguments) { 
-       MultiDex.install(getTargetContext()); super.onCreate(arguments);
-       ...
-   }
+      MultiDex.install(getTargetContext()); super.onCreate(arguments);
+      ...
+  }
   ```
 
   1.5\. Check if any dependency library is conflicting between UserExperior SDK and your app.
@@ -283,19 +284,19 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
   ```
   <service  
-     android:name="com.userexperior.services.UploadService"  
-     android:enabled="true"  
-     android:exported="false" />  
+    android:name="com.userexperior.services.UploadService"  
+    android:enabled="true"  
+    android:exported="false" />  
 
-   <service  
-     android:name="com.userexperior.services.recording.EventSession"  
-     android:enabled="true"  
-     android:exported="false">  
-   </service>  
+  <service  
+    android:name="com.userexperior.services.recording.EventSession"  
+    android:enabled="true"  
+    android:exported="false">  
+  </service>  
 
-   <service  
-     android:name="com.userexperior.services.recording.ScreenShotService"  
-     android:enabled="true"  
-     android:exported="false">  
-   </service>
+  <service  
+    android:name="com.userexperior.services.recording.ScreenShotService"  
+    android:enabled="true"  
+    android:exported="false">  
+  </service>
   ```

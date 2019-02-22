@@ -16,22 +16,23 @@
   UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
   ```
 
-  Note: Call above method in every activity that is an entry point to your app! (Entry activities are usually those which have a custom 
+  Note: Call above method in every activity that is an entry point to your app! (Entry activities are usually those which have a custom
 
   <intent-filter> element in the AndroidManifest.xml file. e.g. MainActivity, Deep Linking Activity, etc.)</intent-filter>
 
-- Note:
+
+- **Note**
 
   Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 5-7 minutes on the dashboard.
 
-  - **Proguard Rules**
+- **Proguard Rules**
 
-    If you are using Proguard in your project, you must add the following lines to your configuration:
+  If you are using Proguard in your project, you must add the following lines to your configuration:
 
-    ```
-    -dontwarn com.userexperior.**  
-    -keep class com.userexperior.** { *; }
-    ```
+  ```
+  -dontwarn com.userexperior.**  
+  -keep class com.userexperior.** { *; }
+  ```
 
 ## Customizing UserExperior with Key APIs
 
@@ -63,9 +64,9 @@
 
   Using this API, you can add:
 
-  1. <u>Events</u>
-
-    : In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
+  - **Events**
+    
+    In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
 
     e.g. "Txn Completed", "Checkout Done", "COD Payment", "Debit Card Payment", "Login", "Check Balance", "Fund Transfer" etc.
 
@@ -75,15 +76,15 @@
 
     ```
     try {  
-         UserExperior.setCustomTag("Mobile Top-up", UeCustomType.EVENT);  
-     } catch (Exception e) {  
-         e.printStackTrace();  
-     }
+       UserExperior.setCustomTag("Mobile Top-up", UeCustomType.EVENT);  
+    } catch (Exception e) {  
+       e.printStackTrace();  
+    }
     ```
 
-  2. <u>Messages</u>
-
-    : A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use UeCustomType.MSG in 2nd parameter.
+  - **Messages**
+    
+    A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use UeCustomType.MSG in 2nd parameter.
 
     e.g. "Please select location", "Enable location permission", "User Name or Password is incorrect", etc.
 
@@ -91,15 +92,15 @@
 
     ```
     try {  
-         UserExperior.setCustomTag("Please select location!", UeCustomType.MSG);  
-     } catch (Exception e) {  
-         e.printStackTrace();  
-     }
+       UserExperior.setCustomTag("Please select location!", UeCustomType.MSG);  
+    } catch (Exception e) {  
+       e.printStackTrace();  
+    }
     ```
 
-  3. <u>Tags</u>
+  - **Tags**
 
-    : In UserExperior terms, a tag is a kind of behaviour in the user's session. You can add Tag to even create segments of users based on behaviour or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
+    In UserExperior terms, a tag is a kind of behaviour in the user's session. You can add Tag to even create segments of users based on behaviour or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
 
     e.g. "Free User", "Paid User", "Burgundy User", "No Txn by User", "Free Subscription", etc.
 
@@ -107,17 +108,17 @@
 
     ```
     try {  
-         UserExperior.setCustomTag("Free User", UeCustomType.TAG);  
-     } catch (Exception e) {  
-         e.printStackTrace();  
-     }
+       UserExperior.setCustomTag("Free User", UeCustomType.TAG);  
+    } catch (Exception e) {  
+       e.printStackTrace();  
+    }
     ```
 
 3. **Mask Sensitive Views**
 
   UserExperior SDK by default masks all the Edit Boxes. If you wish to mask any other UI element in your app, you can mask it by:
 
-  - Using XML Tag
+  - **Using XML Tag**
 
     ```
     android:tag="com.userexperior.ueSecureView"
@@ -127,21 +128,21 @@
 
     ```
     <WebView  
-         android:id="@+id/webview2"  
-         android:layout_width="fill_parent"  
-         android:layout_height="200dp"  
-         android:background="@android:color/transparent"  
-         android:tag="com.userexperior.ueSecureView"/>
+        android:id="@+id/webview2"  
+        android:layout_width="fill_parent"  
+        android:layout_height="200dp"  
+        android:background="@android:color/transparent"  
+        android:tag="com.userexperior.ueSecureView"/>
     ```
 
     or you can add Tag Programmatically:
 
     ```
     anyView = findViewById(R.id.anyView);  
-     anyView.setTag("com.userexperior.ueSecureView");
+    anyView.setTag("com.userexperior.ueSecureView");
     ```
 
-  - Using API
+  - **Using API**
 
     ```
     void addInSecureViewBucket(View view)
@@ -151,7 +152,7 @@
 
     ```
     anyView = findViewById(R.id.anyView);  
-      SecureViewBucket.addInSecureViewBucket(anyView);
+     SecureViewBucket.addInSecureViewBucket(anyView);
     ```
 
 4. **Identify Screens**
@@ -168,10 +169,10 @@
 
   ```
   try {  
-       UserExperior.startScreen("Notification Tab");  
-   } catch (Exception e) {  
-       e.printStackTrace();  
-   }
+      UserExperior.startScreen("Notification Tab");  
+  } catch (Exception e) {  
+      e.printStackTrace();  
+  }
   ```
 
   Note: This method should be usually called from the onResume() method.
@@ -182,7 +183,7 @@
 
   ```
   void startTimer(String timerName)
-   void endTimer(String timerName)
+  void endTimer(String timerName)
   ```
 
   Note: Max `timerName` limit is 250 chars only
@@ -193,18 +194,18 @@
 
   ```
   // Call it at API call
-   try {  
-       UserExperior.startTimer("Load Money API call");  
-   } catch (Exception e) {  
-       e.printStackTrace();  
-   }
+  try {  
+      UserExperior.startTimer("Load Money API call");  
+  } catch (Exception e) {  
+      e.printStackTrace();  
+  }
 
-   // call it at API response
-   try {  
-       UserExperior.endTimer("Load Money API call");  
-   } catch (Exception e) {  
-       e.printStackTrace();  
-   }
+  // call it at API response
+  try {  
+      UserExperior.endTimer("Load Money API call");  
+  } catch (Exception e) {  
+      e.printStackTrace();  
+  }
   ```
 
 6. **Control Recording**
@@ -241,11 +242,11 @@
 
   ```
   try {  
-       // These are hardcoded lat, long, you can pass actual lat, long if your app uses gps  
-       UserExperior.setDeviceLocation(19.154023, 72.945204);  
-   } catch (Exception e) {  
-       e.printStackTrace();  
-   }
+      // These are hardcoded lat, long, you can pass actual lat, long if your app uses gps  
+      UserExperior.setDeviceLocation(19.154023, 72.945204);  
+  } catch (Exception e) {  
+      e.printStackTrace();  
+  }
   ```
 
 8. **Send Handled Exceptions**
@@ -262,15 +263,15 @@
 
   ```
   public void onBack(View view) {  
-       try{  
-           // this exception is explicitly thrown just for example  
-           throw new NullPointerException();  
-       } catch (NullPointerException e){  
-           UserExperior.sendException(e, "NullPointerException at MainActivity onBack");  
-           e.printStackTrace();  
-       }  
-       onBackPressed();  
-   }
+      try{  
+          // this exception is explicitly thrown just for example  
+          throw new NullPointerException();  
+      } catch (NullPointerException e){  
+          UserExperior.sendException(e, "NullPointerException at MainActivity onBack");  
+          e.printStackTrace();  
+      }  
+      onBackPressed();  
+  }
   ```
 
 9. **Sleep Mode**
@@ -289,8 +290,8 @@
 
   ```
   <meta-data  
-       android:name="com.userexperior.ueSleepModeTimeInSeconds"  
-       android:value="5"/>
+      android:name="com.userexperior.ueSleepModeTimeInSeconds"  
+      android:value="5"/>
   ```
 
 ## FAQs
@@ -353,9 +354,9 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
   ```
   public void onCreate(Bundle arguments) { 
-       MultiDex.install(getTargetContext()); super.onCreate(arguments);
-       ...
-   }
+      MultiDex.install(getTargetContext()); super.onCreate(arguments);
+      ...
+  }
   ```
 
   1.5\. Check if any dependency library is conflicting between UserExperior SDK and your app.
@@ -372,19 +373,19 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
   ```
   <service  
-     android:name="com.userexperior.services.UploadService"  
-     android:enabled="true"  
-     android:exported="false" />  
+    android:name="com.userexperior.services.UploadService"  
+    android:enabled="true"  
+    android:exported="false" />  
 
-   <service  
-     android:name="com.userexperior.services.recording.EventSession"  
-     android:enabled="true"  
-     android:exported="false">  
-   </service>  
+  <service  
+    android:name="com.userexperior.services.recording.EventSession"  
+    android:enabled="true"  
+    android:exported="false">  
+  </service>  
 
-   <service  
-     android:name="com.userexperior.services.recording.ScreenShotService"  
-     android:enabled="true"  
-     android:exported="false">  
-   </service>
+  <service  
+    android:name="com.userexperior.services.recording.ScreenShotService"  
+    android:enabled="true"  
+    android:exported="false">  
+  </service>
   ```
