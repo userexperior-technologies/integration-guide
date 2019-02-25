@@ -8,4 +8,4 @@ Follow the links to get started:
   - [ReactNative](reactnative)
   - [Xamarin](xamarin)
   
-  UserExperior supports os versions from Android **JellyBean** to Android **Oreo**!
+  UserExperior supports os versions from Android **JellyBean** API Level 16 to Android **Oreo** API Level 27!
