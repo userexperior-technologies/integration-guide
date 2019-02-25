@@ -16,9 +16,7 @@
   UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
   ```
 
-  Note: Call above method in every activity that is an entry point to your app! (Entry activities are usually those which have a custom
-
-  <intent-filter> element in the AndroidManifest.xml file. e.g. MainActivity, Deep Linking Activity, etc.)</intent-filter>
+  Note: Call above method in every activity that is an entry point to your app! (Entry activities are usually those which have a custom <intent-filter> element in the AndroidManifest.xml file. e.g. MainActivity, Deep Linking Activity, etc.)</intent-filter>
 
 
 - **Note**
