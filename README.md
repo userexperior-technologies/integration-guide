@@ -7,3 +7,5 @@ Follow the links to get started:
   - [Cordova/Ionic](cordova-ionic)
   - [ReactNative](reactnative)
   - [Xamarin](xamarin)
+  
+  UserExperior supports os versions from Android **JellyBean** to Android **Oreo**!
