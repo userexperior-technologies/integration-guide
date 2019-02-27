@@ -70,6 +70,8 @@
 
     Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initial recorded sessions itself.)
 
+    **Recommendation:** Kindly pass hardcoded/fixed values for events, do not pass incremental values!
+
     Code Example:
 
     ```
@@ -162,6 +164,8 @@
   ```
 
   Note: Max `screenName` limit is 250 chars only
+
+  **Recommendation:** Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
 
   Code Example:
 
