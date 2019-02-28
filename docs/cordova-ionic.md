@@ -304,24 +304,3 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
   ```
   android:[largeHeap]="true"
   ```
-
-4. If you find this log under logcat "**Unable to start service Intent { cmp=com.yourcompanydomain.yourappname/com.userexperior.services.recording.EventSession (has extras) } U=0: not found**", please add following services manually to your app's AndroidManifest.xml:
-
-  ```
-  <service  
-   android:name="com.userexperior.services.UploadService"  
-   android:enabled="true"  
-   android:exported="false" />  
-
-  <service  
-   android:name="com.userexperior.services.recording.EventSession"  
-   android:enabled="true"  
-   android:exported="false">  
-  </service>  
-
-  <service  
-   android:name="com.userexperior.services.recording.ScreenShotService"  
-   android:enabled="true"  
-   android:exported="false">  
-  </service>
-  ```
