@@ -116,7 +116,7 @@
 
 3. **Mask Sensitive Views**
 
-  UserExperior SDK by default masks all the Edit Boxes. If you wish to mask any other UI element in your app, you can mask it by:
+  UserExperior SDK by default masks all the Edit Boxes of activities. If you wish to mask any other UI element in your app, you can mask it by:
 
   - **Using XML Tag**
 
