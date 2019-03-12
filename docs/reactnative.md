@@ -109,7 +109,23 @@
     UserExperior.setCustomTag("Free User", "TAG");
     ```
 
-3. **Identify Screens**
+3. **Mask Sensitive Views**
+
+  UserExperior SDK lets you mask the ui views in your app. If you wish to mask any view, you can use below API.
+
+  ```
+  void addInSecureViewBucket(View view)
+  ```
+
+  Code Example: Mask sensitive views by calling UserExperior.addInSecureViewBucket via a "ref"
+
+  ```
+  <Button ref='{ x => UserExperior.addInSecureViewBucket(x) }' />
+  ```
+
+  Note: Masking views that are only used to layout their children may not work due to [React Native optimizations](http://facebook.github.io/react-native/docs/view.html#collapsable). To skip these optimizations, mark the container view with "collapsable={false}".
+    
+4. **Identify Screens**
 
   UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
 
@@ -129,7 +145,7 @@
 
   Note: This method should be usually called when your page loads.
 
-4. **Track Response Time of Methods/API Calls**
+5. **Track Response Time of Methods/API Calls**
 
   UserExperior SDK allows you to track the load/response time of the components in your app using APIs called startTimer and endTimer. You can call startTimer API at any event on the app from which you want to track the load/response time and call a stopTimer API at the event completion. This APIs will calculate the complete response time.
 
@@ -152,7 +168,7 @@
   UserExperior.endTimer("Load Money API call");
   ```
 
-5. **Control Recording**
+6. **Control Recording**
 
   UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
 
@@ -174,7 +190,7 @@
 
   This API resumes the recording if it is paused.
 
-6. **Get Precise User Location**
+7. **Get Precise User Location**
 
   UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the gps location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
 
@@ -189,7 +205,7 @@
   UserExperior.setDeviceLocation(19.154023, 72.945204);
   ```
 
-7. **Sleep Mode**
+8. **Sleep Mode**
 
   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for certain duration. e.g. map based navigation apps, video player apps, etc.
 
