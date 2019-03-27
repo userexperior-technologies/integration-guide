@@ -1,6 +1,7 @@
 <!-- docs/_sidebar.md -->
 
-  - [- Native](native-android)
+  - [- Native - Android](/android)
+  - [- Native - iOS](/ios)
   - [- Cordova/Ionic](cordova-ionic)
   - [- ReactNative](reactnative)
   - [- Xamarin](xamarin)
