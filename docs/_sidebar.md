@@ -2,6 +2,6 @@
 
   - [- Native - Android](/android)
   - [- Native - iOS](/ios)
-  - [- Cordova/Ionic](cordova-ionic)
-  - [- ReactNative](reactnative)
-  - [- Xamarin](xamarin)
+  - [- Cordova/Ionic - Android](cordova-ionic)
+  - [- ReactNative - Android](reactnative)
+  - [- Xamarin - Android](xamarin)
