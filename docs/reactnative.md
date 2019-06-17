@@ -109,66 +109,7 @@
     UserExperior.setCustomTag("Free User", "TAG");
     ```
 
-3. **Mask Sensitive Views**
-
-  UserExperior SDK lets you mask the ui views in your app. If you wish to mask any view, you can use below API.
-
-  ```
-  void addInSecureViewBucket(View view)
-  ```
-
-  Code Example: Mask sensitive views by calling UserExperior.addInSecureViewBucket via a "ref"
-
-  ```
-  <Button ref='{ x => UserExperior.addInSecureViewBucket(x) }' />
-  ```
-
-  Note: Masking views that are only used to layout their children may not work due to [React Native optimizations](http://facebook.github.io/react-native/docs/view.html#collapsable). To skip these optimizations, mark the container view with "collapsable={false}".
-    
-4. **Identify Screens**
-
-  UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
-
-  ```
-  void startScreen(String screenName)
-  ```
-
-  Note: Max `screenName` limit is 250 chars only
-
-  **Recommendation:** Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
-
-  Code Example:
-
-  ```
-  UserExperior.startScreen("Notification Page");
-  ```
-
-  Note: This method should be usually called when your page loads.
-
-5. **Track Response Time of Methods/API Calls**
-
-  UserExperior SDK allows you to track the load/response time of the components in your app using APIs called startTimer and endTimer. You can call startTimer API at any event on the app from which you want to track the load/response time and call a stopTimer API at the event completion. This APIs will calculate the complete response time.
-
-  ```
-  void startTimer(String timerName)
-  void endTimer(String timerName)
-  ```
-
-  Note: Max `timerName` limit is 250 chars only
-
-  e.g. Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call startTimer API when screen resumes to the user and call stopTimer API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after screen is visible to the user. Similarly, you can use startTimer at any API call and endTimer on API response.
-
-  Code Example:
-
-  ```
-  // Call it at API call  
-  UserExperior.startTimer("Load Money API call");  
-
-  // call it at API response  
-  UserExperior.endTimer("Load Money API call");
-  ```
-
-6. **Control Recording**
+3. **Control Recording**
 
   UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
 
@@ -189,41 +130,6 @@
   ```
 
   This API resumes the recording if it is paused.
-
-7. **Get Precise User Location**
-
-  UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the gps location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
-
-  ```
-  void setDeviceLocation(double latitude, double longitude)
-  ```
-
-  Code Example:
-
-  ```
-  // These are hardcoded lat, long, you can pass actual lat, long if your app uses gps  
-  UserExperior.setDeviceLocation(19.154023, 72.945204);
-  ```
-
-8. **Sleep Mode**
-
-  UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for certain duration. e.g. map based navigation apps, video player apps, etc.
-
-  If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
-
-  This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
-
-  Sleep Mode Time (in seconds) is the duration for which SDK will wait after last occurred user gesture to go into sleep mode.
-
-  If Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for whole duration.
-
-  You can add following meta-data under application tag of your app's **AndroidManifest.xml**:
-
-  ```
-  <meta-data  
-      android:name="com.userexperior.ueSleepModeTimeInSeconds"  
-      android:value="5"/>
-  ```
 
 ## FAQs
 
