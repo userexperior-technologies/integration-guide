@@ -6,7 +6,7 @@ Follow the links to get started:
   - [Native - Android](android)
   - [Native - iOS](ios)
   - [Cordova/Ionic - Android](cordova-ionic)
-  - [ReactNative - Android](reactnative)
+  - [ReactNative](reactnative)
   - [Xamarin - Android](xamarin)
   
 UserExperior supports os versions from Android **JellyBean API Level 16** to Android **Pie API Level 28**!
