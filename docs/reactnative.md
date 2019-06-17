@@ -271,6 +271,21 @@ You can see the full list of Android methods that could be in the stack-trace he
 
 ## Additional Notes
 
+### iOS
+
+Due to our implementation of UserExperior framework in Swift 5, Please follow below points for your react native iOS project successful build:
+
+- Need Xcode version 10.2
+- Add below line in Library Search Path of your react native project target (In Build Settings):
+	```	
+	$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) 
+	````
+- Add below line in the Runpath Search Path of your react native project target (In Build Settings):
+	```
+	/usr/lib/swift
+	```
+
+### Android
 UserExperior SDK also writes some useful logs in the Android Studio IDE during runtime. These logs should be first point of investigation for any issue you may be facing. Known issues and workarounds:
 
 1. In case you are getting NoClassDefFoundError, try these steps:
