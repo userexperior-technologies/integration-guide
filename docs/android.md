@@ -155,7 +155,7 @@
     SecureViewBucket.addInSecureViewBucket(anyView);
     ```
 
-4. **Unmask** - For excluding particular Editboxes from being masked automatically e.g. any editbox which is not sensitive
+4. **Unmask**
 
   UserExperior SDK by default masks all the Edit Boxes of activities. If you don't want to mask any EditBox in your app, you can exclude it from being masked by:
 
