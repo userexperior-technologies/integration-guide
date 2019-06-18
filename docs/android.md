@@ -152,7 +152,7 @@
 
     ```
     anyView = findViewById(R.id.anyView);  
-     SecureViewBucket.addInSecureViewBucket(anyView);
+    SecureViewBucket.addInSecureViewBucket(anyView);
     ```
 
 4. **Don't Mask**
@@ -178,8 +178,8 @@
     or you can add Tag Programmatically:
 
     ```
-    editBox = findViewById(R.id.editBox);  
-    anyView.setTag("com.userexperior.dontmask");
+    editBox = findViewById(R.id.editBox);
+    editBox.setTag("com.userexperior.dontmask");
     ```
 
   - **Using API**
@@ -192,7 +192,7 @@
 
     ```
     editBox = findViewById(R.id.editBox);  
-     SecureViewBucket.removeFromSecureViewBucket(editBox);
+    SecureViewBucket.removeFromSecureViewBucket(editBox);
     ```
 
 5. **Identify Screens**
