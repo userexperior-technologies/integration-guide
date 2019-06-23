@@ -118,7 +118,7 @@
 
   UserExperior SDK by default masks all the Edit Boxes of activities. If you wish to mask any other UI element in your app, you can mask it by:
 
-  - **Using XML Tag**
+  - **Using Tag** - (Use Tag method only when you don't have any other tag already applied to your UI element.)
 
     ```
     android:tag="com.userexperior.ueSecureView"
@@ -152,10 +152,50 @@
 
     ```
     anyView = findViewById(R.id.anyView);  
-     SecureViewBucket.addInSecureViewBucket(anyView);
+    SecureViewBucket.addInSecureViewBucket(anyView);
     ```
 
-4. **Identify Screens**
+4. **Unmask**
+
+  UserExperior SDK by default masks all the Edit Boxes of activities. If you don't want to mask any EditBox in your app, you can exclude it from being masked by:
+
+  - **Using Tag** - (Use Tag method only when you don't have any other tag already applied to your EditBox.)
+
+    ```
+    android:tag="com.userexperior.dontmask"
+    ```
+
+    Code Example: Add above tag in xml of your EditText
+
+    ```
+    <EditText  
+        android:id="@+id/editBox"  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:tag="com.userexperior.dontmask"/>
+    ```
+
+    or you can add Tag Programmatically:
+
+    ```
+    editBox = findViewById(R.id.editBox);
+    editBox.setTag("com.userexperior.dontmask");
+    ```
+
+  - **Using API**
+
+    ```
+    void removeFromSecureViewBucket(EditText editBox)
+    ```
+
+    Code Example:
+
+    ```
+    editBox = findViewById(R.id.editBox);  
+    SecureViewBucket.removeFromSecureViewBucket(editBox);
+    ```
+
+5. **Identify Screens**
 
   UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
 
@@ -179,7 +219,7 @@
 
   Note: This method should be usually called from the onResume() method.
 
-5. **Track Response Time of Methods/API Calls**
+6. **Track Response Time of Methods/API Calls**
 
   UserExperior SDK allows you to track the load/response time of the components in your app using APIs called startTimer and endTimer. You can call startTimer API at any event on the app from which you want to track the load/response time and call a stopTimer API at the event completion. This APIs will calculate the complete response time.
 
@@ -210,7 +250,7 @@
   }
   ```
 
-6. **Control Recording**
+7. **Control Recording**
 
   UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
 
@@ -232,7 +272,7 @@
 
   This API resumes the recording if it is paused.
 
-7. **Get Precise User Location**
+8. **Get Precise User Location**
 
   UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the gps location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
 
@@ -251,7 +291,7 @@
   }
   ```
 
-8. **Send Handled Exceptions**
+9. **Send Handled Exceptions**
 
   UserExperior SDK lets you send handled exceptions and their information to UserExperior Dashboard so that you can know where your app caused the handled exceptions. You must send exceptions in the catch block(s) of the handled exception. The exception object's class name (eg. java.lang.NullPointerException) will appear in the story line of the sessions of your app on the dashboard.
 
@@ -276,7 +316,7 @@
   }
   ```
 
-9. **Sleep Mode**
+10. **Sleep Mode**
 
   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for certain duration. e.g. map based navigation apps, video player apps, etc.
 
