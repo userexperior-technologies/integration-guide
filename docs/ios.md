@@ -9,9 +9,15 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 1. Install [cocoapods](https://cocoapods.org/) if you don't already have it.
 2. Add to the pod file
 
-        ```
-        pod 'UserExperior', '4.1.26' 
-        ```
+ - For swift 4.2
+    ```
+    pod 'UserExperior', '4.1.30' 
+    ```
+
+ - For swift 5.0
+    ```
+    pod 'UserExperior', '4.1.29' 
+    ```
 
 3. From your terminal, type 
 
@@ -27,7 +33,7 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 `Note: Framework support device architecture only means it will run only on device.`
 
 1. Follow below link to download
-	- [Download](https://userexperior-35559.firebaseapp.com/download/ios_sdk/latest/UserExperior.zip)
+	- [Download](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.29/UserExperior.zip)
 
 2. Unzip the file and drag the UserExperior.framework directory to the “Frameworks” in your XCode project tree.
 3. In your xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
