@@ -143,7 +143,7 @@ This API resumes the recording if it is paused.
     UserExperior.resumeRecording()
 ```
 
-### User Consent
+### Opt-In/Opt-Out
 
 SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the optOut() method, you can use this method to enable recording at runtime.
 
