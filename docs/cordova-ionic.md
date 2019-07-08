@@ -230,6 +230,40 @@
      android:value="5"/>
   ```
 
+8. **Opt-out/Opt-in**
+
+UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
+
+  ```
+  void optOut()
+  ```
+  
+This method stops and deletes the current session recording and also disables the session recording by our sdk for this user in future.
+  
+  ```
+  void optIn()
+  ```
+  
+SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the optOut() method, you can use this method to enable recording at runtime.
+
+  ```
+  boolean getOptOutStatus()
+  ```
+
+This method returns the status of the user whether user is currently opted-in or opted-out. Boolean value true indicates that user is opted-out and false indicates that user is opted-in.
+
+User recording resets to opt-in if the user un-installs and re-installs the app.
+
+9. **User Consent before recording**
+
+As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future.
+
+We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make call to consent API:
+
+  ```
+  void consent()
+  ```
+
 ## FAQs
 
 **When can we see the videos of the user's session?**
