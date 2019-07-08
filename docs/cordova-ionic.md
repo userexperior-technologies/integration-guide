@@ -130,50 +130,7 @@
     UserExperior.setCustomTag("Free User", "TAG");
     ```
 
-3. **Identify Screens**
-
-  UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
-
-  ```
-  void startScreen(String screenName)
-  ```
-
-  Note: Max `screenName` limit is 250 chars only
-
-  **Recommendation:** Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
-
-  Code Example:
-
-  ```
-  UserExperior.startScreen("Notification Page");
-  ```
-
-  Note: This method should be usually called when your page loads.
-
-4. **Track Response Time of Methods/API Calls**
-
-  UserExperior SDK allows you to track the load/response time of the components in your app using APIs called startTimer and endTimer. You can call startTimer API at any event on the app from which you want to track the load/response time and call a stopTimer API at the event completion. This APIs will calculate the complete response time.
-
-  ```
-  void startTimer(String timerName)
-  void endTimer(String timerName)
-  ```
-
-  Note: Max `timerName` limit is 250 chars only
-
-  e.g. Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call startTimer API when screen resumes to the user and call stopTimer API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after screen is visible to the user. Similarly, you can use startTimer at any API call and endTimer on API response.
-
-  Code Example:
-
-  ```
-  // Call it at API call  
-  UserExperior.startTimer("Load Money API call");  
-
-  // call it at API response  
-  UserExperior.endTimer("Load Money API call");
-  ```
-
-5. **Control Recording**
+3. **Control Recording**
 
   UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
 
@@ -195,22 +152,7 @@
 
   This API resumes the recording if it is paused.
 
-6. **Get Precise User Location**
-
-  UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the gps location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
-
-  ```
-  void setDeviceLocation(double latitude, double longitude)
-  ```
-
-  Code Example:
-
-  ```
-  // These are hardcoded lat, long, you can pass actual lat, long if your app uses gps  
-  UserExperior.setDeviceLocation(19.154023, 72.945204);
-  ```
-
-7. **Sleep Mode**
+4. **Sleep Mode**
 
   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for certain duration. e.g. map based navigation apps, video player apps, etc.
 
@@ -230,7 +172,7 @@
      android:value="5"/>
   ```
 
-8. **Opt-out/Opt-in**
+5. **Opt-out/Opt-in**
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
@@ -254,7 +196,7 @@ This method returns the status of the user whether user is currently opted-in or
 
 User recording resets to opt-in if the user un-installs and re-installs the app.
 
-9. **User Consent before recording**
+6. **User Consent before recording**
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future.
 
