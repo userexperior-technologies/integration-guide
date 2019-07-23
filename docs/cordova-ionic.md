@@ -130,7 +130,27 @@
     UserExperior.setCustomTag("Free User", "TAG");
     ```
 
-3. **Control Recording**
+3. **Identify Screens**
+	
+	  UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
+	
+	  ```
+	  void startScreen(String screenName)
+	  ```
+	
+	  Note: Max `screenName` limit is 250 chars only
+	
+	  **Recommendation:** Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
+	
+	  Code Example:
+	
+	  ```
+	  UserExperior.startScreen("Notification Page");
+	  ```
+	
+	  Note: This method should be usually called when your page loads.
+
+4. **Control Recording**
 
   UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
 
@@ -152,7 +172,7 @@
 
   This API resumes the recording if it is paused.
 
-4. **Sleep Mode**
+5. **Sleep Mode**
 
   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for certain duration. e.g. map based navigation apps, video player apps, etc.
 
@@ -172,7 +192,7 @@
      android:value="5"/>
   ```
 
-5. **Opt-out/Opt-in**
+6. **Opt-out/Opt-in**
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
@@ -196,7 +216,7 @@ This method returns the status of the user whether user is currently opted-in or
 
 User recording resets to opt-in if the user un-installs and re-installs the app.
 
-6. **User Consent before recording**
+7. **User Consent before recording**
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future.
 
