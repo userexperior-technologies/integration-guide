@@ -132,23 +132,23 @@
 
 3. **Identify Screens**
 	
-	  UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
+   UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
 	
-	  ```
-	  void startScreen(String screenName)
-	  ```
+  ```
+  void startScreen(String screenName)
+  ```
 	
-	  Note: Max `screenName` limit is 250 chars only
+  Note: Max `screenName` limit is 250 chars only
 	
-	  **Recommendation:** Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
+  **Recommendation:** Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
 	
-	  Code Example:
+  Code Example:
 	
-	  ```
-	  UserExperior.startScreen("Notification Page");
-	  ```
+  ```
+  UserExperior.startScreen("Notification Page");
+  ```
 	
-	  Note: This method should be usually called when your page loads.
+  Note: This method should be usually called when your page loads.
 
 4. **Control Recording**
 
