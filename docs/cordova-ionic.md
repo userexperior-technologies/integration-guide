@@ -132,7 +132,7 @@
 
 3. **Identify Screens**
 	
-   UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
+UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
 	
   ```
   void startScreen(String screenName)
