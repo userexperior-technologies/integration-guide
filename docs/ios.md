@@ -9,14 +9,19 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 1. Install [cocoapods](https://cocoapods.org/) if you don't already have it.
 2. Add to the pod file
 
- - For swift 4.2 (Without IFA)
+<!-- - For swift 4.2 (Without IFA)
     ```
     pod 'UserExperior', '4.1.39' 
     ```
-
+-->
  - For swift 5.0 (Without IFA)
     ```
-    pod 'UserExperior', '4.1.38' 
+    pod 'UserExperior', '4.1.40' 
+    ```
+    
+ - For swift 5.1 (Without IFA)
+    ```
+    pod 'UserExperior', '4.1.41' 
     ```
 
 3. From your terminal, type 
