@@ -29,14 +29,16 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
  - For swift 5.1.2
  - 
     ```
-    pod 'UserExperior', '4.1.59' 
-    ```
+    pod 'UserExperior', '4.1.63' 
+    ``` 
+    
+ - For swift 5.1.3
+ - 
+   ```
+   pod 'UserExperior', '4.1.64' 
+   ```
+   
 
-    - For swift 5.1.3
-    - 
-       ```
-       pod 'UserExperior', '4.1.64' 
-       ```
 3. From your terminal, type 
 
 	- `pod repo update` (Optional - mostly if you are facing [Unable to find a specification in CocoaPods](https://stackoverflow.com/questions/25913733/unable-to-find-a-specification-in-cocoapods) issue)
