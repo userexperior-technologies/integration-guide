@@ -23,7 +23,7 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
  - For swift 5.1
  - 
     ```
-    pod 'UserExperior', '4.1.60' 
+    pod 'UserExperior', '4.1.62' 
     ```
     
  - For swift 5.1.2
