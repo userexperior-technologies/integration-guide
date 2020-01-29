@@ -2,11 +2,11 @@
 
 ## Integration
 
-1. **Add UserExperior to your flutter app dependencies**
+1. **Add UserExperior to your flutter app dependencies inside pubspec.yaml**
 
     ```
     dependencies:
-      user_experior: ^0.0.3
+      user_experior: ^0.0.4
     ```
 
 2. **Install UserExperior**
