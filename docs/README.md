@@ -10,4 +10,4 @@ Follow the links to get started:
   - [Flutter](flutter)
   - [Xamarin - Android](xamarin)
   
-UserExperior supports os versions from Android **JellyBean API Level 16** to Android **Pie API Level 28**!
+UserExperior supports os versions from **Android JellyBean (4.3) API Level 16** to **Android 10 API Level 29**!
