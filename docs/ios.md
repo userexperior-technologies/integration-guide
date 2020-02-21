@@ -1,7 +1,7 @@
 # Native iOS
 
 ## Integration
-	
+    
 You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.org/) or manually.
 
 **Via Cocoapods**
@@ -16,31 +16,25 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 -->
  - **For swift 5.1.3**
     - 
-        ```
         pod 'UserExperior', '4.1.67' 
-        ```
-    
+
  - **For swift 5.1.2**
     - 
-        ```
         pod 'UserExperior', '4.1.66' 
-        ```
-    
+
  - **For swift 5.1**
     - 
-        ```
         pod 'UserExperior', '4.1.65' 
-        ``` 
 
 
 
 3. From your terminal, type 
 
-	- `pod repo update` (Optional - mostly if you are facing [Unable to find a specification in CocoaPods](https://stackoverflow.com/questions/25913733/unable-to-find-a-specification-in-cocoapods) issue)
+    - `pod repo update` (Optional - mostly if you are facing [Unable to find a specification in CocoaPods](https://stackoverflow.com/questions/25913733/unable-to-find-a-specification-in-cocoapods) issue)
 
-		After repo update perform below command to install pod
+        After repo update perform below command to install pod
 
-	- `pod install`
+    - `pod install`
 4. Set `Always Embed Swift Standard Libraries` to `Yes` in Build Setting panel of project as well as app target. (Specially if your project based on old objective c project)
 
 **Via Manual**
@@ -48,7 +42,7 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 `Note: Framework support device architecture only means it will run only on device.`
 
 1. Follow below link to download
-	- [Download](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.29/UserExperior.zip)
+    - [Download](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.29/UserExperior.zip)
 
 2. Unzip the file and drag the UserExperior.framework directory to the “Frameworks” in your XCode project tree.
 3. In your xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
@@ -67,23 +61,23 @@ The UserExperior.framework is automagically added as a target dependency, linked
 
 1. In your app delegate, include:
 
-	- For Objective-C
-	    
-	    `#import <UserExperior/UserExperior-Swift.h>`
+    - For Objective-C
+        
+        `#import <UserExperior/UserExperior-Swift.h>`
 
-	- For Swift
+    - For Swift
 
-	    `import UserExperior`
+        `import UserExperior`
 
 2. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
 
-	- For Objective-C
+    - For Objective-C
 
-	    `[UserExperior initialize:@"USER_KEY"];`
+        `[UserExperior initialize:@"USER_KEY"];`
 
-	- For Swift
+    - For Swift
 
-	    `UserExperior.initialize("USER_KEY")`
+        `UserExperior.initialize("USER_KEY")`
 
 
 # Customizing UserExperior with Key APIs
