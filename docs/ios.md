@@ -181,6 +181,26 @@ This method returns the status of the user whether user is currently opted-in or
     UserExperior.getOptOutStatus()
 ```
 
+## 4. Identify Subviews
+
+UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in existing `ViewController`, then we recommend to use the **startScreen API**. This API allows you to manually define `subviews` which will be missed during auto-capturing.
+
+- For Objective-C
+```
+    [UserExperior startScreen:@"SCREEN_NAME"];
+```
+eg.```
+    [UserExperior startScreen:@"OTPViewController"];
+```
+
+- For Swift
+```
+    UserExperior.startScreen("SCREEN_NAME")
+```
+eg.```
+    UserExperior.startScreen("OTPViewController")
+```
+
 ## User Consent before recording 
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make call to consent API: 
