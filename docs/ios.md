@@ -200,6 +200,8 @@ eg.```
 eg.```
     UserExperior.startScreen("OTPViewController")
 ```
+Note: Max screenName limit is 250 chars only
+
 
 ## User Consent before recording 
 
