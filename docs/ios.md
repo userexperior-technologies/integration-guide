@@ -183,13 +183,14 @@ This method returns the status of the user whether user is currently opted-in or
 
 ## 4. Identify Subviews
 
-UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in existing `ViewController`, then we recommend to use the **startScreen API**. This API allows you to manually define `subviews` which will be missed during auto-capturing.
+UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in existing `ViewController`, then we recommend to use the startScreen() method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
 
 - For Objective-C
 ```
     [UserExperior startScreen:@"SCREEN_NAME"];
 ```
-eg.```
+eg.
+```
     [UserExperior startScreen:@"OTPViewController"];
 ```
 
@@ -197,13 +198,88 @@ eg.```
 ```
     UserExperior.startScreen("SCREEN_NAME")
 ```
-eg.```
+eg.
+```
     UserExperior.startScreen("OTPViewController")
 ```
-Note: Max screenName limit is 250 chars only
+
+**Note:** Max screenName limit is 250 chars only
+
+##5. **Add Events/Messages/Tags**
+
+  UserExperior SDK lets you track user `events`, app `messages` of your app and `tag` sessions based on some conditions using very powerful method setCustomTag()
+
+- For Objective-C
+```
+    [UserExperior setCustomTag:@"SCREEN_NAME" customType: UECustomType];
+```
+
+- For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType)
+```
+
+  Note: Max `customTag` limit is 250 chars only
+
+  Using this API, you can add:
+
+  - **Events**
+    
+    In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
+
+    **Example:** "Transaction Completed", "Checkout Done", "COD Payment", "Debit Card Payment", "Login", "Check Balance", "Fund Transfer" etc.
+
+    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initial recorded sessions itself.)
+
+    **Recommendation:** Kindly pass hard coded/fixed values for events, do not pass incremental values!
+
+    **Example**
+   - For Objective-C
+```
+    [UserExperior setCustomTag:@"TAG" customType: UECustomType.event];
+```
+
+   - For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType.event)
+```
+
+  - **Messages**
+    
+    A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use UeCustomType.MSG in 2nd parameter.
+
+    **Example:** "Please select location", "Enable location permission", "User Name or Password is incorrect", etc.
+
+    **Example**
+   - For Objective-C
+```
+    [UserExperior setCustomTag:@"TAG" customType: UECustomType.msg];
+```
+
+   - For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType.msg)
+```
+
+  - **Tags**
+
+    In UserExperior terms, a tag is a kind of behaviour in the user's session. You can add Tag to even create segments of users based on behaviour or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
+
+    e.g. "Free User", "Paid User", "Burgundy User", "No Txn by User", "Free Subscription", etc.
+
+    **Example**
+   - For Objective-C
+```
+    [UserExperior setCustomTag:@"TAG" customType: UECustomType.tag];
+```
+
+   - For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType.tag)
+```
 
 
-## User Consent before recording 
+## 6. User Consent before recording 
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make call to consent API: 
 
