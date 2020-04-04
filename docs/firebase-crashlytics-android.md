@@ -38,11 +38,3 @@ After completing the integration, every Crashlytics crash log will contain a key
 Go to Firebase Console > Go to your app folder > Crashlytics > Click on the crash you want to debug > Click on the Keys > Copy the highlighted UE Session URL
 
 ![Firebase Crashlytics Switch](_media/firebase-crashlytics-android/firebase-crashlytics-ue-session-url.png)
-
-
- 
- 
-
-
-
-
