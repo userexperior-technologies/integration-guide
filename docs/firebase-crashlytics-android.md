@@ -1,4 +1,4 @@
-# Firebase Crashlytics + UserExperior
+# Firebase Crashlytics + UserExperior (Android)
 
 Now you can link Firebase Crashlytics with UserExperior and understand exactly how your app crashed. UserExperior + Crashlytics integration will help you solve the crashes easily, reproduce crashes and reduce crash rates, save your development time with our session recordings.
 
@@ -31,7 +31,7 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
   });
   ```
   
- ## Replay of Crashed Sessions
+## Replay of Crashed Sessions
  
 After completing the integration, every Crashlytics crash log will contain a key called "UE Session URL". You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
