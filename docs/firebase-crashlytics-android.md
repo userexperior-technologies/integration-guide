@@ -16,15 +16,16 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
 
 2. **Add UserExperior Listener immediately after startRecording:**
 
-  Add UserExperior Listener in onCreate method of every launcher activity
+  Add following code in onCreate method of every launcher activity.
 
   ```
   UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
   
-  // UserExperior: Third Party Integration
+  // UserExperior Listener: Third Party Integration
   UserExperior.setUserExperiorListener(new UserExperiorListener() {
     @Override
     public void onUserExperiorStarted() {
+        // Sending UserExperior Session URL to Firebase Crashlytics
         String ueSessionUrlFC = UserExperior.getSessionUrl("FirebaseCrashlytics");
         FirebaseCrashlytics.getInstance().setCustomKey("UE Session URL", ueSessionUrlFC);
     }
