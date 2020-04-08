@@ -10,7 +10,7 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
 
 1. **Switch On the Firebase Crashlytics in UserExperior Settings**
 
-  Go to UserExperior Dashboard > Settings > Integrations > Switch On **Crashlytics Firebase**
+  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
   
   ![Firebase Crashlytics Switch](_media/firebase-crashlytics-android/firebase-crashlytics-switch.png)
 
