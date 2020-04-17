@@ -1,15 +1,15 @@
-# Native iOS
+### Native iOS
 
-## Integration
+#### Integration
     
 You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.org/) or manually.
 
-**Via Cocoapods**
+##### **Via Cocoapods**
 
 1. Install [cocoapods](https://cocoapods.org/) if you don't already have it.
 2. Add to the pod file
 
- - **For swift 5.2**
+ - **For swift 5.1.3**
     - 
         pod 'UserExperior', '4.2.8' 
 
@@ -82,24 +82,23 @@ The UserExperior.framework is automagically added as a target dependency, linked
         `UserExperior.initialize("USER_KEY")`
 
 
-# Customizing UserExperior with Key APIs
+### Customizing UserExperior with Key APIs:
 
-## 1. Add User Identifier
+#### 1. Add User Identifier
 
 UserExperior SDK by default takes device id as user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as custom user identifier. This identifier will show up in UserExperior portal.
 
 - For Objective-C
-```
-    [UserExperior setUserIdentifier:@"pass-your-user-id-here"];
-```
+    ```
+        [UserExperior setUserIdentifier:@"pass-your-user-id-here"];
+    ```
 
 - For Swift
+    ```swift
+        UserExperior.setUserIdentifier("pass-your-user-id-here")
+    ```
 
-```swift
-    UserExperior.setUserIdentifier("pass-your-user-id-here")
-```
-
-## 2. Mask Sensitive Views
+#### 2. Mask Sensitive Views
 
 UserExperior SDK by default masks all the UITextField and UITextView. If you wish to mask any other UI element in your app, you can mask it by:
 
@@ -110,121 +109,120 @@ UserExperior SDK by default masks all the UITextField and UITextView. If you wis
 
 NOTE : Call `isSecureView` on any UI control object which is inherited from UIView
 
-## 3. Control Recording
+#### 3. Control Recording
 
 UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture
 
 
-### Stop Recording
+##### Stop Recording
 By default, recording stops automatically once the app goes to background. However, you can stop at desired point by calling this API.
 
 - For Objective-C
-```
-    [UserExperior stopRecording];
-```
+    ```
+        [UserExperior stopRecording];
+    ```
 
 - For Swift
-```swift
-    UserExperior.stopRecording()
-```
+    ```swift
+        UserExperior.stopRecording()
+    ```
 
-### Pause Recording
+#####  Pause Recording
 This API pauses the recording, you can use resumeRecording API to resume.
 
 - For Objective-C
-```
-    [UserExperior pauseRecording];
-```
+    ```
+        [UserExperior pauseRecording];
+    ```
 
 - For Swift
-```swift
-    UserExperior.pauseRecording()
-```
+    ```swift
+        UserExperior.pauseRecording()
+    ```
 
-### Resume Recording
+##### Resume Recording
 This API resumes the recording if it is paused.
 
 - For Objective-C
-```
-    [UserExperior resumeRecording];
-```
+    ```
+        [UserExperior resumeRecording];
+    ```
 
 - For Swift
-```swift
-    UserExperior.resumeRecording()
-```
+    ```swift
+        UserExperior.resumeRecording()
+    ```
 
-### Opt-In/Opt-Out
+##### Opt-In/Opt-Out
 
 SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the optOut() method, you can use this method to enable recording at runtime.
 
 - For Objective-C
-```
-    [UserExperior optIn];
-```
+    ```
+        [UserExperior optIn];
+    ```
 
 - For Swift
-```swift
-    UserExperior.optIn()
-```
+    ```swift
+        UserExperior.optIn()
+    ```
 
 
 This method returns the status of the user whether user is currently opted-in or opted-out. Boolean value true indicates that user is opted-out and false indicates that user is opted-in. 
 
 - For Objective-C
-```
-    [UserExperior getOptOutStatus];
-```
+    ```
+        [UserExperior getOptOutStatus];
+    ```
 
 - For Swift
-```swift
-    UserExperior.getOptOutStatus()
-```
+    ```swift
+        UserExperior.getOptOutStatus()
+    ```
 
-## 4. Identify Subviews
+#### 4. Identify Subviews
 
 UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in existing `ViewController`, then we recommend to use the startScreen() method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
 
 - For Objective-C
-```
-    [UserExperior startScreen:@"SCREEN_NAME"];
-```
-eg.
-```
-    [UserExperior startScreen:@"OTPViewController"];
-```
+    ```
+        [UserExperior startScreen:@"SCREEN_NAME"];
+    ```
+    eg.
+    ```
+        [UserExperior startScreen:@"OTPViewController"];
+    ```
 
 - For Swift
-```
-    UserExperior.startScreen("SCREEN_NAME")
-```
-eg.
-```
-    UserExperior.startScreen("OTPViewController")
-```
+    ```
+        UserExperior.startScreen("SCREEN_NAME")
+    ```
+    eg.
+    ```
+        UserExperior.startScreen("OTPViewController")
+    ```
 
 **Note:** Max screenName limit is 250 chars only
 
-## 5. **Add Events/Messages/Tags**
+#### 5. **Add Events/Messages/Tags**
 
   UserExperior SDK lets you track user `events`, app `messages` of your app and `tag` sessions based on some conditions using very powerful method setCustomTag()
 
 - For Objective-C
-```
-    [UserExperior setCustomTag:@"SCREEN_NAME" customType: UECustomType];
-```
+    ```
+        [UserExperior setCustomTag:@"SCREEN_NAME" customType: UECustomType];
+    ```
 
 - For Swift
-```
-    UserExperior.setCustomTag("TAG", customType: UECustomType)
-```
+    ```
+        UserExperior.setCustomTag("TAG", customType: UECustomType)
+    ```
 
   Note: Max `customTag` limit is 250 chars only
 
   Using this API, you can add:
 
   - **Events**
-    
     In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
 
     **Example:** "Transaction Completed", "Checkout Done", "COD Payment", "Debit Card Payment", "Login", "Check Balance", "Fund Transfer" etc.
@@ -234,32 +232,31 @@ eg.
     **Recommendation:** Kindly pass hard coded/fixed values for events, do not pass incremental values!
 
     **Example**
-   - For Objective-C
-```
-    [UserExperior setCustomTag:@"TAG" customType: UECustomType.event];
-```
+       - For Objective-C
+            ```
+                [UserExperior setCustomTag:@"TAG" customType: UECustomType.event];
+            ```
 
-   - For Swift
-```
-    UserExperior.setCustomTag("TAG", customType: UECustomType.event)
-```
+       - For Swift
+            ```
+                UserExperior.setCustomTag("TAG", customType: UECustomType.event)
+            ```
 
   - **Messages**
-    
     A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use UeCustomType.MSG in 2nd parameter.
 
     **Example:** "Please select location", "Enable location permission", "User Name or Password is incorrect", etc.
 
     **Example**
-   - For Objective-C
-```
-    [UserExperior setCustomTag:@"TAG" customType: UECustomType.msg];
-```
-
-   - For Swift
-```
-    UserExperior.setCustomTag("TAG", customType: UECustomType.msg)
-```
+       - For Objective-C
+            ```
+                [UserExperior setCustomTag:@"TAG" customType: UECustomType.msg];
+            ```
+    
+       - For Swift
+            ```
+                UserExperior.setCustomTag("TAG", customType: UECustomType.msg)
+            ```
 
   - **Tags**
 
@@ -268,35 +265,34 @@ eg.
     e.g. "Free User", "Paid User", "Burgundy User", "No Txn by User", "Free Subscription", etc.
 
     **Example**
-   - For Objective-C
-```
-    [UserExperior setCustomTag:@"TAG" customType: UECustomType.tag];
-```
+       - For Objective-C
+            ```
+                [UserExperior setCustomTag:@"TAG" customType: UECustomType.tag];
+            ```
+    
+       - For Swift
+            ```
+                UserExperior.setCustomTag("TAG", customType: UECustomType.tag)
+            ```
 
-   - For Swift
-```
-    UserExperior.setCustomTag("TAG", customType: UECustomType.tag)
-```
 
-
-## 6. User Consent before recording 
+#### 6. User Consent before recording 
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make call to consent API: 
 
 - For Objective-C
-```
-    [UserExperior consent];
-```
+    ```
+        [UserExperior consent];
+    ```
 
 - For Swift
-```swift
-    UserExperior.consent()
-```
-
+    ```swift
+        UserExperior.consent()
+    ```
 
 ---
 
-## `Important` - App transport security setting
+#### `Important` - App transport security setting
 
 If you are using Xcode 8.0 and Swift 3.0 or Swift 2.2 or even Objective C then add this in the plist:
 
@@ -307,7 +303,7 @@ If you are using Xcode 8.0 and Swift 3.0 or Swift 2.2 or even Objective C then a
 </dict>
 ```
 
-### What is NSAllowsArbitraryLoads? 
+#### What is NSAllowsArbitraryLoads? 
 A Boolean value used to disable App Transport Security for any domains not listed in the NSExceptionDomains dictionary. Listed domains use the settings specified for that domain. The default value of NO requires the default App Transport Security behaviour for all connections.
 
 More reference:
