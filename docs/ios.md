@@ -41,7 +41,8 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 `Note: Framework support device architecture only means it will run only on device.`
 
 1. Follow below link to download
-- [Download (For Swift 5.1.3)](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.73/UserExperior.zip)
+- [Download (For Swift 5.2)](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.2.4/UserExperior.zip)
+- [Download (For Swift 5.1.3)](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.2.3/UserExperior.zip)
 - [Download (For Swift 5.1.2)](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.72/UserExperior.zip)
 - [Download (For Swift 5.1)](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.71/UserExperior.zip)
 
