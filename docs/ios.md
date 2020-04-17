@@ -9,21 +9,21 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 1. Install [cocoapods](https://cocoapods.org/) if you don't already have it.
 2. Add to the pod file
 
- - **For swift 5.2 (iOS 13.4)**
+ - **For swift 5.2**
     - 
-        pod 'UserExperior', '4.2.4' 
+        pod 'UserExperior', '4.2.8' 
 
  - **For swift 5.1.3**
     - 
-        pod 'UserExperior', '4.2.3' 
+        pod 'UserExperior', '4.2.7' 
 
  - **For swift 5.1.2**
     - 
-        pod 'UserExperior', '4.1.72' 
+        pod 'UserExperior', '4.2.6' 
 
  - **For swift 5.1**
     - 
-        pod 'UserExperior', '4.1.71' 
+        pod 'UserExperior', '4.2.5' 
 
 
 
@@ -41,8 +41,10 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 `Note: Framework support device architecture only means it will run only on device.`
 
 1. Follow below link to download
-- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.2.4/UserExperior.zip)
-- [Download (For Swift 5.1.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.2.3/UserExperior.zip)
+- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.2.8/UserExperior.zip)
+- [Download (For Swift 5.1.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.2.7/UserExperior.zip)
+- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.2.6/UserExperior.zip)
+- [Download (For Swift 5.1.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.2.5/UserExperior.zip)
 - [Download (For Swift 5.1.2)](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.72/UserExperior.zip)
 - [Download (For Swift 5.1)](https://userexperior-35559.firebaseapp.com/download/ios_sdk/4.1.71/UserExperior.zip)
 
@@ -181,7 +183,105 @@ This method returns the status of the user whether user is currently opted-in or
     UserExperior.getOptOutStatus()
 ```
 
-## User Consent before recording 
+## 4. Identify Subviews
+
+UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in existing `ViewController`, then we recommend to use the startScreen() method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
+
+- For Objective-C
+```
+    [UserExperior startScreen:@"SCREEN_NAME"];
+```
+eg.
+```
+    [UserExperior startScreen:@"OTPViewController"];
+```
+
+- For Swift
+```
+    UserExperior.startScreen("SCREEN_NAME")
+```
+eg.
+```
+    UserExperior.startScreen("OTPViewController")
+```
+
+**Note:** Max screenName limit is 250 chars only
+
+## 5. **Add Events/Messages/Tags**
+
+  UserExperior SDK lets you track user `events`, app `messages` of your app and `tag` sessions based on some conditions using very powerful method setCustomTag()
+
+- For Objective-C
+```
+    [UserExperior setCustomTag:@"SCREEN_NAME" customType: UECustomType];
+```
+
+- For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType)
+```
+
+  Note: Max `customTag` limit is 250 chars only
+
+  Using this API, you can add:
+
+  - **Events**
+    
+    In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
+
+    **Example:** "Transaction Completed", "Checkout Done", "COD Payment", "Debit Card Payment", "Login", "Check Balance", "Fund Transfer" etc.
+
+    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initial recorded sessions itself.)
+
+    **Recommendation:** Kindly pass hard coded/fixed values for events, do not pass incremental values!
+
+    **Example**
+   - For Objective-C
+```
+    [UserExperior setCustomTag:@"TAG" customType: UECustomType.event];
+```
+
+   - For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType.event)
+```
+
+  - **Messages**
+    
+    A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use UeCustomType.MSG in 2nd parameter.
+
+    **Example:** "Please select location", "Enable location permission", "User Name or Password is incorrect", etc.
+
+    **Example**
+   - For Objective-C
+```
+    [UserExperior setCustomTag:@"TAG" customType: UECustomType.msg];
+```
+
+   - For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType.msg)
+```
+
+  - **Tags**
+
+    In UserExperior terms, a tag is a kind of behaviour in the user's session. You can add Tag to even create segments of users based on behaviour or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
+
+    e.g. "Free User", "Paid User", "Burgundy User", "No Txn by User", "Free Subscription", etc.
+
+    **Example**
+   - For Objective-C
+```
+    [UserExperior setCustomTag:@"TAG" customType: UECustomType.tag];
+```
+
+   - For Swift
+```
+    UserExperior.setCustomTag("TAG", customType: UECustomType.tag)
+```
+
+
+## 6. User Consent before recording 
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make call to consent API: 
 
