@@ -279,7 +279,52 @@ UserExperior SDK automatically detects `ViewController` and defines them as scre
             ```
 
 
-#### 6. User Consent before recording 
+#### 6. Track Response Time of Methods/ API Calls
+
+UserExperior SDK allows you to track the load/ response time of the components in your app using method called `startTimer` and `stopTimer`. You can call `startTimer` method at any event on the app from which you want to track the load/ response time and call a `stopTimer` method at the event completion. This method will calculate the complete response time.
+
+- For Objective-C
+    ```
+        [UserExperior startTimer:@"TIMER_NAME"];
+        [UserExperior stopTimer:@"TIMER_NAME"];
+    ```
+
+- For Swift
+    ```
+        UserExperior.startScreen("TIMER_NAME")
+        UserExperior.stopTimer("TIMER_NAME")
+    ```
+    
+**e.g.** Suppose, you have a `TableView` on your screen which gets loaded with data you receive from the server. You can call `startTimer` method when view resumes to the user and call `stopTimer` method when data gets successfully shown in the `TableView`. Now, you can know how much time it takes to load data after screen is visible to the user. Similarly, you can use `startTimer` at any method call and `endTimer` on method response.
+
+**Example:**
+- For Objective-C
+    -  While data loading starts in TableView:
+        ```
+            [UserExperior startTimer:@"Table view laoding timer"]; 
+        ``` 
+        
+    -  While data loaded completed in TableView :
+        ```
+            [UserExperior stopTimer:@"Table view laoding timer"];
+        ```
+
+- For Swift
+    -  While data loading starts in TableView:
+        ```
+            UserExperior.startScreen("Table view laoding timer") 
+        ``` 
+        
+    -  While data loaded completed in TableView :
+        ```
+            UserExperior.stopTimer("Table view laoding timer")
+        ```
+
+   
+ **Note:** Max `timerName` limit is 250 chars only
+
+
+#### 7. User Consent before recording 
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make call to consent API: 
 
