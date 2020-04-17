@@ -9,31 +9,34 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 1. Install [cocoapods](https://cocoapods.org/) if you don't already have it.
 2. Add to the pod file
 
- - **For swift 5.1.3**
-    - 
-        pod 'UserExperior', '4.2.8' 
+     **For swift 5.1.3**
+ 
+         pod 'UserExperior', '4.2.8' 
 
- - **For swift 5.1.3**
-    - 
+     **For swift 5.1.3**
+    
         pod 'UserExperior', '4.2.7' 
 
- - **For swift 5.1.2**
-    - 
+     **For swift 5.1.2**
+ 
         pod 'UserExperior', '4.2.6' 
 
- - **For swift 5.1**
-    - 
+     **For swift 5.1**
+    
         pod 'UserExperior', '4.2.5' 
 
 
 
 3. From your terminal, type 
 
-    - `pod repo update` (Optional - mostly if you are facing [Unable to find a specification in CocoaPods](https://stackoverflow.com/questions/25913733/unable-to-find-a-specification-in-cocoapods) issue)
+        pod repo update 
+    
+    (Optional - mostly if you are facing [Unable to find a specification in CocoaPods](https://stackoverflow.com/questions/25913733/unable-to-find-a-specification-in-cocoapods) issue)
+    
+    After repo update perform below command to install pod
 
-        After repo update perform below command to install pod
-
-    - `pod install`
+        pod install
+           
 4. Set `Always Embed Swift Standard Libraries` to `Yes` in Build Setting panel of project as well as app target. (Specially if your project based on old objective c project)
 
 **Via Manual**
@@ -64,22 +67,22 @@ The UserExperior.framework is automagically added as a target dependency, linked
 1. In your app delegate, include:
 
     - For Objective-C
-        
-        `#import <UserExperior/UserExperior-Swift.h>`
+    
+            #import <UserExperior/UserExperior-Swift.h>
 
     - For Swift
 
-        `import UserExperior`
+            import UserExperior`
 
 2. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
 
     - For Objective-C
 
-        `[UserExperior initialize:@"USER_KEY"];`
+            [UserExperior initialize:@"USER_KEY"];
 
     - For Swift
 
-        `UserExperior.initialize("USER_KEY")`
+            UserExperior.initialize("USER_KEY")
 
 
 ### Customizing UserExperior with Key APIs:
