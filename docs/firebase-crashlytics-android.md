@@ -1,10 +1,10 @@
-# Firebase Crashlytics + UserExperior (Android)
+# Firebase Crashlytics + UserExperior
 
 Now you can link Firebase Crashlytics with UserExperior and understand exactly how your app crashed. UserExperior + Crashlytics integration will help you solve the crashes easily, reproduce crashes and reduce crash rates, save your development time with our session recordings.
 
-This guide explains how to associate UserExperior Session URL with the Firebase Crashlytics which enables you to see a step by step session replay of crashed session in UserExperior.
+This guide explains how to associate UserExperior Session URL with the Firebase Crashlytics which enables you to see a step by step session replay of the crashed session in UserExperior.
 
-If you have not integrated UserExperior in your app, go to our SDK Integration Guide and integrate UserExperior first, then follow below steps:
+If you have not integrated UserExperior in your app, go to our SDK Integration Guide and integrate UserExperior first, then follow the below steps:
 
 ## Integration
 
@@ -16,20 +16,49 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
 
 2. **Add UserExperior Listener immediately after startRecording:**
 
-  Add following code in onCreate method of every launcher activity.
+  
+  **Android**
+  Add the following code in onCreate method of every launcher activity.
 
   ```
-  UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
+      UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
+      
+      // UserExperior Listener: Third Party Integration
+      UserExperior.setUserExperiorListener(new UserExperiorListener() {
+        @Override
+        public void onUserExperiorStarted() {
+            // Sending UserExperior Session URL to Firebase Crashlytics
+            String ueSessionUrlFC = UserExperior.getSessionUrl("FirebaseCrashlytics");
+            FirebaseCrashlytics.getInstance().setCustomKey("UE Session URL", ueSessionUrlFC);
+        }
+      });
+  ```
   
-  // UserExperior Listener: Third Party Integration
-  UserExperior.setUserExperiorListener(new UserExperiorListener() {
-    @Override
-    public void onUserExperiorStarted() {
-        // Sending UserExperior Session URL to Firebase Crashlytics
-        String ueSessionUrlFC = UserExperior.getSessionUrl("FirebaseCrashlytics");
-        FirebaseCrashlytics.getInstance().setCustomKey("UE Session URL", ueSessionUrlFC);
-    }
-  });
+  **iOS**
+  * **Swift**
+   ```
+      1. Add/confirm the UserExperiorDelegate protocol
+          class AppDelegate: UIResponder, UIApplicationDelegate, UserExperiorDelegate {
+          }
+
+      2. Implement UserExperiorDelegate protocol
+        func userExperiorSessionStarted() {
+            let sessionURL = UserExperior.getSessionUrl("FIREBASE_CRASHLYTICS") // "FIREBASE_CRASHLYTICS" is used for firebase craslytics
+            Crashlytics.crashlytics().setCustomValue(sessionURL, forKey: "UE Session URL")
+        }
+  ```
+
+  * **Objective-C**
+   ```
+      1. Add/confirm the UserExperiorDelegate protocol
+        @interface AppDelegate () <UserExperiorDelegate>
+        @end
+
+      2. Implement UserExperiorDelegate protocol
+        - (void)userExperiorSessionStarted {
+            NSString *sessionURL = [UserExperior getSessionUrl:@"FIREBASE_CRASHLYTICS"]; // "FIREBASE_CRASHLYTICS" is used for firebase craslytics
+            [[FIRCrashlytics crashlytics] setCustomValue:sessionURL forKey:@"UE Session URL"];
+        }
   ```
   
 ## Replay of Crashed Sessions
