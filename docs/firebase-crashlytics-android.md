@@ -16,49 +16,50 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
 
 2. **Add UserExperior Listener immediately after startRecording:**
 
-  
   **Android**
+  
   Add the following code in onCreate method of every launcher activity.
 
   ```
-      UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
+    UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
       
-      // UserExperior Listener: Third Party Integration
-      UserExperior.setUserExperiorListener(new UserExperiorListener() {
-        @Override
-        public void onUserExperiorStarted() {
-            // Sending UserExperior Session URL to Firebase Crashlytics
-            String ueSessionUrlFC = UserExperior.getSessionUrl("FirebaseCrashlytics");
-            FirebaseCrashlytics.getInstance().setCustomKey("UE Session URL", ueSessionUrlFC);
-        }
-      });
+    // UserExperior Listener: Third Party Integration
+     UserExperior.setUserExperiorListener(new UserExperiorListener() {
+    @Override
+    public void onUserExperiorStarted() {
+        // Sending UserExperior Session URL to Firebase Crashlytics
+        String ueSessionUrlFC = UserExperior.getSessionUrl("FirebaseCrashlytics");
+        FirebaseCrashlytics.getInstance().setCustomKey("UE Session URL", ueSessionUrlFC);
+    }
+    });
   ```
   
   **iOS**
+  
   * **Swift**
    ```
-      1. Add/confirm the UserExperiorDelegate protocol
-          class AppDelegate: UIResponder, UIApplicationDelegate, UserExperiorDelegate {
-          }
+    //Add the UserExperiorDelegate protocol in your `AppDelegate.swift`
+    class AppDelegate: UIResponder, UIApplicationDelegate, UserExperiorDelegate {
+    }
 
-      2. Implement UserExperiorDelegate protocol
-        func userExperiorSessionStarted() {
-            let sessionURL = UserExperior.getSessionUrl("FIREBASE_CRASHLYTICS") // "FIREBASE_CRASHLYTICS" is used for firebase craslytics
-            Crashlytics.crashlytics().setCustomValue(sessionURL, forKey: "UE Session URL")
-        }
+    // Implement UserExperiorDelegate protocol
+    func userExperiorSessionStarted() {
+        let sessionURL = UserExperior.getSessionUrl("FIREBASE_CRASHLYTICS") // "FIREBASE_CRASHLYTICS" is used for firebase craslytics
+        Crashlytics.crashlytics().setCustomValue(sessionURL, forKey: "UE Session URL")
+    }
   ```
 
   * **Objective-C**
    ```
-      1. Add/confirm the UserExperiorDelegate protocol
-        @interface AppDelegate () <UserExperiorDelegate>
-        @end
+     //Add the UserExperiorDelegate protocol in your `AppDelegate.m`
+    @interface AppDelegate () <UserExperiorDelegate>
+    @end
 
-      2. Implement UserExperiorDelegate protocol
-        - (void)userExperiorSessionStarted {
-            NSString *sessionURL = [UserExperior getSessionUrl:@"FIREBASE_CRASHLYTICS"]; // "FIREBASE_CRASHLYTICS" is used for firebase craslytics
-            [[FIRCrashlytics crashlytics] setCustomValue:sessionURL forKey:@"UE Session URL"];
-        }
+    // Implement UserExperiorDelegate protocol
+    - (void)userExperiorSessionStarted {
+        NSString *sessionURL = [UserExperior getSessionUrl:@"FIREBASE_CRASHLYTICS"]; // "FIREBASE_CRASHLYTICS" is used for firebase craslytics
+        [[FIRCrashlytics crashlytics] setCustomValue:sessionURL forKey:@"UE Session URL"];
+    }
   ```
   
 ## Replay of Crashed Sessions
