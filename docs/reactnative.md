@@ -23,8 +23,11 @@
   
     
 3. **For iOS: Cocoapods (RN 0.60.0 and higher)** 
+
     **Automatic Integration**
+    
     Add the header path in `react-native-userExperior`
+    
     ```
       ${PODS_ROOT}/UserExperior/UserExperior.framework/Headers/
       ```
