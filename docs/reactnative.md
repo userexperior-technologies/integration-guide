@@ -40,7 +40,7 @@
     4. Download `UserExperior.Framework` from [LINK](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.5/UserExperior.zip) and add it in the Project folder.
     5. Add the header path in `RNUserExperior.xcodeproj` ➜ `Build Settings` -> `header search path`
         ```
-          ${PODS_ROOT}/UserExperior/UserExperior.framework/Headers/
+          $[PATH TO FRAMEWORK]/UserExperior.framework/Headers/
           ```
     6. Run your project (`Cmd+R`)<
 
