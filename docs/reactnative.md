@@ -3,27 +3,43 @@
 ## Integration
 
 1. **Install & Link UserExperior Plugin**
+    - **Install**
 
-  - **Install**
+        ```
+        npm install --save react-native-userexperior@latest
+        ```
+     - **Link**
 
-    ```
-    npm install --save react-native-userexperior@latest
-    ```
-
-  - **Link**
-
-    ```
-    react-native link react-native-userexperior
-    ```
+        ```
+        react-native link react-native-userexperior
+        ```
 
 2. **Start UserExperior Plugin**
+      ```
+      var UserExperior = require('react-native-userexperior');
+      UserExperior.startRecording("your-version-key-here");
+      ```
+    Call the above method when your app starts (when your root component loads)
+  
+    
+3. **For iOS: Cocoapods (RN 0.60.0 and higher)** 
+    **Automatic Integration**
+    Add the header path in `react-native-userExperior`
+    ```
+      ${PODS_ROOT}/UserExperior/UserExperior.framework/Headers/
+      ```
+    ![](https://i.ibb.co/JHRxhfj/Screenshot-2020-06-01-at-18-59-35.png)
 
-  ```
-  var UserExperior = require('react-native-userexperior');
-  UserExperior.startRecording("your-version-key-here");
-  ```
-
-  Call the above method when your app starts (when your root component loads)
+    **Manual Integration**
+    1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+    2. Go to `node_modules` ➜ `react-native-user-experior` and add `RNUserExperior.xcodeproj`
+    3. Click `RNUserExperior.xcodeproj` in the project navigator and go the Build Settings tab. Make sure `All` is toggled on (instead of 'Basic'). Look for Header Search Paths and make sure it contains both `$(SRCROOT)/../react-native/React` and `$(SRCROOT)/../../React`, mark both as recursive.
+    4. Download `UserExperior.Framework` from [LINK](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.5/UserExperior.zip) and add it in the Project folder.
+    5. Add the header path in `RNUserExperior.xcodeproj` ➜ `Build Settings` -> `header search path`
+        ```
+          ${PODS_ROOT}/UserExperior/UserExperior.framework/Headers/
+          ```
+    6. Run your project (`Cmd+R`)<
 
 
 - **Note**
@@ -217,13 +233,13 @@ Due to our implementation of UserExperior framework in Swift 5, Please follow be
 
 - Need Xcode version 10.2
 - Add below line in Library Search Path of your react native project target (In Build Settings):
-	```	
-	$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) 
-	````
+    ```    
+    $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) 
+    ````
 - Add below line in the Runpath Search Path of your react native project target (In Build Settings):
-	```
-	/usr/lib/swift
-	```
+    ```
+    /usr/lib/swift
+    ```
 
 ### Android
 UserExperior SDK also writes some useful logs in the Android Studio IDE during runtime. These logs should be first point of investigation for any issue you may be facing. Known issues and workarounds:
