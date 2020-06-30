@@ -41,7 +41,7 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 
         pod install
            
-4. Set `Always Embed Swift Standard Libraries` to `Yes` in Build Setting panel of project as well as app target. (Specially if your project based on old objective c project)
+4. Set `Always Embed Swift Standard Libraries` to `Yes` in Build Setting panel of project as well as app target. (In case your project is based on old Objective-c project)
 
 **Via Manual**
 
@@ -60,7 +60,7 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 5. Click on the + button under the `Embedded Binaries` section.
 6. You will see UserExperior.framework nested inside a `Frameworks`.
 7. Select the UserExperior.framework and click `Add`.
-8. Set `Always Embed Swift Standard Libraries` to `Yes` in Build Setting panel of project as well as app target. (Specially if your project based on old objective c project)
+8. Set `Always Embed Swift Standard Libraries` to `Yes` in Build Setting panel of project as well as app target. (In case your project is based on old Objective-c project)
 
 And that's it!
 
@@ -77,7 +77,7 @@ The UserExperior.framework is automagically added as a target dependency, linked
 
     - For Swift
 
-            import UserExperior`
+            import UserExperior
 
 2. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
 
