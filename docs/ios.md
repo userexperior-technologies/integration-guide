@@ -84,11 +84,12 @@ The UserExperior.framework is automagically added as a target dependency, linked
     - For Objective-C
 
             [UserExperior initialize:@"USER_KEY"];
+>      P.S.: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture only. 
 
     - For Swift
 
             UserExperior.initialize("USER_KEY")
-
+>      P.S.: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture only. 
 
 ### Customizing UserExperior with Key APIs:
 
