@@ -48,10 +48,8 @@
     
     
 
-- **Note**
-
-  Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 5-7 minutes on the dashboard.
-
+` Note: Now the integration is completed, build the app. Install app and test it on REAL DEVICES ONLY. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 5-7 minutes on the dashboard.`
+  
 - **Proguard Rules**
 
   If you are using Proguard in your project, you must add the following lines to your configuration:
