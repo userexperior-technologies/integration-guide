@@ -33,6 +33,8 @@
       ```
     ![](https://i.ibb.co/JHRxhfj/Screenshot-2020-06-01-at-18-59-35.png)
 
+    ` Note: Now the integration is completed, build the app. Install app and test it on REAL DEVICES ONLY. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
     **Manual Integration**
     1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
     2. Go to `node_modules` ➜ `react-native-user-experior` and add `RNUserExperior.xcodeproj`
@@ -44,8 +46,6 @@
           ```
     6. Run your project (`Cmd+R`)<
 
-
-` Note: Now the integration is completed, build the app. Install app and test it on REAL DEVICES ONLY. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 - **Proguard Rules**
 
