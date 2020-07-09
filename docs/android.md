@@ -19,9 +19,7 @@
   Note: Call above method in every activity that is an entry point to your app! (Entry activities are usually those which have a custom `<intent-filter>` element in the AndroidManifest.xml file. e.g. MainActivity, Deep Linking Activity, etc.)</intent-filter>
 
 
-- **Note**
-
-  Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 5-7 minutes on the dashboard.
+` Note: Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 - **Proguard Rules**
 

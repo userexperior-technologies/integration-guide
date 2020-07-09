@@ -45,7 +45,7 @@
     6. Run your project (`Cmd+R`)<
 
 
-` Note: Now the integration is completed, build the app. Install app and test it on REAL DEVICES ONLY. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 5-7 minutes on the dashboard.`
+` Note: Now the integration is completed, build the app. Install app and test it on REAL DEVICES ONLY. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 - **Proguard Rules**
 

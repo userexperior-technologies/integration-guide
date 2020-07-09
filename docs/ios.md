@@ -52,12 +52,12 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 - 4. a. For Objective-C
 
             [UserExperior initialize:@"USER_KEY"];
-    `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture.`
+    `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 - 4. b. For Swift
 
             UserExperior.initialize("USER_KEY")
-    `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture.`
+    `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 
 **Via Manual**
