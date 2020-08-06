@@ -1,5 +1,3 @@
-## Native iOS
-
 ### Integration
     
 You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.org/) or manually.
@@ -345,6 +343,8 @@ As per GDPR guidelines, we have implemented a new feature called User Consent. T
     ```
 
 ---
+
+### FAQs
 
 #### `Important` - App transport security setting
 
