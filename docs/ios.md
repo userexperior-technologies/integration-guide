@@ -1,8 +1,10 @@
+# Native - iOS
+
 ### Integration
     
 You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.org/) or manually.
 
-####  **Via Cocoapods**
+####  Via Cocoapods
 
 > Note: Install [cocoapods](https://cocoapods.org/) if you don't already have it.
 
@@ -50,7 +52,7 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
     `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 
-#### **Via Manual**
+#### Via Manual
 1. Follow below link to download
 - [Download (For Swift 5.2.+)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.15/UserExperior.zip)
 - [Download (For Swift 5.1.2 & 5.1.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.13/UserExperior.zip)
@@ -211,7 +213,7 @@ UserExperior SDK automatically detects `ViewController` and defines them as scre
 
 **Note:** Max screenName limit is 250 chars only
 
-#### 5. **Add Events/Messages/Tags**
+#### 5. Add Events/ Messages/ Tags
 
   UserExperior SDK lets you track user `events`, app `messages` of your app and `tag` sessions based on some conditions using very powerful method setCustomTag()
 
