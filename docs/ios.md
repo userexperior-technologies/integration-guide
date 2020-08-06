@@ -10,23 +10,16 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 
 1. Add to the pod file
 
-    **For swift 5.2.4**
-
-        pod 'UserExperior', '4.4.15' 
-
-     **For swift 5.2**
+     **For swift 5.2+**
  
-         pod 'UserExperior', '4.4.14' 
+         pod 'UserExperior', '4.4.15' 
 
-     **For swift 5.1.3**
+     **For swift 5.1.2 & 5.1.3**
     
         pod 'UserExperior', '4.4.13' 
 
-     **For swift 5.1.2**
- 
-        pod 'UserExperior', '4.4.12' 
 
-     **For swift 5.1**
+     **For swift 5.1 & below**
     
         pod 'UserExperior', '4.4.11' 
 
@@ -62,11 +55,9 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 
 **Via Manual**
 1. Follow below link to download
-- [Download (For Swift 5.2.4)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.15/UserExperior.zip)
-- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.14/UserExperior.zip)
-- [Download (For Swift 5.1.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.13/UserExperior.zip)
-- [Download (For Swift 5.1.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.12/UserExperior.zip)
-- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.11/UserExperior.zip)
+- [Download (For Swift 5.2.+)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.15/UserExperior.zip)
+- [Download (For Swift 5.1.2 & 5.1.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.13/UserExperior.zip)
+- [Download (For Swift 5.1 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.11/UserExperior.zip)
 
 2. Unzip the file and drag the UserExperior.framework directory to the “Frameworks” in your XCode project tree.
 3. In your xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
