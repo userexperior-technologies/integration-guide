@@ -8,15 +8,15 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
 
 ## Integration
 
-1. **Switch On the Firebase Crashlytics in UserExperior Settings**
+### 1. **Switch On the Firebase Crashlytics in UserExperior Settings**
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
   
   ![Firebase Crashlytics Switch](_media/firebase-crashlytics-android/firebase-crashlytics-switch.png)
 
-2. **Add UserExperior Listener immediately after startRecording:**
+### 2. **Add UserExperior Listener immediately after startRecording:**
 
-  **Android**
+#### **Android**
   
   Add the following code in onCreate method of every launcher activity.
 
@@ -34,9 +34,9 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
     });
   ```
   
-  **iOS**
+  #### **iOS**
   
-  * **Swift**
+  #####  **Swift**
    ```
        // Step 1: Add the UserExperiorDelegate protocol in your `AppDelegate.swift`
         class AppDelegate: UIResponder, UIApplicationDelegate, UserExperiorDelegate {
@@ -57,7 +57,7 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
         }
   ```
 
-  * **Objective-C**
+#####  **Objective-C**
    ```
        // Step 1: Add the UserExperiorDelegate protocol in your `AppDelegate.m`
         @interface AppDelegate () <UserExperiorDelegate>
