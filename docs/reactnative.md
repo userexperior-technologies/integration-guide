@@ -67,7 +67,7 @@ Add the header path in `react-native-userExperior` (Only in case of React native
 
 ## Customizing UserExperior with Key APIs
 
-#### 1. Add User Identifier
+### 1. Add User Identifier
 
   UserExperior SDK by default takes device id as user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as custom user identifier. This identifier will show up in UserExperior portal.
 
@@ -83,7 +83,7 @@ Add the header path in `react-native-userExperior` (Only in case of React native
   UserExperior.setUserIdentifier(“pass-your-user-id-here”);
   ```
 
-#### 2. **Add Events/Messages/Tags**
+### 2. **Add Events/Messages/Tags**
 
   UserExperior SDK lets you track user events, app responses/messages of your app and tag sessions based on some conditions using very powerful API called setCustomTag.
 
@@ -135,7 +135,7 @@ Add the header path in `react-native-userExperior` (Only in case of React native
     UserExperior.setCustomTag("Free User", "TAG");
     ```
 
-#### 3. **Control Recording**
+### 3. **Control Recording**
 
   UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
 
@@ -157,7 +157,7 @@ Add the header path in `react-native-userExperior` (Only in case of React native
 
   This API resumes the recording if it is paused.
 
-#### 4. **Opt-out/Opt-in**
+### 4. **Opt-out/Opt-in**
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
@@ -181,7 +181,7 @@ This method returns the status of the user whether user is currently opted-in or
 
 User recording resets to opt-in if the user un-installs and re-installs the app.
 
-#### 5. **User Consent before recording**
+### 5. **User Consent before recording**
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future.
 
