@@ -4,7 +4,7 @@
     
 You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.org/) or manually.
 
-##### **Via Cocoapods**
+#####  **Via Cocoapods**
 
 > Note: Install [cocoapods](https://cocoapods.org/) if you don't already have it.
 
@@ -17,7 +17,6 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
      **For swift 5.1.2 & 5.1.3**
     
         pod 'UserExperior', '4.4.13' 
-
 
      **For swift 5.1 & below**
     
@@ -53,7 +52,7 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
     `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 
-**Via Manual**
+##### **Via Manual**
 1. Follow below link to download
 - [Download (For Swift 5.2.+)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.15/UserExperior.zip)
 - [Download (For Swift 5.1.2 & 5.1.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.13/UserExperior.zip)
@@ -65,7 +64,28 @@ You can install the UserExperior iOS SDK through [cocoapods](https://cocoapods.o
 5. Click on the + button under the `Embedded Binaries` section.
 6. You will see UserExperior.framework nested inside a `Frameworks`.
 7. Select the UserExperior.framework and click `Add`.
-8. Set `Always Embed Swift Standard Libraries` to `Yes` in Build Setting panel of project as well as app target. (In case your project is based on old Objective-c project)
+8. In your app delegate, include:
+
+- 8. a. For Objective-C
+    
+            #import <UserExperior/UserExperior-Swift.h>
+
+-  8. b. For Swift
+
+            import UserExperior
+
+9. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
+
+- 9. a. For Objective-C
+
+            [UserExperior initialize:@"USER_KEY"];
+    `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+- 9. b. For Swift
+
+            UserExperior.initialize("USER_KEY")
+    `Note: After integration perform the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
 
 And that's it!
 
