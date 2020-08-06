@@ -3,23 +3,23 @@
 ## Integration
 
 ### 1. Install & Link UserExperior Plugin
-    - **Install**
+   - **Install**
 
         ```
         npm install --save react-native-userexperior@latest
         ```
-     - **Link**
+   - **Link**
 
         ```
         react-native link react-native-userexperior
         ```
 
 ### 2. Start UserExperior Plugin
-      ```
+ ```
       var UserExperior = require('react-native-userexperior');
       UserExperior.startRecording("your-version-key-here");
-      ```
-    Call the above method when your app starts (when your root component loads)
+```
+   Call the above method when your app starts (when your root component loads)
   
     
 ### 3. Platform specific configuration (Android & iOS) 
@@ -29,10 +29,10 @@
 
   If you are using Proguard in your project, you must add the following lines to your configuration:
 
-```
-  -dontwarn com.userexperior.**  
-  -keep class com.userexperior.** { *; }
-```
+    ```
+      -dontwarn com.userexperior.**  
+      -keep class com.userexperior.** { *; }
+    ```
 
 #### iOS
 #####   **Automatic Integration**
@@ -60,7 +60,7 @@ Add the header path in `react-native-userExperior` (Only in case of React native
    5. Add the header path in `RNUserExperior.xcodeproj` ➜ `Build Settings` -> `header search path`
         ```
           $[PATH TO FRAMEWORK]/UserExperior.framework/Headers/
-          ```
+         ```
    6. Run your project (`Cmd+R`)<
 
 
