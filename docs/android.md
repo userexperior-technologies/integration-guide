@@ -1,146 +1,148 @@
-# Native Android
-
 ## Integration
 
-1. **Add UserExperior dependency in build.gradle of your app**
-
-  Note: If UserExperior is already integrated in your project, just re-sync the project with gradle.
-
-  ```
-  implementation 'com.userexperior:userexperior-android:+'
-  ```
-
-2. **Start UserExperior SDK**
-
-  ```
-  UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
-  ```
-
-  Note: Call above method in every activity that is an entry point to your app! (Entry activities are usually those which have a custom `<intent-filter>` element in the AndroidManifest.xml file. e.g. MainActivity, Deep Linking Activity, etc.)</intent-filter>
+> **Note**: Perform testing only on Real devices.
 
 
-` Note: Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+### 1. Add UserExperior dependency in build.gradle of your app
 
-- **Proguard Rules**
+Note: If UserExperior is already integrated in your project, just re-sync the project with Gradle.
 
-  If you are using Proguard in your project, you must add the following lines to your configuration:
+```
+implementation 'com.userexperior:userexperior-android:+'
+```
 
-  ```
-  -dontwarn com.userexperior.**  
-  -keep class com.userexperior.** { *; }
-  ```
+### 2. Start UserExperior SDK
+
+```
+UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
+```
+
+Call the above method in every activity that is an entry point to your app! Entry activities are usually those which have a custom `<intent-filter>` element in the AndroidManifest.xml file. Eg. MainActivity, Deep Linking Activity, etc. `</intent-filter>`
+
+-   **Note** 
+  
+    Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.
+
+-   **Proguard Rules**
+
+    If you are using Proguard in your project, you must add the following lines to your configuration:
+
+    ```
+    -dontwarn com.userexperior.**
+    -keep class com.userexperior.** { *; }
+    ```
 
 ## Customizing UserExperior with Key APIs
 
-1. **Add User Identifier**
+### 1. Add User Identifier
 
-  UserExperior SDK by default takes device id as user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as custom user identifier. This identifier will show up in UserExperior portal.
+UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (Eg: Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
 
-  ```
-  void setUserIdentifier(String userIdentifier)
-  ```
+```
+void setUserIdentifier(String userIdentifier)
+```
 
-  Note: Max `userIdentifier` limit is 250 chars only
+Note: Max `userIdentifier` limit is 250 chars only
 
-  Code Example:
+Code Example:
 
-  ```
-  UserExperior.setUserIdentifier(“pass-your-user-id-here”);
-  ```
+```
+UserExperior.setUserIdentifier("pass-your-user-id-here");
+```
 
-2. **Add Events/Messages/Tags**
+### 2. Add Events/Messages/Tags
 
-  UserExperior SDK lets you track user events, app responses/messages of your app and tag sessions based on some conditions using very powerful API called setCustomTag.
+UserExperior SDK lets you track user events, app responses/messages of your app, and tag sessions based on some conditions using a very powerful API called setCustomTag.
 
-  ```
-  void setCustomTag(String customTag, String customType)
-  ```
+```
+void setCustomTag(String customTag, String customType)
+```
 
-  Note: Max `customTag` limit is 250 chars only
+Note: Max `customTag` limit is 250 chars only
 
-  Using this API, you can add:
+Using this API, you can add:
 
-  - **Events**
-    
-    In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events which are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
+-   **Events**
 
-    e.g. "Txn Completed", "Checkout Done", "COD Payment", "Debit Card Payment", "Login", "Check Balance", "Fund Transfer" etc.
+    In UserExperior terms, an event is the Indication of Progress in the user's session. If you want to track user events that are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
 
-    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initial recorded sessions itself.)
+    Eg: `Txn Completed`, `Checkout Done`, `COD Payment`, `Debit Card Payment`, `Login`, `Check Balance`, `Fund Transfer` etc.
 
-    **Recommendation:** Kindly pass hardcoded/fixed values for events, do not pass incremental values!
+    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initially recorded sessions itself.)
 
-    Code Example:
-
-    ```
-    try {  
-       UserExperior.setCustomTag("Mobile Top-up", UeCustomType.EVENT);  
-    } catch (Exception e) {  
-       e.printStackTrace();  
-    }
-    ```
-
-  - **Messages**
-    
-    A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add message, use UeCustomType.MSG in 2nd parameter.
-
-    e.g. "Please select location", "Enable location permission", "User Name or Password is incorrect", etc.
+    Recommendation: Kindly pass hardcoded/fixed values for events, do not pass incremental values!
 
     Code Example:
 
     ```
-    try {  
-       UserExperior.setCustomTag("Please select location!", UeCustomType.MSG);  
-    } catch (Exception e) {  
-       e.printStackTrace();  
+    try {
+       UserExperior.setCustomTag("Mobile Top-up", UeCustomType.EVENT);
+    } catch (Exception e) {
+       e.printStackTrace();
     }
     ```
 
-  - **Tags**
+-   **Messages**
 
-    In UserExperior terms, a tag is a kind of behaviour in the user's session. You can add Tag to even create segments of users based on behaviour or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
+    A message can be any app message shown to the user, any response or error message or toast message or validation messages or messages shown on dialog boxes, etc. which indicates a response to the user by the app. To add a message, use UeCustomType.MSG in 2nd parameter.
 
-    e.g. "Free User", "Paid User", "Burgundy User", "No Txn by User", "Free Subscription", etc.
+    Eg: `Please select location`, `Enable location permission`, `User Name or Password is incorrect`, etc.
 
     Code Example:
 
     ```
-    try {  
-       UserExperior.setCustomTag("Free User", UeCustomType.TAG);  
-    } catch (Exception e) {  
-       e.printStackTrace();  
+    try {
+       UserExperior.setCustomTag("Please select location!", UeCustomType.MSG);
+    } catch (Exception e) {
+       e.printStackTrace();
     }
     ```
 
-3. **Mask Sensitive Views**
+-   **Tags**
 
-  UserExperior SDK by default masks all the Edit Boxes of activities. If you wish to mask any other UI element in your app, you can mask it by:
+    In UserExperior terms, a tag is a kind of behavior in the user's session. You can add Tag to even create segments of users based on behavior or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
 
-  - **Using Tag** - (Use Tag method only when you don't have any other tag already applied to your UI element.)
+    Eg: `Free User`, `Paid User`, `Burgundy User`, `No Txn by User`, `Free Subscription`, etc.
+
+    Code Example:
+
+    ```
+    try {
+       UserExperior.setCustomTag("Free User", UeCustomType.TAG);
+    } catch (Exception e) {
+       e.printStackTrace();
+    }
+    ```
+
+### 3. Mask Sensitive Views
+
+UserExperior SDK by default masks all the Edit Boxes of activities. If you wish to mask any other UI element in your app, you can mask it by:
+
+-   **Using Tag **- (Use Tag method only when you don't have any other tag already applied to your UI element.)
 
     ```
     android:tag="com.userexperior.ueSecureView"
     ```
 
-    Code Example: Add above tag in xml of your UI element
+    Code Example: Add above tag in XML of your UI element
 
     ```
-    <WebView  
-        android:id="@+id/webview2"  
-        android:layout_width="fill_parent"  
-        android:layout_height="200dp"  
-        android:background="@android:color/transparent"  
+    <WebView
+        android:id="@+id/webview2"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/transparent"
         android:tag="com.userexperior.ueSecureView"/>
     ```
 
     or you can add Tag Programmatically:
 
     ```
-    anyView = findViewById(R.id.anyView);  
+    anyView = findViewById(R.id.anyView);
     anyView.setTag("com.userexperior.ueSecureView");
     ```
 
-  - **Using API**
+-   **Using API**
 
     ```
     void addInSecureViewBucket(View view)
@@ -149,27 +151,27 @@
     Code Example:
 
     ```
-    anyView = findViewById(R.id.anyView);  
+    anyView = findViewById(R.id.anyView);
     SecureViewBucket.addInSecureViewBucket(anyView);
     ```
 
-4. **Unmask**
+### 4. Unmask
 
-  UserExperior SDK by default masks all the Edit Boxes of activities. If you don't want to mask any EditBox in your app, you can exclude it from being masked by:
+UserExperior SDK by default masks all the Edit Boxes of activities. If you don't want to mask any EditBox in your app, you can exclude it from being masked by:
 
-  - **Using Tag** - (Use Tag method only when you don't have any other tag already applied to your EditBox.)
+-   **Using Tag ** - (Use Tag method only when you don't have any other tag already applied to your EditBox.)
 
     ```
     android:tag="com.userexperior.dontmask"
     ```
 
-    Code Example: Add above tag in xml of your EditText
+    Code Example: Add above tag in XML of your EditText
 
     ```
-    <EditText  
-        android:id="@+id/editBox"  
-        android:layout_width="match_parent"  
-        android:layout_height="wrap_content"  
+    <EditText
+        android:id="@+id/editBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:tag="com.userexperior.dontmask"/>
     ```
 
@@ -180,7 +182,7 @@
     editBox.setTag("com.userexperior.dontmask");
     ```
 
-  - **Using API**
+-   **Using API**
 
     ```
     void removeFromSecureViewBucket(EditText editBox)
@@ -189,210 +191,210 @@
     Code Example:
 
     ```
-    editBox = findViewById(R.id.editBox);  
+    editBox = findViewById(R.id.editBox);
     SecureViewBucket.removeFromSecureViewBucket(editBox);
     ```
 
-5. **Identify Screens**
+### 5. Identify Screens
 
-  UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend to use the "startScreen API". This API allows you to manually define screens.
+UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
 
-  ```
-  void startScreen(String screenName)
-  ```
+```
+void startScreen(String screenName)
+```
 
-  Note: Max `screenName` limit is 250 chars only
+Note: Max `screenName` limit is 250 chars only
 
-  **Recommendation:** Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
+Recommendation: Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
 
-  Code Example:
+Code Example:
 
-  ```
-  try {  
-      UserExperior.startScreen("Notification Tab");  
-  } catch (Exception e) {  
-      e.printStackTrace();  
-  }
-  ```
+```
+try {
+    UserExperior.startScreen("Notification Tab");
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
 
-  Note: This method should be usually called from the onResume() method.
+Note: This method should be usually called from the onResume() method.
 
-6. **Track Response Time of Methods/API Calls**
+### 6. Track Response Time of Methods/API Calls
 
-  UserExperior SDK allows you to track the load/response time of the components in your app using APIs called startTimer and endTimer. You can call startTimer API at any event on the app from which you want to track the load/response time and call a stopTimer API at the event completion. This APIs will calculate the complete response time.
+UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call a `stopTimer` API at the event completion. These APIs will calculate the complete response time.
 
-  ```
-  void startTimer(String timerName)
-  void endTimer(String timerName)
-  ```
+```
+void startTimer(String timerName)
+void endTimer(String timerName)
+```
 
-  Note: Max `timerName` limit is 250 chars only
+Note: Max `timerName` limit is 250 chars only
 
-  e.g. Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call startTimer API when screen resumes to the user and call stopTimer API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after screen is visible to the user. Similarly, you can use startTimer at any API call and endTimer on API response.
+Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when screen resumes to the user and call `stopTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after screen is visible to the user. Similarly, you can use `startTimer` at any API call and endTimer on API response.
 
-  Code Example:
+Code Example:
 
-  ```
-  // Call it at API call
-  try {  
-      UserExperior.startTimer("Load Money API call");  
-  } catch (Exception e) {  
-      e.printStackTrace();  
-  }
+```
+// Call it at API call
+try {
+    UserExperior.startTimer("Load Money API call");
+} catch (Exception e) {
+    e.printStackTrace();
+}
 
-  // call it at API response
-  try {  
-      UserExperior.endTimer("Load Money API call");  
-  } catch (Exception e) {  
-      e.printStackTrace();  
-  }
-  ```
+// call it at API response
+try {
+    UserExperior.endTimer("Load Money API call");
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
 
-7. **Control Recording**
+### 7. Control Recording
 
-  UserExperior SDK has following APIs which can be used to control the recording. The APIs stopRecording, pauseRecording, resumeRecording are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use pauseRecording and resumeRecording to bypass any user flow which you don't want UserExperior to capture.
+UserExperior SDK has following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
 
-  ```
-  void stopRecording()
-  ```
+```
+void stopRecording()
+```
 
-  By default, recording stops automatically once the app goes to background. However, you can stop at desired point by calling this API.
+By default, recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
 
-  ```
-  void pauseRecording()
-  ```
+```
+void pauseRecording()
+```
 
-  This API pauses the recording, you can use resumeRecording API to resume.
+This API pauses the recording, you can use `resumeRecording` API to resume.
 
-  ```
-  void resumeRecording()
-  ```
+```
+void resumeRecording()
+```
 
-  This API resumes the recording if it is paused.
+This API resumes the recording if it is paused.
 
-8. **Get Precise User Location**
+### 8. Get Precise User Location
 
-  UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the gps location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
+UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the GPS location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
 
-  ```
-  void setDeviceLocation(double latitude, double longitude)
-  ```
+```
+void setDeviceLocation(double latitude, double longitude)
+```
 
-  Code Example:
+Code Example:
 
-  ```
-  try {  
-      // These are hardcoded lat, long, you can pass actual lat, long if your app uses gps  
-      UserExperior.setDeviceLocation(19.154023, 72.945204);  
-  } catch (Exception e) {  
-      e.printStackTrace();  
-  }
-  ```
+```
+try {
+    // These are hardcoded lat, long, you can pass actual lat, long if your app uses gps
+    UserExperior.setDeviceLocation(19.154023, 72.945204);
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
 
-9. **Send Handled Exceptions**
+### 9. Send Handled Exceptions
 
-  UserExperior SDK lets you send handled exceptions and their information to UserExperior Dashboard so that you can know where your app caused the handled exceptions. You must send exceptions in the catch block(s) of the handled exception. The exception object's class name (eg. java.lang.NullPointerException) will appear in the story line of the sessions of your app on the dashboard.
+UserExperior SDK lets you send handled exceptions and their information to UserExperior Dashboard so that you can know where your app caused the handled exceptions. You must send exceptions in the catch block(s) of the handled exception. The exception object's class name (eg. java.lang.NullPointerException) will appear in the storyline of the sessions of your app on the dashboard.
 
-  ```
-  void sendException(Throwable exceptionObj, String exceptionTag)
-  ```
+```
+void sendException(Throwable exceptionObj, String exceptionTag)
+```
 
-  Note: Max `exceptionTag` limit is 250 chars only
+Note: Max `exceptionTag` limit is 250 chars only
 
-  Code Example:
+Code Example:
 
-  ```
-  public void onBack(View view) {  
-      try{  
-          // this exception is explicitly thrown just for example  
-          throw new NullPointerException();  
-      } catch (NullPointerException e){  
-          UserExperior.sendException(e, "NullPointerException at MainActivity onBack");  
-          e.printStackTrace();  
-      }  
-      onBackPressed();  
-  }
-  ```
+```
+public void onBack(View view) {
+    try{
+        // this exception is explicitly thrown just for example
+        throw new NullPointerException();
+    } catch (NullPointerException e){
+        UserExperior.sendException(e, "NullPointerException at MainActivity onBack");
+        e.printStackTrace();
+    }
+    onBackPressed();
+}
+```
 
-10. **Sleep Mode**
+### 10. Sleep Mode
 
-  UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for certain duration. e.g. map based navigation apps, video player apps, etc.
+UserExperior SDK can be configured to go into sleep mode when the user has the app opened in the device, however not actively using it for a certain duration. Eg: map-based navigation apps, video player apps, etc.
 
-  If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
+If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
 
-  This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
+This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
 
-  Sleep Mode Time (in seconds) is the duration for which SDK will wait after last occurred user gesture to go into sleep mode.
+Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
 
-  If Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for whole duration.
+If Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
 
-  You can add following meta-data under application tag of your app's **AndroidManifest.xml**:
+You can add following meta-data under application tag of your app's AndroidManifest.xml:
 
-  ```
-  <meta-data  
-      android:name="com.userexperior.ueSleepModeTimeInSeconds"  
-      android:value="5"/>
-  ```
+```
+<meta-data
+    android:name="com.userexperior.ueSleepModeTimeInSeconds"
+    android:value="5"/>
+```
 
-11. **Opt-out/Opt-in**
+### 11. Opt-out/Opt-in
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
-  ```
-  void optOut()
-  ```
-  
-This method stops and deletes the current session recording and also disables the session recording by our sdk for this user in future.
-  
-  ```
-  void optIn()
-  ```
-  
-SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the optOut() method, you can use this method to enable recording at runtime.
+```
+void optOut()
+```
 
-  ```
-  boolean getOptOutStatus()
-  ```
+This method stops and deletes the current session recording and also disables the session recording by our SDK for this user in the future.
 
-This method returns the status of the user whether user is currently opted-in or opted-out. Boolean value true indicates that user is opted-out and false indicates that user is opted-in.
+```
+void optIn()
+```
+
+SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the `optOut()` method, you can use this method to enable recording at runtime.
+
+```
+boolean getOptOutStatus()
+```
+
+This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in.
 
 User recording resets to opt-in if the user un-installs and re-installs the app.
 
-12. **User Consent before recording**
+### 12. User Consent before recording
 
-As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from user before starting the session recording of that user. This will show a popup to the user on app launch, asking permission to track users app screen, gestures, in-app activities. If the user does not provide a consent then that users session and users details will not be recorded in the future.
+As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from the user before starting the session recording of that user. This will show a popup to the user on the app launch, asking permission to track the user's app screen, gestures, in-app activities. If the user does not provide consent then that user session and user details will not be recorded in the future.
 
-We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make call to consent API:
+We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make a call to consent API:
 
-  ```
-  void consent()
-  ```
+```
+void consent()
+```
 
 ## FAQs
 
 **When can we see the videos of the user's session?**
 
-When the app is minimised to the background then UserExperior SDK processes the session captured and send the information to UserExperior server.
+When the app is minimized to the background then UserExperior SDK processes the session captured and sends the information to the UserExperior server.
 
 **How long does it take for the video session to appear on the dashboard?**
 
-From the time the app is minimised to the background the session captured will take 5 to 7 minutes to be reflected on UserExperior dashboard.
+From the time the app is minimized to the background the session captured will take 5 to 7 minutes to be reflected on the UserExperior dashboard.
 
 **Will the session upload if I kill the app?**
 
-If the app is killed without minimising the app to the background, then the session which was killed will not get uploaded. UserExperior will be able to send the data whenever the app is minimised to the background.
+If the app is killed without minimizing the app to the background, then the session which was killed will not get uploaded. UserExperior will be able to send the data whenever the app is minimized to the background.
 
-**What if the user does not have network on the mobile device? Will the video get captured?**
+**What if the user does not have a network on the mobile device? Will the video get captured?**
 
-If the user does not have an active internet on their device at the time of start of session or during the end while uploading, then UserExperior stores the session locally in the apps secure memory. This stored session is sent to the UserExperior server when the users access the app again with an active internet.
+If the user does not have an active internet on their device at the time of the start of the session or during the end while uploading, then UserExperior stores the session locally in the apps secure memory. This stored session is sent to the UserExperior server when the users access the app again with an active internet.
 
 **Does UserExperior Track events?**
 
-Yes, By default UserExperior tracks native events. But if you want to track events done on custom controls you can track these events by calling a Customtag event.
+Yes, By default UserExperior tracks native events. But if you want to track events done on custom controls you can track these events by calling a `Customtag` event.
 
-**Can I add my own custom event, like we do for other SDK's?**
+**Can I add my own custom event, as we do for other SDK's?**
 
-Yes you can add custom events using Customtag API.
+Yes, you can add custom events using `Customtag` API.
 
 **Can I uniquely identify users session on the dashboard?**
 
@@ -400,7 +402,7 @@ Yes, use SetUserIdentifier API.
 
 **We use fragments in our app, does UserExperior also detect fragments?**
 
-Yes, user StartScreen API for fragments. This will allow UserExperior to recognise fragment as a screen.
+Yes, user `StartScreen` API for fragments. This will allow UserExperior to recognize fragment as a screen.
 
 **Can UserExperior also work on Cordova/Phone gap kind of frameworks?**
 
@@ -408,37 +410,35 @@ Yes
 
 **I am getting a crash which has the following UserExperior entry in the trace `com.userexperior.*.dispatchTouchEvent` ?**
 
-UserExperior intercepts and log every touch gesture that is occurring within the app, then dispatch it back to the original implementation. The DispatchTouchEvent/ DispatchkeyEvent class is the class that is responsible for this behaviour. The reason you see UserExperior in the stack-trace is that the UserExperior SDK was active (had a running thread) during the crash, but it did not cause the app to crash.
+UserExperior intercepts and logs every touch gesture that is occurring within the app, then dispatch it back to the original implementation. The DispatchTouchEvent/ DispatchkeyEvent class is the class that is responsible for this behavior. The reason you see UserExperior in the stack-trace is that the UserExperior SDK was active (had a running thread) during the crash, but it did not cause the app to crash.
 
 You can see the full list of Android methods that could be in the stack-trace here: <https://developer.android.com/reference/android/view/Window.Callback.html>
 
 ## Additional Notes
 
-UserExperior SDK also writes some useful logs in the Android Studio IDE during runtime. These logs should be first point of investigation for any issue you may be facing. Known issues and workarounds:
+UserExperior SDK also writes some useful logs in the Android Studio IDE during runtime. These logs should be the first point of investigation for any issue you may be facing. Known issues and workarounds:
 
-1. In case you are getting NoClassDefFoundError, try these steps:
+1.  In case you are getting NoClassDefFoundError, try these steps:
 
-  1.1\. Delete build folder of your project, clean project, Run project.
+    1.1. Delete build folder of your project, clean project, Run project.
 
-  1.2\. Exit Android Studio and Re-launch it
+    1.2. Exit Android Studio and Re-launch it
 
-  1.3\. Enable MultiDex in build.gradle for API level >= 21
+    1.3. Enable MultiDex in build.gradle for API level >= 21
 
-  1.4\. Compile `com.android.support:multidex:1.0.0` in build.gradle dependencies for API level < 21 (check this [link)](https://developer.android.com/studio/build/multidex.html) and add following code in your BaseApplication
+    1.4. Compile `com.android.support:multidex:1.0.0` in build.gradle dependencies for API level < 21 (check this [link)](https://developer.android.com/studio/build/multidex.html) and add following code in your BaseApplication
 
-  ```
-  public void onCreate(Bundle arguments) { 
-      MultiDex.install(getTargetContext()); super.onCreate(arguments);
-      ...
-  }
-  ```
+    ```
+    public void onCreate(Bundle arguments) {
+        MultiDex.install(getTargetContext()); super.onCreate(arguments);
+        ...
+    }
+    ```
 
-  1.5\. Check if any dependency library is conflicting between UserExperior SDK and your app.
+    1.5. Check if any dependency library is conflicting between UserExperior SDK and your app.
 
-2. If you are getting 'Access to the dex task is now impossible, starting with 1.4.0', please refer to [this post.](http://stackoverflow.com/questions/34625267/access-to-the-dex-task-is-now-impossible-starting-with-1-4-0)
+2.  If you are getting 'Access to the dex task is now impossible, starting with 1.4.0', please refer to [this post.](https://stackoverflow.com/questions/34625267/access-to-the-dex-task-is-now-impossible-starting-with-1-4-0)
 
-3. In case OutOfMemoryError please add following in `<application>` tag
-
-  ```
-  android:[largeHeap]="true"
-  ```
+3.  In case OutOfMemoryError please add following in `<application>` tag
+    android:[largeHeap]="true"
+    ```
