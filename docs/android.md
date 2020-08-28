@@ -442,3 +442,4 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 3.  In case OutOfMemoryError please add following in `<application>` tag
     android:[largeHeap]="true"
     ```
+

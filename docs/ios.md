@@ -12,18 +12,21 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
     
     ```
     pod 'UserExperior', '4.4.18'
+
     ```
 
     For Swift 5.1.2 & 5.1.3
 
     ```
      pod 'UserExperior', '4.4.17'
+
     ```
 
     For Swift 5.1 & below
 
     ```
     pod 'UserExperior', '4.4.16'
+
     ```
 
 2.  From your terminal, type 
@@ -49,12 +52,18 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
 - 4. a. For Objective-C
 
             [UserExperior initialize:@"USER_KEY"];
-    `Note: After integration performs the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+        **Note:**
+
+      `Now the integration is completed, build the ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 - 4. b. For Swift
 
             UserExperior.initialize("USER_KEY")
-    `Note: After integration performs the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+        **Note:**
+
+      `Now the integration is completed, build the ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 
 ### Via Manual
@@ -85,12 +94,18 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
 - 9. a. For Objective-C
 
             [UserExperior initialize:@"USER_KEY"];
-    `Note: After integration performs the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+        **Note:**
+
+      `Now the integration is completed, build the ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 - 9. b. For Swift
 
             UserExperior.initialize("USER_KEY")
-    `Note: After integration performs the test ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+        **Note:**
+
+      `Now the integration is completed, build the ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 
 And that's it!
@@ -132,7 +147,8 @@ NOTE : Call `isSecureView` on any UI control object which is inherited from UIVi
 
 UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture
 
-Stop Recording By default, recording stops automatically once the app goes to background. However, you can stop at the desired point by calling this API.
+**Stop Recording:**
+By default, recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
 
 -   For Objective-C
 
@@ -146,7 +162,8 @@ Stop Recording By default, recording stops automatically once the app goes to ba
         UserExperior.stopRecording()
     ```
 
-Pause Recording This API pauses the recording, you can use `resumeRecording` API to resume.
+**Pause Recording:**
+ This API pauses the recording, you can use `resumeRecording` API to resume.
 
 -   For Objective-C
 
@@ -160,7 +177,8 @@ Pause Recording This API pauses the recording, you can use `resumeRecording` API
         UserExperior.pauseRecording()
     ```
 
-Resume Recording This API resumes the recording if it is paused.
+**Resume Recording:**
+ This API resumes the recording if it is paused.
 
 -   For Objective-C
 
@@ -173,37 +191,7 @@ Resume Recording This API resumes the recording if it is paused.
     ```
         UserExperior.resumeRecording()
     ```
-
-Opt-In/Opt-Out
-
-SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the `optOut()` method, you can use this method to enable recording at runtime.
-
--   For Objective-C
-
-    ```
-        [UserExperior optIn];
-    ```
-
--   For Swift
-
-    ```
-        UserExperior.optIn()
-    ```
-
-This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in. 
-
--   For Objective-C
-
-    ```
-        [UserExperior getOptOutStatus];
-    ```
-
--   For Swift
-
-    ```
-        UserExperior.getOptOutStatus()
-    ```
-
+ 
 ### 4. Identify Subviews
 
 UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
@@ -316,7 +304,7 @@ UserExperior SDK lets you track user `events`, app `messages` of your app and `t
 
 ### 6. Track Response Time of Methods/ API Calls
 
-UserExperior SDK allows you to track the load/ response time of the components in your app using a the method called `startTimer` and `stopTimer`. You can call `startTimer` method at any event on the app from which you want to track the load/ response time and call a `stopTimer` method at the event completion. This method will calculate the complete response time.
+UserExperior SDK allows you to track the load/ response time of the components in your app using a method called `startTimer` and `stopTimer`. You can call `startTimer` method at any event on the app from which you want to track the load/ response time and call a `stopTimer` method at the event completion. This method will calculate the complete response time.
 
 -   For Objective-C
 
@@ -381,6 +369,37 @@ As per GDPR guidelines, we have implemented a new feature called User Consent. T
     ```
         UserExperior.consent()
     ```
+
+### 8. Opt-In/Opt-Out
+
+SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the `optOut()` method, you can use this method to enable recording at runtime.
+
+-   For Objective-C
+
+    ```
+        [UserExperior optIn];
+    ```
+
+-   For Swift
+
+    ```
+        UserExperior.optIn()
+    ```
+
+This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in. 
+
+-   For Objective-C
+
+    ```
+        [UserExperior getOptOutStatus];
+    ```
+
+-   For Swift
+
+    ```
+        UserExperior.getOptOutStatus()
+    ```
+
 
 `Important` - App transport security setting
 
