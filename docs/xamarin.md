@@ -6,11 +6,11 @@
 
 -   Right Click on your app and select Manage NuGet Packages...
 
-   ![Picture1_3bec7d7226](/uploads/Picture1_3bec7d7226_f87f74f65c.png)
+   ![UserExperior Xamarin](_media/xamarin/Picture1.png)
 
 -   In NuGet Package Manager, search for the keyword userexperior, you will find UserExperior.Xamarin library, Click on Install, make sure you always select the latest version as shown below:
 
-  ![Picture2_01b85bd842](/uploads/Picture2_01b85bd842_50b287489e.png)
+  ![UserExperior Xamarin](_media/xamarin/Picture2.png)
 
 ### 2.  Start UserExperior Library
 
