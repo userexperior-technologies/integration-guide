@@ -26,7 +26,7 @@
    Call the above method when your app starts (when your root component loads)
 
 
-### 3. For iOS: Cocoapods (RN 0.60.0 and higher)
+### 3. For iOS: Cocoapods 
 
    **Automatic Integration**
 
