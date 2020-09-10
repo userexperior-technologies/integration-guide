@@ -44,13 +44,16 @@
    ```
     declare var UserExperior:any;
    ```
-   
 
--   **Note**
+- **For iOS: pod install**
 
-    `Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+ Perform pod install in `../platforms/ios` directory
 
--   **Proguard Rules**
+   ```
+    pod install
+   ```
+
+-   **For Android: Proguard Rules**
 
     If you are using Proguard in your project, you must add the following lines to your configuration:
 
@@ -58,6 +61,10 @@
     -dontwarn com.userexperior.**
     -keep class com.userexperior.** { *; }
     ```
+
+-   **Note**
+
+    `Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
 ## Customizing UserExperior with Key APIs
 
