@@ -46,8 +46,7 @@
    ```
 
 - **For iOS: pod install**
-
- Perform pod install in `../platforms/ios` directory
+   Perform pod install in `../platforms/ios` directory
 
    ```
     pod install
@@ -65,6 +64,8 @@
 -   **Note**
 
     `Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+
 
 ## Customizing UserExperior with Key APIs
 
@@ -304,3 +305,5 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
     ```
     android:[largeHeap]="true"
     ```
+
+
