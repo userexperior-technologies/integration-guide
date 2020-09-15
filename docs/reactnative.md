@@ -25,10 +25,7 @@
 
    Call the above method when your app starts (when your root component loads)
 
-
-### 3. For iOS: Cocoapods 
-
-   **Automatic Integration**
+  - **For iOS: Cocoapods**
 
    Add the header path in `react-native-userExperior`
 
@@ -38,25 +35,7 @@
 
    ![Automatic integration](https://i.ibb.co/JHRxhfj/Screenshot-2020-06-01-at-18-59-35.png)
 
-   **Manual Integration**
-
-   1.  In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-   2.  Go to `node_modules` ➜ `react-native-user-experior` and add `RNUserExperior.xcodeproj`
-   3.  Click `RNUserExperior.xcodeproj` in the project navigator and go the Build Settings tab. Make sure `All` is toggled on (instead of 'Basic'). Look for Header Search Paths and make sure it contains both `$(SRCROOT)/../react-native/React` and `$(SRCROOT)/../../React`, mark both as recursive.
-   4.  Download `UserExperior.Framework` from [LINK](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.24/UserExperior.zip) and add it in the Project folder.
-   5.  Add the header path in `RNUserExperior.xcodeproj` ➜ `Build Settings` -> `header search path`
-
-        ```
-          $[PATH TO FRAMEWORK]/UserExperior.framework/Headers/
-        ```
-
-   6.  Run your project (`Cmd+R`)<
-
--   **Note**
-
-      `Now the integration is completed, build the app. Install the app and test it on REAL DEVICES ONLY. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
-
--   **Proguard Rules**
+-   **For Android: Proguard Rules**
 
     If you are using Proguard in your project, you must add the following lines to your configuration:
 
@@ -64,6 +43,13 @@
     -dontwarn com.userexperior.**
     -keep class com.userexperior.** { *; }
     ```
+
+-   **Note**
+
+    `Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+#### Supported Versions
+React Native version 0.60+
 
 ## Customizing UserExperior with Key APIs
 
@@ -282,3 +268,4 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
     ```
     android:[largeHeap]="true"
     ```
+
