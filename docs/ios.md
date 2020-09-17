@@ -8,21 +8,28 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
 
 1.  Add to the pod file
 
-    For Swift 5.2+
+    For Swift 5.3
+    
+    ```
+    pod 'UserExperior', '4.4.25'
+
+    ```
+
+    For Swift 5.2
     
     ```
     pod 'UserExperior', '4.4.24'
 
     ```
 
-    For Swift 5.1.2 & 5.1.3
+    For Swift 5.1
 
     ```
      pod 'UserExperior', '4.4.23'
 
     ```
 
-    For Swift 5.1 & below
+    For Swift 5.0 & below
 
     ```
     pod 'UserExperior', '4.4.22'
@@ -418,4 +425,3 @@ A Boolean value used to disable App Transport Security for any domains not liste
 
 More reference:
 
--   [Stackoverflow](https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http)
