@@ -1,4 +1,4 @@
-# CleverTap + UserExperior (Android)
+# CleverTap (Android)
 
 CleverTap is the leading customer engagement and retention platform that helps brands maximize user lifetime value. You can extend the functionalities of CleverTap by integrating it with UserExperior. Now you can link CleverTap with UserExperior and understand your users better with UserExperior Session Recording. UserExperior + Crashlytics integration will also help you optimize user experience of your app.
 
