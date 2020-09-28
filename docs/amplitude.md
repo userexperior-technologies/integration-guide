@@ -1,4 +1,4 @@
-# Amplitude + UserExperior (Android)
+# Amplitude (Android)
 
 ## Integration
 
