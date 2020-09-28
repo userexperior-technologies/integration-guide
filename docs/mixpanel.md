@@ -1,4 +1,4 @@
-# Mixpanel + UserExperior (Android)
+# Mixpanel (Android)
 
 ## Integration
 
