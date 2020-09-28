@@ -21,7 +21,7 @@
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Apptimize
         String ueSessionUrlApptimize = UserExperior.getSessionUrl("Apptimize");        
-        Apptimize.track("UE Session URL", ueSessionUrlApptimize);
+        Apptimize.track("UE Session URL :" + ueSessionUrlApptimize);
     }
   });
   ```
