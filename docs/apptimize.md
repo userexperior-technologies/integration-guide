@@ -1,4 +1,4 @@
-# Apptimize + UserExperior (Android)
+# Apptimize (Android)
 
 ## Integration
 
