@@ -51,7 +51,7 @@
     UserExperior.SetUserIdentifier("pass-your-user-id-here");
    ```
 
-### 2.  Add Events/Messages/Tags
+### 2.  Add Events/ Messages/ Tags
 
    UserExperior SDK lets you track user events, app responses/messages of your app, and tag sessions based on some conditions using a very powerful API called setCustomTag.
 
@@ -65,11 +65,11 @@
 
 -   **Events**
 
-    In UserExperior terms, an event is the Indication of Progress in user's session. If you want to track user events that are not auto-captured by UserExperior, use "EVENT" in 2nd parameter.
+    In UserExperior terms, an event is the Indication of Progress in the user's session. If you want to track user events that are not auto-captured by UserExperior, use "EVENT" in 2nd parameter.
 
     Eg: `Transaction Completed`, `Checkout Done`, `COD Payment`, `Debit Card Payment`, `Login`, `Check Balance`, `Fund Transfer`, etc.
 
-    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initially, recorded sessions itself.)
+    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in a few initially, recorded sessions itself.)
 
     Recommendation: Kindly pass hardcoded/fixed values for events, do not pass incremental values!
 
@@ -85,7 +85,7 @@
 
 -   **Messages**
 
-    A message can be any app message shown to the user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add a message, use "MSG" in the 2nd parameter.
+    A message can be any app message shown to the user, any response or error message or toast message or validation messages or messages shown on dialog boxes, etc. which indicates a response to the user by the app. To add a message, use "MSG" in the 2nd parameter.
 
     Eg: `Please select location`, `Enable location permission`, `User Name or Password is incorrect`, etc.
 
@@ -180,9 +180,9 @@ initially
 
    Note: This method should be usually called from the onResume() method.
 
-### 5.  Track Response Time of Methods/API Calls
+### 5.  Track Response Time of Methods/ API Calls
 
-   UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call a `stopTimer` API at the event completion. These APIs will calculate the complete response time.
+   UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
 
    ```
     void StartTimer(String timerName)
@@ -191,7 +191,7 @@ initially
 
    Note: Max `timerName` limit is 250 chars only
 
-   Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when screen resumes to the user and call `stopTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any API call and endTimer on API response.
+   Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when the screen resumes to the user and call `endTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any API call and an `endTimer` on API response.
 
    Code Example:
 
@@ -287,7 +287,7 @@ UserExperior SDK lets you send handled exceptions and their information to UserE
 
    Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
 
-   If Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
+   If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
 
    You can add following meta-data under application tag of your app's AndroidManifest.xml:
 
@@ -347,7 +347,7 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
 1.  In case you are getting NoClassDefFoundError, try these steps:
 
-    1.1. Delete build folder of your project, clean project, Run project.
+    1.1. Delete the build folder of your project, clean project, Run project.
 
     1.2. Exit Android Studio and Re-launch it
 
@@ -366,7 +366,7 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
 2.  If you are getting 'Access to the dex task is now impossible, starting with 1.4.0', please refer to [this post.](https://stackoverflow.com/questions/34625267/access-to-the-dex-task-is-now-impossible-starting-with-1-4-0)
 
-3.  In case OutOfMemoryError please add following in `<application>` tag
+3.  In case OutOfMemoryError please add the following in `<application>` tag
 
     ```
     android:[largeHeap]="true"
