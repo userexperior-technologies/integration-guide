@@ -50,7 +50,7 @@ Code Example:
 UserExperior.setUserIdentifier("pass-your-user-id-here");
 ```
 
-### 2. Add Events/Messages/Tags
+### 2. Add Events/ Messages/ Tags
 
 UserExperior SDK lets you track user events, app responses/messages of your app, and tag sessions based on some conditions using a very powerful API called setCustomTag.
 
@@ -118,13 +118,13 @@ Using this API, you can add:
 
 UserExperior SDK by default masks all the Edit Boxes of activities. If you wish to mask any other UI element in your app, you can mask it by:
 
--   **Using Tag **- (Use Tag method only when you don't have any other tag already applied to your UI element.)
+-   **Using Tag**- (Use Tag method only when you don't have any other tag already applied to your UI element.)
 
     ```
     android:tag="com.userexperior.ueSecureView"
     ```
 
-    Code Example: Add above tag in XML of your UI element
+    Code Example: Add the above tag in XML of your UI element
 
     ```
     <WebView
@@ -165,7 +165,7 @@ UserExperior SDK by default masks all the Edit Boxes of activities. If you don't
     android:tag="com.userexperior.dontmask"
     ```
 
-    Code Example: Add above tag in XML of your EditText
+    Code Example: Add the above tag in XML of your EditText
 
     ```
     <EditText
@@ -221,7 +221,7 @@ Note: This method should be usually called from the onResume() method.
 
 ### 6. Track Response Time of Methods/API Calls
 
-UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call a `stopTimer` API at the event completion. These APIs will calculate the complete response time.
+UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
 
 ```
 void startTimer(String timerName)
@@ -230,7 +230,7 @@ void endTimer(String timerName)
 
 Note: Max `timerName` limit is 250 chars only
 
-Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when screen resumes to the user and call `stopTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after screen is visible to the user. Similarly, you can use `startTimer` at any API call and endTimer on API response.
+Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when the screen resumes to the user and call `endTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any API call and an `endTimer` on API response.
 
 Code Example:
 
@@ -252,7 +252,7 @@ try {
 
 ### 7. Control Recording
 
-UserExperior SDK has following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
+UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
 
 ```
 void stopRecording()
@@ -326,7 +326,7 @@ This allows having optimal recording (and thus optimal use of network resources)
 
 Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
 
-If Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
+If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
 
 You can add following meta-data under application tag of your app's AndroidManifest.xml:
 
@@ -420,7 +420,7 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
 1.  In case you are getting NoClassDefFoundError, try these steps:
 
-    1.1. Delete build folder of your project, clean project, Run project.
+    1.1. Delete the build folder of your project, clean project, Run project.
 
     1.2. Exit Android Studio and Re-launch it
 

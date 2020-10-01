@@ -71,7 +71,7 @@
 
 ### 1.  Add User Identifier
 
-   UserExperior SDK by default takes device id as user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as custom user identifier. This identifier will show up in UserExperior portal.
+   UserExperior SDK by default takes device id as the user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
 
    ```
     void setUserIdentifier(String userIdentifier)
@@ -85,7 +85,7 @@
     UserExperior.setUserIdentifier("pass-your-user-id-here");
    ```
 
-### 2.  Add Events/Messages/Tags
+### 2.  Add Events/ Messages/ Tags
 
    UserExperior SDK lets you track user events, app responses/messages of your app and tag sessions based on some conditions using a very powerful API called setCustomTag.
 
@@ -114,7 +114,7 @@
 
 -   **Messages**
 
-    A message can be any app message shown to user, any response or error message or toast message or validation messages or messages shown on dialog boxes etc. which indicates a response to the user by the app. To add a message, use "MSG" in the 2nd parameter.
+    A message can be any app message shown to the user, any response or error message or toast message or validation messages or messages shown on dialog boxes, etc. which indicates a response to the user by the app. To add a message, use "MSG" in the 2nd parameter.
 
     Eg: `Please select location`, `Enable location permission`, `User Name or Password is incorrect`, etc.
     Code Example:
@@ -137,27 +137,48 @@
 
 ### 3. Identify Screens
 
-UserExperior SDK automatically detects Activities/ViewControllers and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend to use the `startScreen` API. This API allows you to manually define screens.
+   UserExperior SDK automatically detects Activities/ViewControllers and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
 
-```
-void startScreen(String screenName)
-```
+   ```
+    void startScreen(String screenName)
+   ```
 
-Note: Max `screenName` limit is 250 chars only
+   Note: Max `screenName` limit is 250 chars only
 
-Recommendation: Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
+   Recommendation: Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
 
-Code Example:
+   Code Example:
 
-```
-UserExperior.startScreen("Notification Page");
-```
+   ```
+    UserExperior.startScreen("Notification Page");
+   ```
 
-Note: This method should be usually called when your page loads.
+   Note: This method should be usually called when your page loads.
 
-### 4. Control Recording
 
-   UserExperior SDK has following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
+### 4. Track Response Time of Methods/ API Calls
+
+   UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
+
+   ```
+    void startTimer(String timerName)
+    void endTimer(String timerName)
+   ```
+
+   Note: Max `timerName` limit is 250 chars only
+
+   Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when the screen resumes to the user and call `endTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any API call and an `endTimer` on API response.
+
+   Code Example:
+
+   ```
+    UserExperior.startTimer("Load Money API call");
+    UserExperior.endTimer("Load Money API call");
+   ```
+
+### 5. Control Recording
+
+   UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
 
    ```
     void stopRecording()
@@ -177,7 +198,7 @@ Note: This method should be usually called when your page loads.
 
    This API resumes the recording if it is paused.
 
-### 5. Sleep Mode
+### 6. Sleep Mode
 
    UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for a certain duration. e.g. map-basedthe  navigation apps, video player apps, etc.
 
@@ -187,7 +208,7 @@ Note: This method should be usually called when your page loads.
 
    Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
 
-   If Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
+   If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
 
    You can add following meta-data under application tag of your app's AndroidManifest.xml:
 
@@ -197,7 +218,7 @@ Note: This method should be usually called when your page loads.
        android:value="5"/>
    ```
 
-### 6. Opt In/ Opt Out
+### 7. Opt In/ Opt Out
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
@@ -221,7 +242,7 @@ This method returns the status of the user whether the user is currently opted-i
 
 User recording resets to opt-in if the user un-installs and re-installs the app.
 
-### 7.  User Consent before recordin
+### 8.  User Consent before recording
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from the user before starting the session recording of that user. This will show a popup to the user on the app launch, asking permission to track the user's app screen, gestures, in-app activities. If the user does not provide consent then that user session and user details will not be recorded in the future.
 
@@ -305,5 +326,6 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
     ```
     android:[largeHeap]="true"
     ```
+
 
 

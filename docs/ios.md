@@ -38,7 +38,7 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
 
 2.  From your terminal, type 
 
-    After repo update perform below command to install pod
+    After the repo update perform the below command to install pod
 
     ```
     pod install
@@ -200,9 +200,9 @@ By default, recording stops automatically once the app goes to the background. H
         UserExperior.resumeRecording()
     ```
  
-### 4. Identify Subviews
+### 4. Identify Screens
 
-UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
+UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in the existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
 
 -   For Objective-C
 
@@ -230,7 +230,7 @@ UserExperior SDK automatically detects `ViewController` and defines them as scre
 
 Note: Max screenName limit is 250 chars only
 
-### 5. Add Events/Messages/Tags
+### 5. Add Events/ Messages/ Tags
 
 UserExperior SDK lets you track user `events`, app `messages` of your app and `tag` sessions based on some conditions using very powerful method setCustomTag()
 
@@ -337,13 +337,13 @@ Example:
     -   While data loading starts in TableView:
 
         ```
-            [UserExperior startTimer:@"Table view laoding timer"];
+            [UserExperior startTimer:@"Load Money API call"];
         ```
 
     -   While data loaded completed in TableView :
 
         ```
-            [UserExperior stopTimer:@"Table view laoding timer"];
+            [UserExperior stopTimer:@"Load Money API call"];
         ```
 
 -   For Swift
@@ -351,13 +351,13 @@ Example:
     -   While data loading starts in TableView:
 
         ```
-            UserExperior.startScreen("Table view laoding timer")
+            UserExperior.startScreen("Load Money API call")
         ```
 
     -   While data loaded completed in TableView :
 
         ```
-            UserExperior.stopTimer("Table view laoding timer")
+            UserExperior.stopTimer("Load Money API call")
         ```
 
     Note: Max `timerName` limit is 250 chars only

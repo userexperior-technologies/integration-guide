@@ -53,9 +53,9 @@ React Native version 0.60+
 
 ## Customizing UserExperior with Key APIs
 
-### 1. Add User Identifier
+### 1.  Add User Identifier
 
-   UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
+   UserExperior SDK by default takes device id as the user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
 
    ```
     void setUserIdentifier(String userIdentifier)
@@ -71,7 +71,7 @@ React Native version 0.60+
 
 ### 2.  Add Events/ Messages/ Tags
 
-   UserExperior SDK lets you track user events, app responses/ messages of your app, and tag sessions based on some conditions using a very powerful API called `setCustomTag`.
+   UserExperior SDK lets you track user events, app responses/messages of your app and tag sessions based on some conditions using a very powerful API called setCustomTag.
 
    ```
     void setCustomTag(String customTag, String customType)
@@ -81,12 +81,11 @@ React Native version 0.60+
 
    Using this API, you can add:
 
--  **Events**
+-   **Events**
 
-    In UserExperior terms, an event is the Indication of Progress in that user's session. If you want to track user events that are not auto-captured by UserExperior, use "EVENT" in 2nd parameter.
+    In UserExperior terms, an event is the Indication of Progress in the user's session. If you want to track user events that are not auto-captured by UserExperior, use "EVENT" in 2nd parameter.
 
     Eg: `Txn Completed`, `Checkout Done`, `COD Payment`, `Debit Card Payment`, `Login`, `Check Balance`, `Fund Transfer` etc.
-    
     Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initially recorded sessions itself.)
 
     Recommendation: Kindly pass hardcoded/fixed values for events, do not pass incremental values!
@@ -108,18 +107,60 @@ React Native version 0.60+
     UserExperior.setCustomTag("Please select location!", "MSG");
     ```
 
--   **Tags**
+-  **Tags**
 
     In UserExperior terms, a tag is a kind of behavior in the user's session. You can add Tag to even create segments of users based on behavior or a certain condition, you can define your own tags for your app. To define your own tag, use "TAG" in 2nd parameter.
 
     Eg: `Free User`, `Paid User`, `Burgundy User`, `No Txn by User`, `Free Subscription`, etc.
-    Code Example:
+   
+   Code Example:
 
     ```
     UserExperior.setCustomTag("Free User", "TAG");
     ```
 
-### 3. Control Recording
+### 3. Identify Screens
+
+   UserExperior SDK automatically detects Activities/ViewControllers and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
+
+   ```
+    void startScreen(String screenName)
+   ```
+
+   Note: Max `screenName` limit is 250 chars only
+
+   Recommendation: Kindly pass hardcoded/fixed values for screen names, do not pass incremental values!
+
+   Code Example:
+
+   ```
+    UserExperior.startScreen("Notification Page");
+   ```
+
+   Note: This method should be usually called when your page loads.
+
+
+### 4. Track Response Time of Methods/ API Calls
+
+   UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
+
+   ```
+    void startTimer(String timerName)
+    void endTimer(String timerName)
+   ```
+
+   Note: Max `timerName` limit is 250 chars only
+
+   Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when the screen resumes to the user and call `endTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any API call and an `endTimer` on API response.
+
+   Code Example:
+
+   ```
+    UserExperior.startTimer("Load Money API call");
+    UserExperior.endTimer("Load Money API call");
+   ```
+
+### 5. Control Recording
 
    UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
 
@@ -127,7 +168,7 @@ React Native version 0.60+
     void stopRecording()
    ```
 
-   By default, recording stops automatically once the app goes to the ### background. However, you can stop at the desired point by calling this API.
+   By default, recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
 
    ```
     void pauseRecording()
@@ -141,7 +182,27 @@ React Native version 0.60+
 
    This API resumes the recording if it is paused.
 
-### 4. Opt-out/Opt-in
+### 6. Sleep Mode
+
+   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for a certain duration. e.g. map-basedthe  navigation apps, video player apps, etc.
+
+   If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
+
+   This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
+
+   Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
+
+   If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
+
+   You can add following meta-data under application tag of your app's AndroidManifest.xml:
+
+   ```
+    <meta-data
+       android:name="com.userexperior.ueSleepModeTimeInSeconds"
+       android:value="5"/>
+   ```
+
+### 7. Opt In/ Opt Out
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
@@ -165,7 +226,7 @@ This method returns the status of the user whether the user is currently opted-i
 
 User recording resets to opt-in if the user un-installs and re-installs the app.
 
-### 5.  User Consent before recording
+### 8.  User Consent before recording
 
 As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from the user before starting the session recording of that user. This will show a popup to the user on the app launch, asking permission to track the user's app screen, gestures, in-app activities. If the user does not provide consent then that user session and user details will not be recorded in the future.
 
