@@ -60,7 +60,7 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
 
             [UserExperior initialize:@"USER_KEY"];
 
-        **Note:**
+      **Note:**
 
       `Now the integration is completed, build the ONLY on REAL iOS DEVICES since framework support device architecture. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
 
@@ -140,97 +140,7 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
         UserExperior.setUserIdentifier("pass-your-user-id-here")
     ```
 
-### 2. Mask Sensitive Views
-
-UserExperior SDK by default masks all the UITextField and UITextView. If you wish to mask any other UI element in your app, you can mask it by:
-
-```
-    let label = UILabel()
-    label.isSecureView = true
-```
-
-NOTE : Call `isSecureView` on any UI control object which is inherited from UIView
-
-### 3. Control Recording
-
-UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture
-
-**Stop Recording:**
-By default, recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
-
--   For Objective-C
-
-    ```
-        [UserExperior stopRecording];
-    ```
-
--   For Swift
-
-    ```
-        UserExperior.stopRecording()
-    ```
-
-**Pause Recording:**
- This API pauses the recording, you can use `resumeRecording` API to resume.
-
--   For Objective-C
-
-    ```
-        [UserExperior pauseRecording];
-    ```
-
--   For Swift
-
-    ```
-        UserExperior.pauseRecording()
-    ```
-
-**Resume Recording:**
- This API resumes the recording if it is paused.
-
--   For Objective-C
-
-    ```
-        [UserExperior resumeRecording];
-    ```
-
--   For Swift
-
-    ```
-        UserExperior.resumeRecording()
-    ```
- 
-### 4. Identify Screens
-
-UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in the existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
-
--   For Objective-C
-
-    ```
-        [UserExperior startScreen:@"SCREEN_NAME"];
-    ```
-
-    Eg.
-
-    ```
-        [UserExperior startScreen:@"OTPViewController"];
-    ```
-
--   For Swift
-
-    ```
-        UserExperior.startScreen("SCREEN_NAME")
-    ```
-
-    Eg.
-
-    ```
-        UserExperior.startScreen("OTPViewController")
-    ```
-
-Note: Max screenName limit is 250 chars only
-
-### 5. Add Events/ Messages/ Tags
+### 2. Add Events/ Messages/ Tags
 
 UserExperior SDK lets you track user `events`, app `messages` of your app and `tag` sessions based on some conditions using very powerful method setCustomTag()
 
@@ -310,7 +220,50 @@ UserExperior SDK lets you track user `events`, app `messages` of your app and `t
                 UserExperior.setCustomTag("TAG", customType: UECustomType.tag)
             ```
 
-### 6. Track Response Time of Methods/ API Calls
+### 3. Mask Sensitive Views
+
+UserExperior SDK by default masks all the UITextField and UITextView. If you wish to mask any other UI element in your app, you can mask it by:
+
+```
+    let label = UILabel()
+    label.isSecureView = true
+```
+
+NOTE : Call `isSecureView` on any UI control object which is inherited from UIView
+
+
+### 4. Identify Screens
+
+UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in the existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
+
+-   For Objective-C
+
+    ```
+        [UserExperior startScreen:@"SCREEN_NAME"];
+    ```
+
+    Eg.
+
+    ```
+        [UserExperior startScreen:@"OTPViewController"];
+    ```
+
+-   For Swift
+
+    ```
+        UserExperior.startScreen("SCREEN_NAME")
+    ```
+
+    Eg.
+
+    ```
+        UserExperior.startScreen("OTPViewController")
+    ```
+
+Note: Max screenName limit is 250 chars only
+
+
+### 5. Track Response Time of Methods/ API Calls
 
 UserExperior SDK allows you to track the load/ response time of the components in your app using a method called `startTimer` and `stopTimer`. You can call `startTimer` method at any event on the app from which you want to track the load/ response time and call a `stopTimer` method at the event completion. This method will calculate the complete response time.
 
@@ -362,23 +315,57 @@ Example:
 
     Note: Max `timerName` limit is 250 chars only
 
-### 7. User Consent before recording
 
-As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from the user before starting the session recording of that user. This will show a popup to the user on the app launch, asking permission to track the user's app screen, gestures, in-app activities. If the user does not provide consent then that user session and user details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make a call to consent API: 
+### 6. Control Recording
+
+UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture
+
+**Stop Recording:**
+By default, recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
 
 -   For Objective-C
 
     ```
-        [UserExperior consent];
+        [UserExperior stopRecording];
     ```
 
 -   For Swift
 
     ```
-        UserExperior.consent()
+        UserExperior.stopRecording()
     ```
 
-### 8. Opt-In/Opt-Out
+**Pause Recording:**
+ This API pauses the recording, you can use `resumeRecording` API to resume.
+
+-   For Objective-C
+
+    ```
+        [UserExperior pauseRecording];
+    ```
+
+-   For Swift
+
+    ```
+        UserExperior.pauseRecording()
+    ```
+
+**Resume Recording:**
+ This API resumes the recording if it is paused.
+
+-   For Objective-C
+
+    ```
+        [UserExperior resumeRecording];
+    ```
+
+-   For Swift
+
+    ```
+        UserExperior.resumeRecording()
+    ```
+
+### 7. Opt-In/Opt-Out
 
 SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the `optOut()` method, you can use this method to enable recording at runtime.
 
@@ -408,6 +395,21 @@ This method returns the status of the user whether the user is currently opted-i
         UserExperior.getOptOutStatus()
     ```
 
+### 8. User Consent before recording
+
+As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from the user before starting the session recording of that user. This will show a popup to the user on the app launch, asking permission to track the user's app screen, gestures, in-app activities. If the user does not provide consent then that user session and user details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make a call to consent API: 
+
+-   For Objective-C
+
+    ```
+        [UserExperior consent];
+    ```
+
+-   For Swift
+
+    ```
+        UserExperior.consent()
+    ```
 
 `Important` - App transport security setting
 
@@ -424,5 +426,4 @@ If you are using Xcode 8.0 and Swift 3.0 or Swift 2.2 or even Objective C then a
 
 A Boolean value used to disable App Transport Security for any domains not listed in the NSExceptionDomains dictionary. Listed domains use the settings specified for that domain. The default value of NO requires the default App Transport Security behavior for all connections.
 
-More reference:
 
