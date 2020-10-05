@@ -277,7 +277,7 @@ UserExperior SDK allows you to track the load/ response time of the components i
 -   For Swift
 
     ```
-        UserExperior.startScreen("TIMER_NAME")
+        UserExperior.startTimer("TIMER_NAME")
         UserExperior.stopTimer("TIMER_NAME")
     ```
 
@@ -304,7 +304,7 @@ Example:
     -   While data loading starts in TableView:
 
         ```
-            UserExperior.startScreen("Load Money API call")
+            UserExperior.startTimer("Load Money API call")
         ```
 
     -   While data loaded completed in TableView :
