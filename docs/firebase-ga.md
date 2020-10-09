@@ -20,10 +20,10 @@
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Firebase Google Analytics
-        String ueSessionUrlFirebaseGA = UserExperior.getSessionUrl("FirebaseGoogleAnalytics");
+        String ueSessionUrl = UserExperior.getSessionUrl("FirebaseGoogleAnalytics");
         
         Bundle params = new Bundle();
-        params.putString("UE_Session_URL", ueSessionUrlFirebaseGA);
+        params.putString("UE_Session_URL", ueSessionUrl);
         FirebaseAnalytics.getInstance(getApplicationContext()).logEvent("UE_Session_URL", params);
     }
   });
