@@ -20,15 +20,15 @@
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to MoEngage
-        String ueSessionUrlMoEngage = UserExperior.getSessionUrl("MoEngage");
+        String ueSessionUrl = UserExperior.getSessionUrl("MoEngage");
         
         Properties properties = new Properties();
-        properties.addAttribute("UE Session URL", ueSessionUrlMoEngage);
-        MoEHelper.getInstance(getApplicationContext()).trackEvent("UE Session URL", properties);
+        properties.addAttribute("UE_Session_URL", ueSessionUrl);
+        MoEHelper.getInstance(getApplicationContext()).trackEvent("UE_Session_URL", properties);
     }
   });
   ```
   
 ## Replay of Sessions
  
-After completing the integration, every MoEngage session will contain an event called **"UE Session URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+After completing the integration, every MoEngage session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
