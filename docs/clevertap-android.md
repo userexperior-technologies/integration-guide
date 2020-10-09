@@ -26,12 +26,12 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to CleverTap
-        String ueSessionUrlCT = UserExperior.getSessionUrl("CleverTap");
+        String ueSessionUrl = UserExperior.getSessionUrl("CleverTap");
         HashMap<String, Object> cleverTapUeMap = new HashMap<String, Object>();
-        cleverTapUeMap.put("UE Session URL", ueSessionUrlCT);
+        cleverTapUeMap.put("UE_Session_URL", ueSessionUrl);
         private CleverTapAPI cleverTapDefaultInstance = CleverTapAPI.getDefaultInstance(this);
         if (cleverTapDefaultInstance != null) {
-            clevertapDefaultInstance.pushEvent("UE Session URL", cleverTapUeMap);
+            clevertapDefaultInstance.pushEvent("UE_Session_URL", cleverTapUeMap);
         }
     }
   });
@@ -39,4 +39,4 @@ If you have not integrated UserExperior in your app, go to our SDK Integration G
   
 ## Replay of Crashed Sessions
  
-After completing the integration, every CleverTap session will contain an event called **"UE Session URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+After completing the integration, every CleverTap session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
