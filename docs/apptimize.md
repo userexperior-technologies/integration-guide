@@ -20,12 +20,12 @@
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Apptimize
-        String ueSessionUrlApptimize = UserExperior.getSessionUrl("Apptimize");        
-        Apptimize.track("UE Session URL :" + ueSessionUrlApptimize);
+        String ueSessionUrl = UserExperior.getSessionUrl("Apptimize");        
+        Apptimize.track("UE_Session_URL :" + ueSessionUrl);
     }
   });
   ```
   
 ## Replay of Sessions
  
-After completing the integration, every Apptimize session will contain an event called **"UE Session URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+After completing the integration, every Apptimize session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
