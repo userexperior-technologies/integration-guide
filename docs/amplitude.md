@@ -20,11 +20,11 @@
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Amplitude
-        String ueSessionUrlAmp = UserExperior.getSessionUrl("Amplitude");
+        String ueSessionUrl = UserExperior.getSessionUrl("Amplitude");
         
         JSONObject eventProperties = new JSONObject();
         try{
-          eventProperties.put("UE Session URL", ueSessionUrlAmp);
+          eventProperties.put("UE_Session_URL", ueSessionUrl);
         } catch (JSONException exception) {
         }
         Amplitude.getInstance().logEvent("UE Session URL", eventProperties);
@@ -34,4 +34,4 @@
   
 ## Replay of Sessions
  
-After completing the integration, every Amplitude session will contain an event called **"UE Session URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+After completing the integration, every Amplitude session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
