@@ -20,20 +20,20 @@
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Mixpanel
-        String ueSessionUrlMixpanel = UserExperior.getSessionUrl("Mixpanel");
+        String ueSessionUrl = UserExperior.getSessionUrl("Mixpanel");
         
         JSONObject props = new JSONObject();
-        props.put("UE Session URL", ueSessionUrlMixpanel);
+        props.put("UE_Session_URL", ueSessionUrl);
        
         public static final String MIXPANEL_TOKEN = "put-your-mixpanel-project-token-here";
 
         // Initialize the library with your Mixpanel project token, MIXPANEL_TOKEN, and a reference to your application context.
         MixpanelAPI mixpanel = MixpanelAPI.getInstance(context, MIXPANEL_TOKEN);
-        mixpanel.track("UE Session URL", props);
+        mixpanel.track("UE_Session_URL", props);
     }
   });
   ```
   
 ## Replay of Sessions
  
-After completing the integration, every Mixpanel session will contain an event called **"UE Session URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+After completing the integration, every Mixpanel session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
