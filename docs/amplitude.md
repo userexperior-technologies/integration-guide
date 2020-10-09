@@ -27,7 +27,7 @@
           eventProperties.put("UE_Session_URL", ueSessionUrl);
         } catch (JSONException exception) {
         }
-        Amplitude.getInstance().logEvent("UE Session URL", eventProperties);
+        Amplitude.getInstance().logEvent("UE_Session_URL", eventProperties);
     }
   });
   ```
