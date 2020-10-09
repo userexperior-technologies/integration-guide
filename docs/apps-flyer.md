@@ -20,15 +20,15 @@
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Mixpanel
-        String ueSessionUrlAppsFlyer = UserExperior.getSessionUrl("AppsFlyer");
+        String ueSessionUrl = UserExperior.getSessionUrl("AppsFlyer");
         
         HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("UE Session URL", ueSessionUrlAppsFlyer);
-        AppsFlyerLib.getInstance().trackEvent(getApplicationContext(), "UE Session URL", map);
+        map.put("UE_Session_URL", ueSessionUrl);
+        AppsFlyerLib.getInstance().trackEvent(getApplicationContext(), "UE_Session_URL", map);
     }
   });
   ```
   
 ## Replay of Sessions
  
-After completing the integration, every AppsFlyer session will contain an event called **"UE Session URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+After completing the integration, every AppsFlyer session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
