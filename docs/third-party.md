@@ -368,8 +368,8 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Firebase Crashlytics
-        String ueSessionUrlFC = UserExperior.getSessionUrl("FirebaseCrashlytics");
-        FirebaseCrashlytics.getInstance().setCustomKey("UE_Session_URL", ueSessionUrlFC);
+        String ueSessionUrl = UserExperior.getSessionUrl("FirebaseCrashlytics");
+        FirebaseCrashlytics.getInstance().setCustomKey("UE_Session_URL", ueSessionUrl);
     }
     });
   ```
