@@ -1,3 +1,63 @@
+## Integration
+
+> **Note:** Perform testing only on Real devices.
+
+### 1. Add UserExperior to your flutter app dependencies inside pubspec.yaml
+
+   ```
+    dependencies:
+      user_experior: ^1.1.14
+   ```
+
+### 2. Install UserExperior
+
+   You can install it from the command line:
+
+   ```
+    flutter pub get
+   ```
+
+   Alternatively, your editor might support `flutter pub get`. Check the docs for your editor to learn more.
+
+### 3. Import and Start UserExperior
+
+   Inside your dart file import user_experior package like this:
+
+   ```
+    import 'package:user_experior/user_experior.dart';
+   ```
+
+   Then inside the first method that gets called add the following code snippet, most likely inside the class of lib/main.dart file that's getting called by this void main() => runApp(MyApp()); where MyApp is the name of your class.
+
+   ```
+    UserExperior.startRecording("put-your-version-key-here");
+   ```
+
+   Example:
+
+   ```
+    @override
+    Widget build(BuildContext context) {
+        UserExperior.startRecording("put-your-version-key-here");
+        .....
+        .....
+        .....
+    }
+   ```
+
+-   Note
+
+    `Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.`
+
+-   Proguard Rules
+
+    If you are using Proguard in your project, you must add the following lines to your configuration:
+
+    ```
+    -dontwarn com.userexperior.**
+    -keep class com.userexperior.** { *; }
+    ```
+
 ## Customizing UserExperior with Key APIs
 
 ### 1.  Add User Identifier
