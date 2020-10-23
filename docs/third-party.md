@@ -1,7 +1,7 @@
 
 ## Amplitude
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Amplitude in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Amplitude**
   
@@ -88,7 +88,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 ## AppsFlyer
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the AppsFlyer in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **AppsFlyer**
   
@@ -173,7 +173,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 ## Apptimize
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Apptimize in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Apptimize**
   
@@ -253,7 +253,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 ## CleverTap
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On theCleverTap in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **CleverTap**
   
@@ -429,7 +429,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 ## Firebase Google Analytics
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Firebase Google Analytics in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Google Analytics**
   
@@ -515,7 +515,7 @@ Go to `Firebase Console` > Go to your `app folder` > `Events` > Under `Existing 
 
 ## Mixpanel
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Mixpanel in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Mixpanel**
   
@@ -607,7 +607,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 ## MoEngage
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the MoEngage in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **MoEngage**
   
