@@ -3,7 +3,11 @@
 ### Integration
 #### 1. Switch On the Firebase Crashlytics in UserExperior Settings
 
-  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
+  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Amplitude**
+  
+  ![Amplitude Switch](_media/third-party/am.png)
+  
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
 ##### Android
@@ -83,7 +87,12 @@ After completing the integration, every Apptimize session will contain an event 
 ### Integration
 #### 1. Switch On the Firebase Crashlytics in UserExperior Settings
 
-  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
+  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **AppsFlyer**
+  
+   ![AppsFlyer Switch](_media/third-party/apf.png)
+  
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
+
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
 ##### Android
@@ -161,7 +170,11 @@ After completing the integration, every AppsFlyer session will contain an event 
 ### Integration
 #### 1. Switch On the Firebase Crashlytics in UserExperior Settings
 
-  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
+  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Apptimize**
+  
+   ![Apptimize Switch](_media/third-party/at.png)
+  
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
 ##### Android
@@ -235,7 +248,11 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 ### Integration
 #### 1. Switch On the Firebase Crashlytics in UserExperior Settings
 
-  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
+  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **CleverTap**
+  
+  ![CleverTap Switch](_media/third-party/ct.png)
+  
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
 ##### Android
@@ -317,7 +334,9 @@ After completing the integration, every CleverTap session will contain an event 
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
   
-  ![Firebase Crashlytics Switch](_media/firebase-crashlytics-android/firebase-crashlytics-switch.png)
+   ![Firebase Crashlytics Switch](_media/third-party/fc.png)
+   
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
 
@@ -396,7 +415,11 @@ Go to Firebase Console > Go to your app folder > Crashlytics > Click on the cras
 ### Integration
 #### 1. Switch On the Firebase Crashlytics in UserExperior Settings
 
-  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
+  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Google Analytics**
+  
+   ![Firebase Google Analytics Switch](_media/third-party/fga.png)
+  
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
 ##### Android
@@ -474,7 +497,11 @@ After completing the integration, every Firebase Google Analytics events will co
 ### Integration
 #### 1. Switch On the Firebase Crashlytics in UserExperior Settings
 
-  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
+  Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Mixpanel**
+  
+  ![Mixpanel Switch](_media/third-party/mixp.png)
+  
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener immediately after startRecording:
 ##### Android
@@ -557,6 +584,10 @@ After completing the integration, every Mixpanel session will contain an event c
 #### 1. Switch On the Firebase Crashlytics in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **MoEngage**
+  
+   ![MoEngage Switch](_media/third-party/moe.png)
+  
+  **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
 ##### Android
