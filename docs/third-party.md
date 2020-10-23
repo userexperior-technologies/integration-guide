@@ -393,7 +393,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
       // Step 3: Implement UserExperiorDelegate protocol
         func userExperiorSessionStarted() {
             let sessionURL = UserExperior.getSessionUrl("FIREBASE_CRASHLYTICS") // "FIREBASE_CRASHLYTICS" is the key used for firebase craslytics
-            Crashlytics.crashlytics().setCustomValue(sessionURL, forKey: "UE Session URL")
+            Crashlytics.crashlytics().setCustomValue(sessionURL, forKey: "UE_Session_URL")
         }
   ```
 
@@ -415,12 +415,12 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
        // Step 3: Implement UserExperiorDelegate protocol
         - (void)userExperiorSessionStarted {
             NSString *sessionURL = [UserExperior getSessionUrl:@"FIREBASE_CRASHLYTICS"]; // "FIREBASE_CRASHLYTICS" is the key used for firebase craslytics
-            [[FIRCrashlytics crashlytics] setCustomValue:sessionURL forKey:@"UE Session URL"];
+            [[FIRCrashlytics crashlytics] setCustomValue:sessionURL forKey:@"UE_Session_URL"];
         }
   ```
 
 ### UserExperior URL in Firebase Crashlytics
- After completing the integration, every Crashlytics crash log will contain a key called "UE Session URL". You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every Crashlytics crash log will contain a key called "UE_Session_URL". You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
  Go to `Firebase Console` > Go to your `app folder` > `Crashlytics` > Click on the crash you want to debug > Click on the `Keys`
 
