@@ -12,8 +12,8 @@ Follow the links to get started:
   
   UserExperior supports os versions from Android **JellyBean** API Level 16 to Android **Oreo** API Level 27!
   
-  ## 3rd Party Integrations Guide
+## 3rd Party Integrations Guide
 
-  Come here after integrating UserExperior SDK using links above.
+Come here after integrating UserExperior SDK using links above.
 
-    - [3rd Party Integrations](3rd-party-integrations)
+- [3rd Party Integrations](3rd-party-integrations)
