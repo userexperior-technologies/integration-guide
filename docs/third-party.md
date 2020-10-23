@@ -5,7 +5,7 @@
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Amplitude**
   
-  ![Amplitude Switch](_media/third-party/am.png)
+  ![Amplitude Switch](_media/third-party/tp_amplitude_switch.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
@@ -81,7 +81,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 
 ### UserExperior URL in Amplitude
-After completing the integration, every Apptimize session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+After completing the integration, every Amplitude session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
 ## AppsFlyer
 ### Integration
@@ -89,7 +89,7 @@ After completing the integration, every Apptimize session will contain an event 
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **AppsFlyer**
   
-   ![AppsFlyer Switch](_media/third-party/apf.png)
+   ![AppsFlyer Switch](_media/third-party/tp_appsFlyer_switch.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
@@ -172,7 +172,7 @@ After completing the integration, every AppsFlyer session will contain an event 
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Apptimize**
   
-   ![Apptimize Switch](_media/third-party/at.png)
+   ![Apptimize Switch](_media/third-party/tp_apptimize_switch.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
@@ -243,6 +243,8 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 
 ### UserExperior URL in  Apptimize
+After completing the integration, every Apptimize session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+
 
 ## CleverTap
 ### Integration
@@ -250,7 +252,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **CleverTap**
   
-  ![CleverTap Switch](_media/third-party/ct.png)
+  ![CleverTap Switch](_media/third-party/tp_cleverTap_switch.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
@@ -334,7 +336,7 @@ After completing the integration, every CleverTap session will contain an event 
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
   
-   ![Firebase Crashlytics Switch](_media/third-party/fc.png)
+   ![Firebase Crashlytics Switch](_media/third-party/tp_firebaseCraslytics_switch.png)
    
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
@@ -417,7 +419,7 @@ Go to Firebase Console > Go to your app folder > Crashlytics > Click on the cras
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Google Analytics**
   
-   ![Firebase Google Analytics Switch](_media/third-party/fga.png)
+   ![Firebase Google Analytics Switch](_media/third-party/tp_firebaseGoogleAnalytics_switch.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
@@ -499,7 +501,7 @@ After completing the integration, every Firebase Google Analytics events will co
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Mixpanel**
   
-  ![Mixpanel Switch](_media/third-party/mixp.png)
+  ![Mixpanel Switch](_media/third-party/tp_mixpanel_switch.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
@@ -585,7 +587,7 @@ After completing the integration, every Mixpanel session will contain an event c
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **MoEngage**
   
-   ![MoEngage Switch](_media/third-party/moe.png)
+   ![MoEngage Switch](_media/third-party/tp_moengage_switch.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
