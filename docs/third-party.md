@@ -81,7 +81,10 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 
 ### UserExperior URL in Amplitude
-After completing the integration, every Amplitude session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every Amplitude session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+
+ ![Amplitude Session URL](_media/third-party/tp_amplitude_sessionUrl.png)
+
 
 ## AppsFlyer
 ### Integration
@@ -163,7 +166,9 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 
 ### UserExperior URL in  AppsFlyer
-After completing the integration, every AppsFlyer session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every AppsFlyer session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+
+ ![Amplitude Session URL](_media/third-party/tp_appsFlyer_sessionUrl.png)
 
 
 ## Apptimize
@@ -243,7 +248,7 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 
 ### UserExperior URL in  Apptimize
-After completing the integration, every Apptimize session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every Apptimize session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
 
 ## CleverTap
@@ -326,7 +331,16 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
   ```
 
 ### UserExperior URL in CleverTap
-After completing the integration, every CleverTap session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every CleverTap session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ 
+ Go to `Analytics` > `Events` > `Select Events`. Enter `UE_Session_URL` and click on `View details`
+ ![CleverTap Session URL](_media/third-party/tp_cleverTap_sessionUrl1.png)
+ 
+ Select `Trends and properties`
+ ![CleverTap Session URL](_media/third-party/tp_cleverTap_sessionUrl2.png)
+ 
+ Under `Event Property` select `UE_Session URL` and click on list view
+ ![CleverTap Session URL](_media/third-party/tp_cleverTap_sessionUrl3.png)
 
 
 ## Firebase Crashlytics
@@ -406,11 +420,11 @@ After completing the integration, every CleverTap session will contain an event 
   ```
 
 ### UserExperior URL in Firebase Crashlytics
-After completing the integration, every Crashlytics crash log will contain a key called "UE Session URL". You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every Crashlytics crash log will contain a key called "UE Session URL". You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
-Go to Firebase Console > Go to your app folder > Crashlytics > Click on the crash you want to debug > Click on the Keys > Copy the highlighted UE Session URL
+ Go to `Firebase Console` > Go to your `app folder` > `Crashlytics` > Click on the crash you want to debug > Click on the `Keys`
 
-![Firebase Crashlytics Switch](_media/firebase-crashlytics-android/firebase-crashlytics-ue-session-url.png)
+ ![Firebase Crashlytics Session URL](_media/third-party/tp_firebaseCraslytics_sessionURL.png)
 
 
 ## Firebase Google Analytics
@@ -492,7 +506,11 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
   ```
 
 ### UserExperior URL in Firebase Google Analytics
-After completing the integration, every Firebase Google Analytics events will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every Firebase Google Analytics events will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+
+Go to `Firebase Console` > Go to your `app folder` > `Events` > Under `Existing events` click on the `UE_Session_URL`. Now under parameter name `UE_Session_URL` find parameter value of UserExperior session URL. 
+
+ ![Firebase Google Analytics Session URL](_media/third-party/tp_firebaseGoogleAnalytics_sessionUrl.png)
 
 
 ## Mixpanel
@@ -578,7 +596,13 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
   ```
 
 ### UserExperior URL in  Mixpanel
-After completing the integration, every Mixpanel session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every Mixpanel session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ 
+ In the app Dashboard, go to `Data Management` > `Live View` > Under list of events click on distinct ID of event name `UE_Session_URL` 
+ ![Mixpanel Session URL](_media/third-party/tp_mixpanel_sessionUrl1.png)
+ 
+ Expand `UE_Session_URL` and under `All event properties` find session URL of UserExperior
+ ![Mixpanel Session URL](_media/third-party/tp_mixpanel_sessionUrl2.png)
 
 
 ## MoEngage
