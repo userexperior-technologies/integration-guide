@@ -1,3 +1,7 @@
+# 3rd Party Integrations
+
+UserExperior’s 3rd party integration enables you to integrate UserExperior with industry-leading quantitative analytics tools. This integration enables you to look at both quantitative and qualitative data inside your analytics tool.
+
 
 ## Amplitude
 ### Integration

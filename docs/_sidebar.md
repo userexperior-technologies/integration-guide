@@ -6,6 +6,6 @@
   - [- ReactNative](reactnative)
   - [- Flutter](flutter) 
   - [- Xamarin - Android](xamarin)
-  - [- Firebase Crashlytics + UserExperior](firebase-crashlytics)
+  - [- 3rd Party Integrations](3rd-party-integrations)
  
   

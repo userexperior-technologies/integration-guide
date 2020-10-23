@@ -12,10 +12,10 @@ Follow the links to get started:
   
 UserExperior supports os versions from **Android JellyBean (4.3) API Level 16** to **Android 10 API Level 29**!
 
-## Third Party Integrations Guide
+## 3rd Party Integrations Guide
 
 Come here after integrating UserExperior SDK using links above.
 
-  - [Firebase Crashlytics + UserExperior](firebase-crashlytics)
+  - [3rd Party Integrations](3rd-party-integrations)
 
  
