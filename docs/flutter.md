@@ -6,7 +6,7 @@
 
    ```
     dependencies:
-      user_experior: ^1.1.14
+      user_experior: ^1.1.15
    ```
 
 ### 2. Install UserExperior

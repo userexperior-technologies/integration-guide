@@ -11,28 +11,28 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
     For Swift 5.3
     
     ```
-    pod 'UserExperior', '4.4.34'
+    pod 'UserExperior', '4.4.38'
 
     ```
 
     For Swift 5.2
     
     ```
-    pod 'UserExperior', '4.4.33'
+    pod 'UserExperior', '4.4.37'
 
     ```
 
     For Swift 5.1
 
     ```
-     pod 'UserExperior', '4.4.32'
+     pod 'UserExperior', '4.4.36'
 
     ```
 
     For Swift 5.0 & below
 
     ```
-    pod 'UserExperior', '4.4.31'
+    pod 'UserExperior', '4.4.35'
 
     ```
 
@@ -76,10 +76,10 @@ You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.o
 ### Via Manual
 
 1. Follow the below link to download
-- [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.34/UserExperior.zip)
-- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.33/UserExperior.zip)
-- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.32/UserExperior.zip)
-- [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.31/UserExperior.zip)
+- [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.38/UserExperior.zip)
+- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.37/UserExperior.zip)
+- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.36/UserExperior.zip)
+- [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.35/UserExperior.zip)
 
 2. Unzip the file and drag the UserExperior.framework directory to the “Frameworks” in your XCode project tree.
 3. In your Xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
