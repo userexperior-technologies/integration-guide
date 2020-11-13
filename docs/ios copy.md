@@ -12,12 +12,24 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
     ```
         [UserExperior setUserIdentifier:@"pass-your-user-id-here"];
     ```
+    
+    Eg.
+    ```
+        [UserExperior setUserIdentifier:@"abc@xyz.com"];
+    ```
+
 
 -   For Swift
 
     ```
         UserExperior.setUserIdentifier("pass-your-user-id-here")
     ```
+    
+    Eg.
+    ```
+        [UserExperior setUserIdentifier:"abc@xyz.com"];
+    ```
+
 
 #### b. Add additional user information
 
@@ -26,12 +38,23 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
     ```
         [UserExperior setUserProperties:@{@"key":@value, ...}];
     ```
+    
+    Eg.
+    ```
+        [UserExperior setUserProperties:@{@"name":@"Sam", @"phone":@9876543210, @"age":@35, @"weight":@70.5}];
+    ```
+
 
 -   For Swift
 
     ```
         UserExperior.setUserProperties(["key":"value", ...])
     ```
+    
+    Eg.
+    ```
+        UserExperior.setUserProperties(["name":"Sam", "phone": 9876543210, "age":35, "weight":70.5])
+     ```
 
 ### 2. Log Event
 
@@ -44,11 +67,22 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
     ```
         [UserExperior logEvent:@"EVENT_GOES_HERE"];        
     ```
+    
+    Eg.
+    ```
+        [UserExperior logEvent:@"Onboarding successful!"];        
+    ```
+
 
 -   For Swift
 
     ```
         UserExperior.logEvent("EVENT_GOES_HERE")
+    ```
+    
+    Eg.
+    ```
+        UserExperior.logEvent("Onboarding successful!")
     ```
 
     Note: Max `eventName` limit is 250 chars only
@@ -60,11 +94,21 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
     ```
         [UserExperior logEvent:@"EVENT_GOES_HERE" properties:@{@"key":@value, ...}];        
     ```
+    
+    Eg,
+    ```
+        [UserExperior logEvent:@"Health Profile created" properties:@{@"name":@"Sam", @"phone":@9876543210, @"age":@35, @"weight":@70.5}];        
+    ```
 
 -   For Swift
 
     ```
         UserExperior.logEvent("EVENT_GOES_HERE", properties:["key:"value", ...])
+    ```
+    
+    Eg.
+    ```
+        UserExperior.logEvent("Health Profile created", properties:["name":"Sam", "phone": 9876543210, "age":35, "weight":70.5])
     ```
 
     Note: Max `eventName` limit is 250 chars only
@@ -79,13 +123,23 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
 -   For Objective-C
 
     ```
-        [UserExperior logEvent:@"EVENT_GOES_HERE"];        
+        [UserExperior logEvent:@"MESSAGE_GOES_HERE"];        
+    ```
+    
+    Eg.
+    ```
+        [UserExperior logEvent:@"User Name or Password is incorrect"];        
     ```
 
 -   For Swift
 
     ```
-        UserExperior.logEvent("EVENT_GOES_HERE")
+        UserExperior.logEvent("MESSAGE_GOES_HERE")
+    ```
+    
+    Eg.
+    ```
+        UserExperior.logEvent("User Name or Password is incorrect")
     ```
 
     Note: Max `messageName` limit is 250 chars only
@@ -97,11 +151,22 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
     ```
         [UserExperior logMessage:@"MESSAGE_GOES_HERE" properties:@{@"key":@value, ...}];        
     ```
+    
+    Eg.
+    ```
+        [UserExperior logMessage:@"User Name or Password is incorrect" properties:@{@"status_code":@400, @"response_message":@"invalid username/ password"}];        
+    ```
 
 -   For Swift
 
     ```
         UserExperior.logMessage("MESSAGE_GOES_HERE", properties:["key:"value", ...])
     ```
+    
+    Eg.
+    ```
+        UserExperior.logMessage("User Name or Password is incorrect", properties:["status_code:400, "response_message":"invalid username/ password"])
+    ```
+    
 
    
