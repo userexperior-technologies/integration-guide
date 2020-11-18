@@ -360,16 +360,6 @@ This method returns the status of the user whether the user is currently opted-i
 
 User recording resets to opt-in if the user un-installs and re-installs the app.
 
-### 12. User Consent before recording
-
-As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from the user before starting the session recording of that user. This will show a popup to the user on the app launch, asking permission to track the user's app screen, gestures, in-app activities. If the user does not provide consent then that user session and user details will not be recorded in the future.
-
-We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make a call to consent API:
-
-```
-void consent()
-```
-
 ## FAQs
 
 **When can we see the videos of the user's session?**

@@ -403,33 +403,6 @@ This method returns the status of the user whether the user is currently opted-i
         UserExperior.getOptOutStatus()
     ```
 
-### 8. User Consent before recording
-
-As per GDPR guidelines, we have implemented a new feature called User Consent. This feature enables you to take consent from the user before starting the session recording of that user. This will show a popup to the user on the app launch, asking permission to track the user's app screen, gestures, in-app activities. If the user does not provide consent then that user session and user details will not be recorded in the future. We recommend user consent to be taken on app launch, after starting UserExperior SDK you can make a call to consent API: 
-
--   For Objective-C
-
-    ```
-        [UserExperior consent];
-    ```
-
--   For Swift
-
-    ```
-        UserExperior.consent()
-    ```
-
-`Important` - App transport security setting
-
-If you are using Xcode 8.0 and Swift 3.0 or Swift 2.2 or even Objective C then add this in the plist:
-
-```
-<key>App Transport Security Settings</key>
-<dict>
-     <key>Allow Arbitrary Loads</key><true/>
-</dict>
-```
-
 ## What is NSAllowsArbitraryLoads?
 
 A Boolean value used to disable App Transport Security for any domains not listed in the NSExceptionDomains dictionary. Listed domains use the settings specified for that domain. The default value of NO requires the default App Transport Security behavior for all connections.
