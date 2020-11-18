@@ -195,7 +195,7 @@ UserExperior SDK by default masks all the Edit Boxes of activities. If you don't
     SecureViewBucket.removeFromSecureViewBucket(editBox);
     ```
 
-### 5. Identify Screens
+### 5. Track Fragments
 
 UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
 
