@@ -1,6 +1,6 @@
 ## Integration
 
-> **Note**: 
+**Note**: 
 -  Perform testing only on Real devices.
 -  UserExperior supports os versions from iOS 8+!
 - You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
@@ -11,38 +11,38 @@
 
 For Swift 5.3.1
     
-    ```
-    pod 'UserExperior', '4.4.39'
+```
+pod 'UserExperior', '4.4.39'
 
-    ```
-    
-    For Swift 5.3
-    
-    ```
-    pod 'UserExperior', '4.4.38'
+```
 
-    ```
+For Swift 5.3
 
-    For Swift 5.2
-    
-    ```
-    pod 'UserExperior', '4.4.37'
+```
+pod 'UserExperior', '4.4.38'
 
-    ```
+```
 
-    For Swift 5.1
+For Swift 5.2
 
-    ```
-     pod 'UserExperior', '4.4.36'
+```
+pod 'UserExperior', '4.4.37'
 
-    ```
+```
 
-    For Swift 5.0 & below
+For Swift 5.1
 
-    ```
-    pod 'UserExperior', '4.4.35'
+```
+ pod 'UserExperior', '4.4.36'
 
-    ```
+```
+
+For Swift 5.0 & below
+
+```
+pod 'UserExperior', '4.4.35'
+
+```
 
 2.  From your terminal, type 
 
