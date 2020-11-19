@@ -1,7 +1,8 @@
 ## Integration
 
-> **Note**: Perform testing only on Real devices.
-
+> **Note**: 
+-  Perform testing only on Real devices.
+-  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 10 API Level 29!
 
 ### 1. Add UserExperior dependency in build.gradle of your app
 

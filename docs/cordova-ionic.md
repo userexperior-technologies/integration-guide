@@ -1,6 +1,9 @@
 ## Integration
 
-> **Note:** Perform testing only on Real devices.
+> **Note**: 
+-  Perform testing only on Real devices.
+-  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 10 API Level 29 & iOS 8+!
+
 
 ### 1.  Add UserExperior Plugin to your Project
 

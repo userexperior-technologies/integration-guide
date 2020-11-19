@@ -1,8 +1,9 @@
 ## Integration
 
-> **Note:** Perform testing only on Real devices.
-
-You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
+> **Note**: 
+-  Perform testing only on Real devices.
+-  UserExperior supports os versions from iOS 8+!
+- You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
 
 ### Via Cocoapods
 

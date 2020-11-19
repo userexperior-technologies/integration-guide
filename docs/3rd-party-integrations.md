@@ -1,19 +1,21 @@
 # 3rd Party Integrations
-
 UserExperior’s 3rd party integration enables you to integrate UserExperior with industry-leading quantitative analytics tools. This integration enables you to look at both quantitative and qualitative data inside your analytics tool.
 
 
 ## Amplitude
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Amplitude in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Amplitude**
   
-  ![Amplitude Switch](_media/third-party/tp_amplitude_switch.png)
+  ![Amplitude Switch](/uploads/tp_amplitude_switch_389c19fee3.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
+
 ##### Android
 
 Add following code in onCreate method of every launcher activity.
@@ -87,21 +89,24 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 ### UserExperior URL in Amplitude
  After completing the integration, every Amplitude session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
- ![Amplitude Session URL](_media/third-party/tp_amplitude_sessionUrl.png)
+ ![Amplitude Session URL](/uploads/tp_amplitude_session_Url_ce2346a6e2.png)
 
 
 ## AppsFlyer
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the AppsFlyer in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **AppsFlyer**
   
-   ![AppsFlyer Switch](_media/third-party/tp_appsFlyer_switch.png)
+   ![AppsFlyer Switch](/uploads/tp_apps_Flyer_switch_f6135bbc1d.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
+
 ##### Android
 
 Add following code in onCreate method of every launcher activity.
@@ -172,20 +177,23 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 ### UserExperior URL in  AppsFlyer
  After completing the integration, every AppsFlyer session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
- ![Amplitude Session URL](_media/third-party/tp_appsFlyer_sessionUrl.png)
+ ![Amplitude Session URL](/uploads/tp_apps_Flyer_session_Url_13323f7777.png)
 
 
 ## Apptimize
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Apptimize in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Apptimize**
   
-   ![Apptimize Switch](_media/third-party/tp_apptimize_switch.png)
+   ![Apptimize Switch](/uploads/tp_apptimize_switch_655de420b2.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
+
 ##### Android
 
 Add following code in onCreate method of every launcher activity.
@@ -257,15 +265,18 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 ## CleverTap
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On theCleverTap in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **CleverTap**
   
-  ![CleverTap Switch](_media/third-party/tp_cleverTap_switch.png)
+  ![CleverTap Switch](/uploads/tp_clever_Tap_switch_f6ac24d834.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
+
 ##### Android
 
 Add following code in onCreate method of every launcher activity.
@@ -338,13 +349,13 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
  After completing the integration, every CleverTap session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
  
  Go to `Analytics` > `Events` > `Select Events`. Enter `UE_Session_URL` and click on `View details`
- ![CleverTap Session URL](_media/third-party/tp_cleverTap_sessionUrl1.png)
+ ![CleverTap Session URL](/uploads/tp_clever_Tap_session_Url1_86d9d98149.png)
  
  Select `Trends and properties`
- ![CleverTap Session URL](_media/third-party/tp_cleverTap_sessionUrl2.png)
+ ![CleverTap Session URL](/uploads/tp_clever_Tap_session_Url2_53de7f77e8.png)
  
  Under `Event Property` select `UE_Session URL` and click on list view
- ![CleverTap Session URL](_media/third-party/tp_cleverTap_sessionUrl3.png)
+ ![CleverTap Session URL](/uploads/tp_clever_Tap_session_Url3_3e7e881cb6.png)
 
 
 ## Firebase Crashlytics
@@ -354,11 +365,13 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Crashlytics**
   
-   ![Firebase Crashlytics Switch](_media/third-party/tp_firebaseCraslytics_switch.png)
+   ![Firebase Crashlytics Switch](/uploads/tp_firebase_Craslytics_switch_0ff881b0fc.png)
    
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
 
 ##### Android
   
@@ -372,8 +385,8 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
     @Override
     public void onUserExperiorStarted() {
         // Sending UserExperior Session URL to Firebase Crashlytics
-        String ueSessionUrl = UserExperior.getSessionUrl("FirebaseCrashlytics");
-        FirebaseCrashlytics.getInstance().setCustomKey("UE_Session_URL", ueSessionUrl);
+        String ueSessionUrlFC = UserExperior.getSessionUrl("FirebaseCrashlytics");
+        FirebaseCrashlytics.getInstance().setCustomKey("UE_Session_URL", ueSessionUrlFC);
     }
     });
   ```
@@ -424,24 +437,27 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
   ```
 
 ### UserExperior URL in Firebase Crashlytics
- After completing the integration, every Crashlytics crash log will contain a key called "UE_Session_URL". You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+ After completing the integration, every Crashlytics crash log will contain a key called "UE Session URL". You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
 
  Go to `Firebase Console` > Go to your `app folder` > `Crashlytics` > Click on the crash you want to debug > Click on the `Keys`
 
- ![Firebase Crashlytics Session URL](_media/third-party/tp_firebaseCraslytics_sessionURL.png)
+ ![Firebase Crashlytics Session URL](/uploads/tp_firebase_Craslytics_session_URL_0a9249199e.png)
 
 
 ## Firebase Google Analytics
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Firebase Google Analytics in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Firebase Google Analytics**
   
-   ![Firebase Google Analytics Switch](_media/third-party/tp_firebaseGoogleAnalytics_switch.png)
+   ![Firebase Google Analytics Switch](/uploads/tp_firebase_Google_Analytics_switch_47a6bb11a3.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
+
 ##### Android
 
 Add following code in onCreate method of every launcher activity.
@@ -514,20 +530,23 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 Go to `Firebase Console` > Go to your `app folder` > `Events` > Under `Existing events` click on the `UE_Session_URL`. Now under parameter name `UE_Session_URL` find parameter value of UserExperior session URL. 
 
- ![Firebase Google Analytics Session URL](_media/third-party/tp_firebaseGoogleAnalytics_sessionUrl.png)
+ ![Firebase Google Analytics Session URL](/uploads/tp_firebase_Google_Analytics_session_Url_3ce7588e31.png)
 
 
 ## Mixpanel
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the Mixpanel in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **Mixpanel**
   
-  ![Mixpanel Switch](_media/third-party/tp_mixpanel_switch.png)
+  ![Mixpanel Switch](/uploads/tp_mixpanel_switch_a61174f8df.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
+
 ##### Android
 
 Add following code in onCreate method of every launcher activity.
@@ -603,23 +622,26 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
  After completing the integration, every Mixpanel session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
  
  In the app Dashboard, go to `Data Management` > `Live View` > Under list of events click on distinct ID of event name `UE_Session_URL` 
- ![Mixpanel Session URL](_media/third-party/tp_mixpanel_sessionUrl1.png)
+ ![Mixpanel Session URL](/uploads/tp_mixpanel_session_Url1_467caa9da1.png)
  
  Expand `UE_Session_URL` and under `All event properties` find session URL of UserExperior
- ![Mixpanel Session URL](_media/third-party/tp_mixpanel_sessionUrl2.png)
+ ![Mixpanel Session URL](/uploads/tp_mixpanel_session_Url2_d3a8a2029a.png)
 
 
 ## MoEngage
 ### Integration
-#### 1. Switch On the Firebase Crashlytics in UserExperior Settings
+#### 1. Switch On the MoEngage in UserExperior Settings
 
   Go to UserExperior Dashboard > Go to your app folder > Go to Settings > Select Integrations > Switch On **MoEngage**
   
-   ![MoEngage Switch](_media/third-party/tp_moengage_switch.png)
+   ![MoEngage Switch](/uploads/tp_moengage_switch_3243165fb9.png)
   
   **Note:** Make sure to switch on the integration for respective platform i.e. for the Androind and the iOS. 
 
 #### 2. Add UserExperior Listener/ Delegate immediately after startRecording:
+
+  **Note:** In case of more than one 3rd party integrations, reuse the Listener/ Delegate mentioned below.
+
 ##### Android
 
 Add following code in onCreate method of every launcher activity.
@@ -691,4 +713,5 @@ UserExperior.setUserExperiorListener(new UserExperiorListener() {
 
 ### UserExperior URL in MoEngage
 After completing the integration, every MoEngage session will contain an event called **"UE_Session_URL"**. You can just copy and paste the URL in your browser's window that will open the session in the UserExperior Dashboard. If the session was recorded you will be able to replay it in the UserExperior Dashboard.
+
 
