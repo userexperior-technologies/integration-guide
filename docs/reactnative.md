@@ -122,7 +122,24 @@ React Native version 0.60+
     UserExperior.setCustomTag("Free User", "TAG");
     ```
 
-### 3. Identify Screens
+### 3. Mask Sensitive Views
+
+   UserExperior SDK by default masks all the Edit Boxes if Auto Masking is turned ON in Recording Rules for your app. However you can call `addInSecureViewBucket` to mask any ui element:
+
+   ```
+    void addInSecureViewBucket(ref)
+   ```
+
+   ref is the reference to your ui element which needs to be masked
+
+   Code Example:
+
+   ```
+    UserExperior.addInSecureViewBucket(ref);
+   ```
+
+
+### 4. Identify Screens
 
    UserExperior SDK automatically detects Activities/ViewControllers and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
 
@@ -143,7 +160,7 @@ React Native version 0.60+
    Note: This method should be usually called when your page loads.
 
 
-### 4. Track Response Time of Methods/ API Calls
+### 5. Track Response Time of Methods/ API Calls
 
    UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
 
@@ -163,7 +180,7 @@ React Native version 0.60+
     UserExperior.endTimer("Load Money API call");
    ```
 
-### 5. Control Recording
+### 6. Control Recording
 
    UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
 
@@ -185,25 +202,6 @@ React Native version 0.60+
 
    This API resumes the recording if it is paused.
 
-### 6. Sleep Mode
-
-   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for a certain duration. e.g. map-basedthe  navigation apps, video player apps, etc.
-
-   If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
-
-   This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
-
-   Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
-
-   If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
-
-   You can add following meta-data under application tag of your app's AndroidManifest.xml:
-
-   ```
-    <meta-data
-       android:name="com.userexperior.ueSleepModeTimeInSeconds"
-       android:value="5"/>
-   ```
 
 ### 7. Opt In/ Opt Out
 
