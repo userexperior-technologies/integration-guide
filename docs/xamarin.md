@@ -281,25 +281,6 @@ UserExperior SDK lets you send handled exceptions and their information to UserE
     }
    ```
 
-### 9.  Sleep Mode
-
-   UserExperior SDK can be configured to go into sleep mode when the user has the app opened in the device, however not actively using it for a certain duration. e.g. map-based navigation apps, video player apps, etc.
-
-   If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
-
-   This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
-
-   Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
-
-   If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
-
-   You can add following meta-data under application tag of your app's AndroidManifest.xml:
-
-   ```
-    <meta-data
-       android:name="com.userexperior.ueSleepModeTimeInSeconds"
-       android:value="5"/>
-   ```
 
 ## FAQs
 

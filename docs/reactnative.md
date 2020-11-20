@@ -4,7 +4,6 @@
 -  Perform testing only on Real devices.
 -  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 10 API Level 29 & iOS 8+!
 
-
 ### 1. Install & Link UserExperior Plugin
 
    -   Install
@@ -124,20 +123,19 @@ React Native version 0.60+
 
 ### 3. Mask Sensitive Views
 
-   UserExperior SDK by default masks all the Edit Boxes if Auto Masking is turned ON in Recording Rules for your app. However you can call `addInSecureViewBucket` to mask any ui element:
+UserExperior SDK by default masks all the Edit Boxes if Auto Masking is turned ON in Recording Rules for your app. However, you can call `addInSecureViewBucket` to mask any UI element:
 
    ```
     void addInSecureViewBucket(ref)
    ```
 
-   ref is the reference to your ui element which needs to be masked
+   `ref` is the reference to your UI element which needs to be masked.
 
    Code Example:
 
    ```
     UserExperior.addInSecureViewBucket(ref);
    ```
-
 
 ### 4. Identify Screens
 
@@ -188,7 +186,7 @@ React Native version 0.60+
     void stopRecording()
    ```
 
-   By default, recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
+   By default, the recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
 
    ```
     void pauseRecording()
@@ -201,7 +199,6 @@ React Native version 0.60+
    ```
 
    This API resumes the recording if it is paused.
-
 
 ### 7. Opt In/ Opt Out
 
@@ -243,7 +240,7 @@ If the app is killed without minimizing the app to the background, then the sess
 
 **What if the user does not have a network on the mobile device? Will the video get captured?**
 
-If the user does not have an active internet on their device at the time of the start of the session or during the end while uploading, then UserExperior stores the session locally in the apps secure memory. This stored session is sent to the UserExperior server when the users access the app again with an active internet.
+If the user does not have active internet on their device at the time of the start of the session or during the end while uploading, then UserExperior stores the session locally in the app's secure memory. This stored session is sent to the UserExperior server when the users access the app again with an active internet.
 
 **Does UserExperior Track events?**
 
@@ -259,7 +256,7 @@ Yes, use SetUserIdentifier API.
 
 **We use fragments in our app, does UserExperior also detect fragments?**
 
-Yes, user `StartScreen` API for fragments. This will allow UserExperior to recognize fragment as a screen.
+Yes, user `StartScreen` API for fragments. This will allow UserExperior to recognize a fragment as a screen.
 
 **Can UserExperior also work on Cordova/Phone gap kind of frameworks?**
 
@@ -275,7 +272,7 @@ You can see the full list of Android methods that could be in the stack-trace he
 
 ### iOS
 
-Due to our implementation of UserExperior framework in Swift 5, Please follow below points for your react native iOS project successful build:
+Due to our implementation of the UserExperior framework in Swift 5, Please follow the below points for your react native iOS project successful build:
 
 -   Need Xcode version 10.2
 -   Add below line in Library Search Path of your react native project target (In Build Settings):
@@ -296,7 +293,7 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
 1.  In case you are getting NoClassDefFoundError, try these steps:
 
-    1.1. Delete build folder of your project, clean project, Run project.
+    1.1. Delete the build folder of your project, clean project, Run the project.
 
     1.2. Exit Android Studio and Re-launch it
 
@@ -315,7 +312,7 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 
 2.  If you are getting 'Access to the dex task is now impossible, starting with 1.4.0', please refer to [this post.](https://stackoverflow.com/questions/34625267/access-to-the-dex-task-is-now-impossible-starting-with-1-4-0)
 
-3.  In case OutOfMemoryError please add following in `<application>` tag
+3.  In case of OutOfMemoryError please add the following in the `<application>` tag
 
     ```
     android:[largeHeap]="true"

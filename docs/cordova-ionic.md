@@ -1,9 +1,8 @@
 ## Integration
 
-> **Note**: 
+**Note**: 
 -  Perform testing only on Real devices.
 -  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 10 API Level 29 & iOS 8+!
-
 
 ### 1.  Add UserExperior Plugin to your Project
 
@@ -201,27 +200,7 @@
 
    This API resumes the recording if it is paused.
 
-### 6. Sleep Mode
-
-   UserExperior SDK can be configured to go into sleep mode when user has the app opened in the device, however not actively using it for a certain duration. e.g. map-basedthe  navigation apps, video player apps, etc.
-
-   If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
-
-   This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
-
-   Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
-
-   If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
-
-   You can add following meta-data under application tag of your app's AndroidManifest.xml:
-
-   ```
-    <meta-data
-       android:name="com.userexperior.ueSleepModeTimeInSeconds"
-       android:value="5"/>
-   ```
-
-### 7. Opt In/ Opt Out
+### 6. Opt In/ Opt Out
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 

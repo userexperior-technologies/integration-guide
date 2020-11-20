@@ -196,7 +196,7 @@ UserExperior SDK by default masks all the Edit Boxes of activities. If you don't
     SecureViewBucket.removeFromSecureViewBucket(editBox);
     ```
 
-### 5. Track Fragments
+### 5. Track Fragments
 
 UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
 
@@ -317,27 +317,7 @@ public void onBack(View view) {
 }
 ```
 
-### 10. Sleep Mode
-
-UserExperior SDK can be configured to go into sleep mode when the user has the app opened in the device, however not actively using it for a certain duration. Eg: map-based navigation apps, video player apps, etc.
-
-If UserExperior SDK is in sleep mode, any user interaction with the app awakes the SDK and the recording resumes.
-
-This allows having optimal recording (and thus optimal use of network resources) while still capturing user events as and when they occur.
-
-Sleep Mode Time (in seconds) is the duration for which SDK will wait after the last occurred user gesture to go into sleep mode.
-
-If the Sleep Mode Time value is 0 or negative, there will be no such idle time thus no sleep mode and recording will be for the whole duration.
-
-You can add following meta-data under application tag of your app's AndroidManifest.xml:
-
-```
-<meta-data
-    android:name="com.userexperior.ueSleepModeTimeInSeconds"
-    android:value="5"/>
-```
-
-### 11. Opt-out/Opt-in
+### 10. Opt-out/Opt-in
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
@@ -359,7 +339,7 @@ boolean getOptOutStatus()
 
 This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in.
 
-User recording resets to opt-in if the user un-installs and re-installs the app.
+User recording resets to opt-in if the user un-installs and re-installs the app. 
 
 ## FAQs
 
