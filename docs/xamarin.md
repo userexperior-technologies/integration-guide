@@ -2,7 +2,7 @@
 
 **Note**: 
 -  Perform testing only on Real devices.
--  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 10 API Level 29!
+-  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 11 API Level 30!
 
 ### 1.  Install UserExperior Library
 
