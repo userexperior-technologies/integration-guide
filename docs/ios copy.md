@@ -36,25 +36,30 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
 -   For Objective-C
 
     ```
-        [UserExperior setUserProperties:@{@"key":@value, ...}];
+        [UserExperior setUserProperties:@{@"key1":@value1, 
+                                          @"key2":@value2, ...}];
     ```
     
     Eg.
     ```
-        [UserExperior setUserProperties:@{@"name":@"Sam", @"phone":@9876543210}];
-    ```
-
+        [UserExperior setUserProperties:@{@"start_date":@"2020/11/25", // Date Format YYYY/MM/DD
+                                          @"plan_subscribed":@trial];    
+    ``` 
+    Note: Please send the Date in "YYYY/MM/DD" format.
 
 -   For Swift
 
     ```
-        UserExperior.setUserProperties(["key":"value", ...])
+        UserExperior.setUserProperties(["key1:"value1", 
+                                        "key2:"value2", ...])
     ```
     
     Eg.
     ```
-        UserExperior.setUserProperties(["name":"Sam", "phone": 9876543210])
-     ```
+        UserExperior.setUserProperties(["start_date":"2020/11/25", // Date Format YYYY/MM/DD
+                                         "plan_subscribed": "trial"])
+    ```
+    Note: Please send the Date in "YYYY/MM/DD" format.
 
 ### 2. Log Event
 
@@ -65,7 +70,7 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
 -   For Objective-C
 
     ```
-        [UserExperior logEvent:@"EVENT_GOES_HERE"];        
+        [UserExperior logEvent:@"YOUR_EVENT"];        
     ```
     
     Eg.
@@ -77,7 +82,7 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
 -   For Swift
 
     ```
-        UserExperior.logEvent("EVENT_GOES_HERE")
+        UserExperior.logEvent("YOUR_EVENT")
     ```
     
     Eg.
@@ -92,23 +97,27 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
 -   For Objective-C
 
     ```
-        [UserExperior logEvent:@"EVENT_GOES_HERE" properties:@{@"key":@value, ...}];        
+        [UserExperior logEvent:@"YOUR_EVENT" properties:@{@"key1":@value1, 
+                                                          @"key2":@value2, ...}];        
     ```
     
     Eg,
     ```
-        [UserExperior logEvent:@"Health Profile created" properties:@{@"age":@35, @"weight":@70.5}];        
+        [UserExperior logEvent:@"Health Profile created" properties:@{@"age":@35, 
+                                                                      @"weight":@70.5}];        
     ```
 
 -   For Swift
 
     ```
-        UserExperior.logEvent("EVENT_GOES_HERE", properties:["key:"value", ...])
+        UserExperior.logEvent("YOUR_EVENT", properties:["key1:"value1", 
+                                                        "key2:"value2", ...])
     ```
     
     Eg.
     ```
-        UserExperior.logEvent("Health Profile created", properties:["age":35, "weight":70.5])
+        UserExperior.logEvent("Health Profile created", properties:["age":35, 
+                                                                    "weight":70.5])
     ```
 
     Note: Max `eventName` limit is 250 chars only
@@ -123,23 +132,23 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
 -   For Objective-C
 
     ```
-        [UserExperior logEvent:@"MESSAGE_GOES_HERE"];        
+        [UserExperior logMessage:@"YOUR_MESSAGE"];        
     ```
     
     Eg.
     ```
-        [UserExperior logEvent:@"User Name or Password is incorrect"];        
+        [UserExperior logMessage:@"User Name or Password is incorrect"];        
     ```
 
 -   For Swift
 
     ```
-        UserExperior.logEvent("MESSAGE_GOES_HERE")
+        UserExperior.logMessage("YOUR_MESSAGE")
     ```
     
     Eg.
     ```
-        UserExperior.logEvent("User Name or Password is incorrect")
+        UserExperior.logMessage("User Name or Password is incorrect")
     ```
 
     Note: Max `messageName` limit is 250 chars only
@@ -149,7 +158,8 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
 -   For Objective-C
 
     ```
-        [UserExperior logMessage:@"MESSAGE_GOES_HERE" properties:@{@"key":@value, ...}];        
+        [UserExperior logMessage:@"YOUR_MESSAGE" properties:@{@"key1":@value1, 
+                                                             @"key2":@value2, ...}];        
     ```
     
     Eg.
@@ -161,7 +171,8 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
 -   For Swift
 
     ```
-        UserExperior.logMessage("MESSAGE_GOES_HERE", properties:["key:"value", ...])
+        UserExperior.logMessage("YOUR_MESSAGE", properties:["key1:"value1", 
+                                                            "key2:"value2", ...])
     ```
     
     Eg.
