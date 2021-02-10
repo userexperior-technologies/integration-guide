@@ -38,7 +38,7 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
     userProperties.put("DOB", dob);
     UserExperior.setUserProperties(userProperties);
     
-   Note: Please send the Date in "YYYY/MM/DD" format.
+   Note: Please send the date property in "YYYY/MM/DD" format only, if any.
 
 ### 2. Log Event
 
@@ -77,7 +77,7 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
     eventProp.put("Date", date);
     UserExperior.logEvent("MOBILE_TOPUP", eventProp);        
 
-   Note: Max `eventName` limit is 250 chars only; Please send the Date in "YYYY/MM/DD" format.
+   Note: Max `eventName` limit is 250 chars only; Please send the date property in "YYYY/MM/DD" format only, if any.
 
     
 ### 3. Log Message
@@ -105,7 +105,7 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
     messageProp.put("key2", val2);
     messageProp.put("key3", val3);
     messageProp.put("keyN", valN);
-    UserExperior.logEvent("Your-Message", messageProp);
+    UserExperior.logMessage("Your-Message", messageProp);
     
    Eg.
     
@@ -115,6 +115,6 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
     messageProp.put("City", city);
     messageProp.put("Amount", amount);
     messageProp.put("Date", date);
-    UserExperior.logEvent("Electricity Recharge Successfully Done!", messageProp);
+    UserExperior.logMessage("Electricity Recharge Successfully Done!", messageProp);
     
-  Note: Max `messageName` limit is 250 chars only; Please send the Date in "YYYY/MM/DD" format.
+  Note: Max `messageName` limit is 250 chars only; Please send the date property in "YYYY/MM/DD" format only, if any.
