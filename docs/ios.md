@@ -192,7 +192,7 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
         UserExperior.setUserProperties(["start_date": "2020/12/31", // Date-Format: YYYY/MM/DD
                                          "plan_subscribed": "trial"])
     ```
-    Note: Please send the Date property in "YYYY/MM/DD" format only, if any.
+    Note: Please send the `date property` in ``"YYYY/MM/DD"`` format only, if any.
 
 ### 2. Log Event
 
@@ -255,7 +255,7 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
 
     Note:
     - Max `eventName` limit is 250 chars only.
-    - Please send the Date property in "YYYY/MM/DD" format only, if any.
+    - Please send the `date property` in ``"YYYY/MM/DD"`` format only, if any.
 
 ### 3. Log Message
 
@@ -317,7 +317,7 @@ UserExperior SDK lets you log user message based on the scenario. A message can 
 
     Note:
     - Max `messageName` limit is 250 chars only.
-    - Please send the Date property in "YYYY/MM/DD" format only, if any.
+    - Please send the `date property` in ``"YYYY/MM/DD"`` format only, if any.
 
 
 ### 4. Mask Sensitive Views
