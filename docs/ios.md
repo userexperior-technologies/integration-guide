@@ -1,6 +1,6 @@
 ## Integration
 
-**Note**:
+> **Note**:
 -  Perform testing only on Real devices.
 -  UserExperior supports os versions from iOS 8+!
 - You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
@@ -9,40 +9,40 @@
 
 1.  Add to the pod file
 
-For Swift 5.3.+
+    For Swift 5.3.+
 
-```
-pod 'UserExperior', '4.4.45'
+    ```
+    pod 'UserExperior', '4.4.45'
 
-```
+    ```
 
-For Swift 5.3
+    For Swift 5.3
 
-```
-pod 'UserExperior', '4.4.44'
+    ```
+    pod 'UserExperior', '4.4.44'
 
-```
+    ```
 
-For Swift 5.2
+    For Swift 5.2
 
-```
-pod 'UserExperior', '4.4.43'
+    ```
+    pod 'UserExperior', '4.4.43'
 
-```
+    ```
 
-For Swift 5.1
+    For Swift 5.1
 
-```
- pod 'UserExperior', '4.4.42'
+    ```
+     pod 'UserExperior', '4.4.42'
 
-```
+    ```
 
-For Swift 5.0 & below
+    For Swift 5.0 & below
 
-```
-pod 'UserExperior', '4.4.41'
+    ```
+    pod 'UserExperior', '4.4.41'
 
-```
+    ```
 
 2.  From your terminal, type
 
@@ -84,7 +84,7 @@ pod 'UserExperior', '4.4.41'
 ### Via Manual
 
 1. Follow the below link to download
-- [Download (For Swift 5.3.+)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.45/UserExperior.zip)
+- [Download (For Swift 5.3.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.45/UserExperior.zip)
 - [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.44/UserExperior.zip)
 - [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.43/UserExperior.zip)
 - [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.42/UserExperior.zip)
@@ -127,8 +127,7 @@ pod 'UserExperior', '4.4.41'
 
 And that's it!
 
-The UserExperior.framework is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
-
+The UserExperior.framework is automatically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
 
 
@@ -138,7 +137,7 @@ The UserExperior.framework is automagically added as a target dependency, linked
 
 #### a. Set User Identifier
 
-UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
+UserExperior SDK by default takes the device id as a user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
 
 -   For Objective-C
 
@@ -198,7 +197,7 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
 
 UserExperior SDK lets you log user events based on the scenario. An event is the indication of Progress in the user's session. LogEvent() can be used as follows
 
-#### a. Log event with name
+#### a. Log event with the name
 
 -   For Objective-C
 
@@ -259,9 +258,9 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
 
 ### 3. Log Message
 
-UserExperior SDK lets you log user message based on the scenario. A message can be any app message shown to the user, any response OR error message OR toast message OR validation messages OR messages shown on dialog boxes, etc. which indicates a response to the user by the app. LogMessage() can be used as follows
+UserExperior SDK lets you log user messages based on the scenario. A message can be any app message shown to the user, any response OR error message OR toast message OR validation messages OR messages shown on dialog boxes, etc. which indicates a response to the user by the app. LogMessage() can be used as follows
 
-#### a. Log message with name
+#### a. Log message with the name
 
 -   For Objective-C
 
@@ -334,7 +333,7 @@ NOTE : Call `isSecureView` on any UI control object which is inherited from UIVi
 
 ### 5. Identify Screens
 
-UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in the existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
+UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in the existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` that will be missed during auto-capturing.
 
 -   For Objective-C
 
@@ -381,7 +380,7 @@ UserExperior SDK allows you to track the load/ response time of the components i
         UserExperior.stopTimer("TIMER_NAME")
     ```
 
-Eg: Suppose, you have a `TableView` on your screen which gets loaded with data you receive from the server. You can call `startTimer` method when view resumes to the user and call `stopTimer` method when data gets successfully shown in `TableView`. Now, you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any method call and `endTimer` on method response.
+Eg: Suppose, you have a `TableView` on your screen which gets loaded with data you receive from the server. You can call `startTimer` method when the view resumes to the user and call `stopTimer` method when data gets successfully shown in `TableView`. Now, you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any method call and `endTimer` on method response.
 
 Example:
 
@@ -421,7 +420,7 @@ Example:
 UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture
 
 **Stop Recording:**
-By default, recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
+By default, the recording stops automatically once the app goes to the background. However, you can stop at the desired point by calling this API.
 
 -   For Objective-C
 
