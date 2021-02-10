@@ -35,87 +35,124 @@ Call the above method in every activity that is an entry point to your app! Entr
 
 ## Customizing UserExperior with Key APIs
 
-### 1. Add User Identifier
+### 1. Set User Identifier & additional properties
 
-UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (Eg: Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
+#### a. Set User Identifier
 
-```
-void setUserIdentifier(String userIdentifier)
-```
+UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
 
-Note: Max `userIdentifier` limit is 250 chars only
+   Syntax:
+    
+    UserExperior.setUserIdentifier("pass-your-user-id-here");
+    
+    
+   Eg.
+    
+    UserExperior.setUserIdentifier("abc@xyz.com");
+    
 
-Code Example:
+#### b. Send additional user information
 
-```
-UserExperior.setUserIdentifier("pass-your-user-id-here");
-```
+   Syntax:
+    
+    HashMap<String, Object> userProperties = new HashMap<>();
+    userProperties.put("key1", value1);
+    userProperties.put("key2", value2);
+    userProperties.put("key3", value3);
+    userProperties.put("keyN", valueN);
+    UserExperior.setUserProperties(userProperties);
+    
+   Eg.
 
-### 2. Add Events/ Messages/ Tags
+    HashMap<String, Object> userProperties = new HashMap<>();
+    userProperties.put("USER_NAME", userName);
+    userProperties.put("CITY", city);
+    userProperties.put("STATE", state);
+    userProperties.put("COUNTRY", country);
+    userProperties.put("DOB", dob);
+    UserExperior.setUserProperties(userProperties);
+    
+   Note: Please send the date property in "YYYY/MM/DD" format only, if any.
 
-UserExperior SDK lets you track user events, app responses/messages of your app, and tag sessions based on some conditions using a very powerful API called setCustomTag.
+### 2. Log Event
 
-```
-void setCustomTag(String customTag, String customType)
-```
+UserExperior SDK lets you log user events based on the scenario. An event is the indication of Progress in the user's session. LogEvent() can be used as follows
 
-Note: Max `customTag` limit is 250 chars only
+#### a. Log event with name
 
-Using this API, you can add:
+   Syntax:
+    
+    UserExperior.logEvent("Pass-Your-Event-Name-Here");
+    
+   Eg.
+    
+    UserExperior.logEvent("Registration Successful");
 
--   **Events**
+   Note: Max `eventName` limit is 250 chars only
+    
+#### b. Log event with name and properties
 
-    In UserExperior terms, an event is the Indication of Progress in the user's session. If you want to track user events that are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
+   Syntax:
+    
+    HashMap<String, Object> eventProp = new HashMap<>();
+    eventProp.put("key1", val1);
+    eventProp.put("key2", val2);
+    eventProp.put("key3", val3);
+    eventProp.put("keyN", valN);
+    UserExperior.logEvent("Your-Event-Name", eventProp);
+    
+   Eg.
+    
+    HashMap<String, Object> eventProp = new HashMap<>();
+    eventProp.put("Mobile_Number", mobileNum);
+    eventProp.put("Service_Provider", serviceProvider);
+    eventProp.put("Circle", circle);
+    eventProp.put("Amount", amount);
+    eventProp.put("Date", date);
+    UserExperior.logEvent("MOBILE_TOPUP", eventProp);        
 
-    Eg: `Txn Completed`, `Checkout Done`, `COD Payment`, `Debit Card Payment`, `Login`, `Check Balance`, `Fund Transfer` etc.
+   Note: Max `eventName` limit is 250 chars only; Please send the date property in "YYYY/MM/DD" format only, if any.
 
-    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initially recorded sessions itself.)
+### 3. Log Message
 
-    Recommendation: Kindly pass hardcoded/fixed values for events, do not pass incremental values!
+UserExperior SDK lets you log user meessage based on the scenario. A message can be any app message shown to the user, any response OR error message OR toast message OR validation messages OR messages shown on dialog boxes, etc. which indicates a response to the user by the app. LogMessage() can be used as follows
 
-    Code Example:
+#### a. Log message with name
 
-    ```
-    try {
-       UserExperior.setCustomTag("Mobile Top-up", UeCustomType.EVENT);
-    } catch (Exception e) {
-       e.printStackTrace();
-    }
-    ```
+   Syntax:
+    
+    UserExperior.logMessage("Pass-Your-Message-Here");
+    
+   Eg.
+    
+    UserExperior.logMessage("User Name or Password is incorrect");
 
--   **Messages**
+   Note: Max `messageName` limit is 250 chars only
+    
+#### b. Log message with name and properties
 
-    A message can be any app message shown to the user, any response or error message or toast message or validation messages or messages shown on dialog boxes, etc. which indicates a response to the user by the app. To add a message, use UeCustomType.MSG in 2nd parameter.
+   Syntax:
+    
+    HashMap<String, Object> messageProp = new HashMap<>();
+    messageProp.put("key1", val1);
+    messageProp.put("key2", val2);
+    messageProp.put("key3", val3);
+    messageProp.put("keyN", valN);
+    UserExperior.logMessage("Your-Message", messageProp);
+    
+   Eg.
+    
+    HashMap<String, Object> messageProp = new HashMap<>();
+    messageProp.put("Consumer_Number", consumerNum);
+    messageProp.put("Electricity_Board", electricityBoard);
+    messageProp.put("City", city);
+    messageProp.put("Amount", amount);
+    messageProp.put("Date", date);
+    UserExperior.logMessage("Electricity Recharge Successfully Done!", messageProp);
+    
+  Note: Max `messageName` limit is 250 chars only; Please send the date property in "YYYY/MM/DD" format only, if any.
 
-    Eg: `Please select location`, `Enable location permission`, `User Name or Password is incorrect`, etc.
-
-    Code Example:
-
-    ```
-    try {
-       UserExperior.setCustomTag("Please select location!", UeCustomType.MSG);
-    } catch (Exception e) {
-       e.printStackTrace();
-    }
-    ```
-
--   **Tags**
-
-    In UserExperior terms, a tag is a kind of behavior in the user's session. You can add Tag to even create segments of users based on behavior or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
-
-    Eg: `Free User`, `Paid User`, `Burgundy User`, `No Txn by User`, `Free Subscription`, etc.
-
-    Code Example:
-
-    ```
-    try {
-       UserExperior.setCustomTag("Free User", UeCustomType.TAG);
-    } catch (Exception e) {
-       e.printStackTrace();
-    }
-    ```
-
-### 3. Mask Sensitive Views
+### 4. Mask Sensitive Views
 
 UserExperior SDK by default masks all the Edit Boxes of activities. If you wish to mask any other UI element in your app, you can mask it by:
 
@@ -156,7 +193,7 @@ UserExperior SDK by default masks all the Edit Boxes of activities. If you wish 
     SecureViewBucket.addInSecureViewBucket(anyView);
     ```
 
-### 4. Unmask
+### 5. Unmask
 
 UserExperior SDK by default masks all the Edit Boxes of activities. If you don't want to mask any EditBox in your app, you can exclude it from being masked by:
 
@@ -196,7 +233,7 @@ UserExperior SDK by default masks all the Edit Boxes of activities. If you don't
     SecureViewBucket.removeFromSecureViewBucket(editBox);
     ```
 
-### 5. Track Fragments
+### 6. Track Fragments
 
 UserExperior SDK automatically detects Activities and defines them as screens. However, If you have used fragments or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
 
@@ -220,7 +257,7 @@ try {
 
 Note: This method should be usually called from the onResume() method.
 
-### 6. Track Response Time of Methods/API Calls
+### 7. Track Response Time of Methods/API Calls
 
 UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
 
@@ -251,7 +288,7 @@ try {
 }
 ```
 
-### 7. Control Recording
+### 8. Control Recording
 
 UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
 
@@ -273,7 +310,7 @@ void resumeRecording()
 
 This API resumes the recording if it is paused.
 
-### 8. Get Precise User Location
+### 9. Get Precise User Location
 
 UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the GPS location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.
 
@@ -292,7 +329,7 @@ try {
 }
 ```
 
-### 9. Send Handled Exceptions
+### 10. Send Handled Exceptions
 
 UserExperior SDK lets you send handled exceptions and their information to UserExperior Dashboard so that you can know where your app caused the handled exceptions. You must send exceptions in the catch block(s) of the handled exception. The exception object's class name (eg. java.lang.NullPointerException) will appear in the storyline of the sessions of your app on the dashboard.
 
@@ -317,7 +354,7 @@ public void onBack(View view) {
 }
 ```
 
-### 10. Opt-out/Opt-in
+### 11. Opt-out/Opt-in
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
