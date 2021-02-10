@@ -1,6 +1,6 @@
 ## Integration
 
-**Note**: 
+**Note**:
 -  Perform testing only on Real devices.
 -  UserExperior supports os versions from iOS 8+!
 - You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
@@ -10,7 +10,7 @@
 1.  Add to the pod file
 
 For Swift 5.3.1
-    
+
 ```
 pod 'UserExperior', '4.4.39'
 
@@ -44,7 +44,7 @@ pod 'UserExperior', '4.4.35'
 
 ```
 
-2.  From your terminal, type 
+2.  From your terminal, type
 
     After the repo update perform the below command to install pod
 
@@ -55,14 +55,14 @@ pod 'UserExperior', '4.4.35'
 3. In your app delegate, include:
 
 - 3. a. For Objective-C
-    
+
             #import <UserExperior/UserExperior-Swift.h>
 
 -  3. b. For Swift
 
             import UserExperior
 
-4. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
+4. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method.
 
 - 4. a. For Objective-C
 
@@ -99,14 +99,14 @@ pod 'UserExperior', '4.4.35'
 8. In your app delegate, include:
 
 - 8. a. For Objective-C
-    
+
             #import <UserExperior/UserExperior-Swift.h>
 
 -  8. b. For Swift
 
             import UserExperior
 
-9. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
+9. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method.
 
 - 9. a. For Objective-C
 
@@ -131,9 +131,12 @@ The UserExperior.framework is automagically added as a target dependency, linked
 
 
 
+
 ## Customizing UserExperior with Key APIs:
 
-### 1. Add User Identifier
+### 1. Set User Identifier & additional properties
+
+#### a. Set User Identifier
 
 UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
 
@@ -143,93 +146,181 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
         [UserExperior setUserIdentifier:@"pass-your-user-id-here"];
     ```
 
+    Eg.
+    ```
+        [UserExperior setUserIdentifier:@"abc@xyz.com"];
+    ```
+
+
 -   For Swift
 
     ```
         UserExperior.setUserIdentifier("pass-your-user-id-here")
     ```
 
-### 2. Add Events/ Messages/ Tags
+    Eg.
+    ```
+        [UserExperior setUserIdentifier:"abc@xyz.com"];
+    ```
 
-UserExperior SDK lets you track user `events`, app `messages` of your app and `tag` sessions based on some conditions using very powerful method setCustomTag()
+
+#### b. Send additional user information
 
 -   For Objective-C
 
     ```
-        [UserExperior setCustomTag:@"SCREEN_NAME" customType: UECustomType];
+        [UserExperior setUserProperties:@{@"key1":@value1,
+                                          @"key2":@value2, ...}];
+    ```
+
+    Eg.
+    ```
+        [UserExperior setUserProperties:@{@"start_date":@"2020/11/25", // Date Format YYYY/MM/DD
+                                          @"plan_subscribed":@trial];    
+    ```
+    Note: Please send the Date in "YYYY/MM/DD" format.
+
+-   For Swift
+
+    ```
+        UserExperior.setUserProperties(["key1:"value1",
+                                        "key2:"value2", ...])
+    ```
+
+    Eg.
+    ```
+        UserExperior.setUserProperties(["start_date": "2020/12/31", // Date-Format: YYYY/MM/DD
+                                         "plan_subscribed": "trial"])
+    ```
+    Note: Please send the Date property in "YYYY/MM/DD" format only.
+
+### 2. Log Event
+
+UserExperior SDK lets you log user events based on the scenario. An event is the indication of Progress in the user's session. LogEvent() can be used as follows
+
+#### a. Log event with name
+
+-   For Objective-C
+
+    ```
+        [UserExperior logEvent:@"YOUR_EVENT"];        
+    ```
+
+    Eg.
+    ```
+        [UserExperior logEvent:@"Onboarding successful!"];        
+    ```
+
+
+-   For Swift
+
+    ```
+        UserExperior.logEvent("YOUR_EVENT")
+    ```
+
+    Eg.
+    ```
+        UserExperior.logEvent("Onboarding successful!")
+    ```
+
+    Note: Max `eventName` limit is 250 chars only.
+
+#### b. Log event with name and properties
+
+-   For Objective-C
+
+    ```
+        [UserExperior logEvent:@"YOUR_EVENT" properties:@{@"key1":@value1,
+                                                          @"key2":@value2, ...}];        
+    ```
+
+    Eg,
+    ```
+        [UserExperior logEvent:@"Health Profile created" properties:@{@"age":@35,
+                                                                      @"weight":@70.5}];        
     ```
 
 -   For Swift
 
     ```
-        UserExperior.setCustomTag("TAG", customType: UECustomType)
+        UserExperior.logEvent("YOUR_EVENT", properties:["key1:"value1",
+                                                        "key2:"value2", ...])
     ```
 
-    Note: Max `customTag` limit is 250 chars only
+    Eg.
+    ```
+        UserExperior.logEvent("Health Profile created", properties:["age":35,
+                                                                    "weight":70.5])
+    ```
 
-    Using this API, you can add:
+    Note:
+    - Max `eventName` limit is 250 chars only.
+    - Please send the Date property in "YYYY/MM/DD" format only.
 
-    -   Events In UserExperior terms, an event is the Indication of Progress in the user's session. If you want to track user events that are not auto-captured by UserExperior, use UeCustomType.EVENT in 2nd parameter.
+### 3. Log Message
 
-        Eg: `Transaction Completed`, `Checkout Done`, `COD Payment`, `Debit Card Payment`, `Login`, `Check Balance`, `Fund Transfer`, etc.
+UserExperior SDK lets you log user message based on the scenario. A message can be any app message shown to the user, any response OR error message OR toast message OR validation messages OR messages shown on dialog boxes, etc. which indicates a response to the user by the app. LogMessage() can be used as follows
 
-        Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initially recorded sessions itself.)
+#### a. Log message with name
 
-        Recommendation: Kindly pass hardcoded/fixed values for events, do not pass incremental values!
+-   For Objective-C
 
-        Example
+    ```
+        [UserExperior logMessage:@"YOUR_MESSAGE"];        
+    ```
 
-        -   For Objective-C
+    Eg.
+    ```
+        [UserExperior logMessage:@"User Name or Password is incorrect"];        
+    ```
 
-            ```
-                [UserExperior setCustomTag:@"TAG" customType: UECustomType.event];
-            ```
+-   For Swift
 
-        -   For Swift
+    ```
+        UserExperior.logMessage("YOUR_MESSAGE")
+    ```
 
-            ```
-                UserExperior.setCustomTag("TAG", customType: UECustomType.event)
-            ```
+    Eg.
+    ```
+        UserExperior.logMessage("User Name or Password is incorrect")
+    ```
 
-    -   Messages A message can be any app message shown to the user, any response or error message or toast message or validation messages or messages shown on dialog boxes, etc. which indicates a response to the user by the app. To add a message, use UeCustomType.MSG in 2nd parameter.
+    Note: Max `messageName` limit is 250 chars only.
 
-        Eg: `Please select location`, `Enable location permission`, `User Name or Password is incorrect`, etc.
+#### b. Log message with name and properties
 
-        Example
+-   For Objective-C
 
-        -   For Objective-C
+    ```
+        [UserExperior logMessage:@"YOUR_MESSAGE" properties:@{@"key1":@value1,
+                                                              @"key2":@value2, ...}];        
+    ```
 
-            ```
-                [UserExperior setCustomTag:@"TAG" customType: UECustomType.msg];
-            ```
+    Eg.
+    ```
+        [UserExperior logMessage:@"Login Error" properties:@{@"status_code":@400,
+                                                             @"response_message":@"invalid credentials"}];        
+    ```
 
-        -   For Swift
+-   For Swift
 
-            ```
-                UserExperior.setCustomTag("TAG", customType: UECustomType.msg)
-            ```
+    ```
+        UserExperior.logMessage("YOUR_MESSAGE", properties:["key1:"value1",
+                                                            "key2:"value2", ...])
+    ```
 
-    -   Tags
+    Eg.
+    ```
+        UserExperior.logMessage("Login Error", properties:["status_code:400,
+                                                           "response_message":"invalid credentials"])
+    ```
 
-        In UserExperior terms, a tag is a kind of behavior in the user's session. You can add Tag to even create segments of users based on behavior or a certain condition, you can define your own tags for your app. To define your own tag, use UeCustomType.TAG in 2nd parameter.
+    Note:
+    - Max `messageName` limit is 250 chars only.
+    - Please send the Date property in "YYYY/MM/DD" format only.
 
-        Eg: `Free User`, `Paid User`, `Burgundy User`, `No Txn by User`, `Free Subscription`, etc.
 
-        Example
-
-        -   For Objective-C
-
-            ```
-                [UserExperior setCustomTag:@"TAG" customType: UECustomType.tag];
-            ```
-
-        -   For Swift
-
-            ```
-                UserExperior.setCustomTag("TAG", customType: UECustomType.tag)
-            ```
-
-### 3. Mask Sensitive Views
+### 4. Mask Sensitive Views
 
 UserExperior SDK by default masks all the UITextField and UITextView. If you wish to mask any other UI element in your app, you can mask it by:
 
@@ -241,7 +332,7 @@ UserExperior SDK by default masks all the UITextField and UITextView. If you wis
 NOTE : Call `isSecureView` on any UI control object which is inherited from UIView
 
 
-### 4. Identify Screens
+### 5. Identify Screens
 
 UserExperior SDK automatically detects `ViewController` and defines them as screens. However, If you have used `subviews` added in the existing `ViewController`, then we recommend to use the `startScreen()` method. This API allows you to manually define `subviews` which will be missed during auto-capturing.
 
@@ -272,7 +363,7 @@ UserExperior SDK automatically detects `ViewController` and defines them as scre
 Note: Max screenName limit is 250 chars only
 
 
-### 5. Track Response Time of Methods/ API Calls
+### 6. Track Response Time of Methods/ API Calls
 
 UserExperior SDK allows you to track the load/ response time of the components in your app using a method called `startTimer` and `stopTimer`. You can call `startTimer` method at any event on the app from which you want to track the load/ response time and call a `stopTimer` method at the event completion. This method will calculate the complete response time.
 
@@ -325,7 +416,7 @@ Example:
     Note: Max `timerName` limit is 250 chars only
 
 
-### 6. Control Recording
+### 7. Control Recording
 
 UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture
 
@@ -374,7 +465,7 @@ By default, recording stops automatically once the app goes to the background. H
         UserExperior.resumeRecording()
     ```
 
-### 7. Opt-In/Opt-Out
+### 8. Opt-In/Opt-Out
 
 SDK by default opts-in users for session recording on app installs. If the user was disabled for session recording by using the `optOut()` method, you can use this method to enable recording at runtime.
 
@@ -390,7 +481,7 @@ SDK by default opts-in users for session recording on app installs. If the user 
         UserExperior.optIn()
     ```
 
-This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in. 
+This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in.
 
 -   For Objective-C
 
@@ -407,5 +498,3 @@ This method returns the status of the user whether the user is currently opted-i
 ## What is NSAllowsArbitraryLoads?
 
 A Boolean value used to disable App Transport Security for any domains not listed in the NSExceptionDomains dictionary. Listed domains use the settings specified for that domain. The default value of NO requires the default App Transport Security behavior for all connections.
-
-
