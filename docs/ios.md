@@ -9,38 +9,38 @@
 
 1.  Add to the pod file
 
-For Swift 5.3.1
+For Swift 5.3.+
 
 ```
-pod 'UserExperior', '4.4.39'
+pod 'UserExperior', '4.4.45'
 
 ```
 
 For Swift 5.3
 
 ```
-pod 'UserExperior', '4.4.38'
+pod 'UserExperior', '4.4.44'
 
 ```
 
 For Swift 5.2
 
 ```
-pod 'UserExperior', '4.4.37'
+pod 'UserExperior', '4.4.43'
 
 ```
 
 For Swift 5.1
 
 ```
- pod 'UserExperior', '4.4.36'
+ pod 'UserExperior', '4.4.42'
 
 ```
 
 For Swift 5.0 & below
 
 ```
-pod 'UserExperior', '4.4.35'
+pod 'UserExperior', '4.4.41'
 
 ```
 
@@ -84,11 +84,11 @@ pod 'UserExperior', '4.4.35'
 ### Via Manual
 
 1. Follow the below link to download
-- [Download (For Swift 5.3.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.39/UserExperior.zip)
-- [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.38/UserExperior.zip)
-- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.37/UserExperior.zip)
-- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.36/UserExperior.zip)
-- [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.35/UserExperior.zip)
+- [Download (For Swift 5.3.+)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.45/UserExperior.zip)
+- [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.44/UserExperior.zip)
+- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.43/UserExperior.zip)
+- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.42/UserExperior.zip)
+- [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.41/UserExperior.zip)
 
 2. Unzip the file and drag the UserExperior.framework directory to the “Frameworks” in your XCode project tree.
 3. In your Xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
@@ -192,7 +192,7 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
         UserExperior.setUserProperties(["start_date": "2020/12/31", // Date-Format: YYYY/MM/DD
                                          "plan_subscribed": "trial"])
     ```
-    Note: Please send the Date property in "YYYY/MM/DD" format only.
+    Note: Please send the Date property in "YYYY/MM/DD" format only, if any.
 
 ### 2. Log Event
 
@@ -234,7 +234,7 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
                                                           @"key2":@value2, ...}];        
     ```
 
-    Eg,
+    Eg.
     ```
         [UserExperior logEvent:@"Health Profile created" properties:@{@"age":@35,
                                                                       @"weight":@70.5}];        
@@ -255,7 +255,7 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
 
     Note:
     - Max `eventName` limit is 250 chars only.
-    - Please send the Date property in "YYYY/MM/DD" format only.
+    - Please send the Date property in "YYYY/MM/DD" format only, if any.
 
 ### 3. Log Message
 
@@ -317,7 +317,7 @@ UserExperior SDK lets you log user message based on the scenario. A message can 
 
     Note:
     - Max `messageName` limit is 250 chars only.
-    - Please send the Date property in "YYYY/MM/DD" format only.
+    - Please send the Date property in "YYYY/MM/DD" format only, if any.
 
 
 ### 4. Mask Sensitive Views
