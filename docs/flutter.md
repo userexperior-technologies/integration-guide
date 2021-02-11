@@ -1,6 +1,6 @@
 ## Integration
 
-**Note**: 
+> **Note**:
 -  Perform testing only on Real devices.
 -  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 11 API Level 30 & iOS 8+!
 
@@ -62,73 +62,103 @@
 
 ## Customizing UserExperior with Key APIs
 
-### 1.  Add User Identifier
+### 1. Set User Identifier & additional properties
 
-   UserExperior SDK by default takes device id as the user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
+#### a. Set User Identifier
 
+UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
+
+   Syntax:
    ```
     void setUserIdentifier(String userIdentifier)
    ```
 
-   Note: Max `userIdentifier` limit is 250 chars only
+   Eg.
+  ```
+    UserExperior.setUserIdentifier("abc@xyz.com");
+  ```
+  Note: Max `userIdentifier` limit is 250 chars only
 
-   Code Example:
+#### b. Send additional user information
 
-   ```
-    UserExperior.setUserIdentifier("pass-your-user-id-here");
-   ```
+   Syntax:
+  ```
+    UserExperior.setUserProperties({key1: value1,
+                                    key2: value2, ...});
+  ```
+   Eg.
+  ```
+    UserExperior.setUserProperties({"start_date": "2020/12/31", // Date-Format: YYYY/MM/DD
+                                    "plan_subscribed": "trial"});
+  ```
+   Note: Please send the `date property` in ``"YYYY/MM/DD"`` format only, if any.
 
-### 2.  Add Events/ Messages/ Tags
+### 2. Log Event
 
-   UserExperior SDK lets you track user events, app responses/messages of your app and tag sessions based on some conditions using a very powerful API called setCustomTag.
+UserExperior SDK lets you log user events based on the scenario. An event is the indication of Progress in the user's session. LogEvent() can be used as follows
 
-   ```
-    void setCustomTag(String customTag, String customType)
-   ```
+#### a. Log event with name
 
-   Note: Max `customTag` limit is 250 chars only
+  Syntax:
+ ```
+   UserExperior.logEvent("YOUR_EVENT");
+ ```
+  Eg.
+ ```
+   UserExperior.logEvent("Registration Successful");
+ ```
+  Note: Max `eventName` limit is 250 chars only
 
-   Using this API, you can add:
+#### b. Log event with name and properties
 
--   **Events**
+  Syntax:
+ ```
+  UserExperior.logEvent("YOUR_EVENT", {"key1:"value1",
+                                       "key2:"value2", ...})        
+ ```
+  Eg.
+ ```
+  UserExperior.logEventWithProperties("Health Profile created", {"age":35,
+                                                   "weight":70.5})        
+ ```
+  Note:
+  - Max `eventName` limit is 250 chars only.
+  - Please send the `date property` in `"YYYY/MM/DD"` format only, if any.
 
-    In UserExperior terms, an event is the Indication of Progress in the user's session. If you want to track user events that are not auto-captured by UserExperior, use "EVENT" in 2nd parameter.
+### 3. Log Message
 
-    Eg: `Txn Completed`, `Checkout Done`, `COD Payment`, `Debit Card Payment`, `Login`, `Check Balance`, `Fund Transfer` etc.
-    Note: UserExperior does auto event tracking for most of the UI elements, add only those events which UserExperior didn't auto track. (which can be known in few initially recorded sessions itself.)
+UserExperior SDK lets you log user message based on the scenario. A message can be any app message shown to the user, any response OR error message OR toast message OR validation messages OR messages shown on dialog boxes, etc. which indicates a response to the user by the app. LogMessage() can be used as follows
 
-    Recommendation: Kindly pass hardcoded/fixed values for events, do not pass incremental values!
+#### a. Log message with name
 
-    Code Example:
+  Syntax:
+ ```
+   UserExperior.logMessage("YOUR_MESSAGE");
+ ```
+  Eg.
+ ```
+   UserExperior.logMessageWithProperties("User Name or Password is incorrect");
+ ```
+  Note: Max `messageName` limit is 250 chars only
 
-    ```
-    UserExperior.setCustomTag("Mobile Top-up",  "EVENT");
-    ```
+#### b. Log message with name and properties
 
--   **Messages**
+  Syntax:
+ ```
+  UserExperior.logMessage("YOUR_MESSAGE", {"key1:"value1",
+                                           "key2:"value2", ...})
+ ```
+  Eg.
+ ```
+  UserExperior.logMessage("Login Error", {"status_code:400,
+                                          "response_message":"invalid credentials"})
+ ```
+ Note:
+ - Max `messageName` limit is 250 chars only.
+ - Please send the `date property` in `"YYYY/MM/DD"` format only, if any.
 
-    A message can be any app message shown to the user, any response or error message or toast message or validation messages or messages shown on dialog boxes, etc. which indicates a response to the user by the app. To add a message, use "MSG" in the 2nd parameter.
 
-    Eg: `Please select location`, `Enable location permission`, `User Name or Password is incorrect`, etc.
-    Code Example:
-
-    ```
-    UserExperior.setCustomTag("Please select location!", "MSG");
-    ```
-
--  **Tags**
-
-    In UserExperior terms, a tag is a kind of behavior in the user's session. You can add Tag to even create segments of users based on behavior or a certain condition, you can define your own tags for your app. To define your own tag, use "TAG" in 2nd parameter.
-
-    Eg: `Free User`, `Paid User`, `Burgundy User`, `No Txn by User`, `Free Subscription`, etc.
-   
-   Code Example:
-
-    ```
-    UserExperior.setCustomTag("Free User", "TAG");
-    ```
-
-### 3. Identify Screens
+### 4. Identify Screens
 
    UserExperior SDK automatically detects Activities/ViewControllers and defines them as screens. However, If you have used js or anything else to represent your screens, then we recommend using the `startScreen` API. This API allows you to manually define screens.
 
@@ -149,7 +179,7 @@
    Note: This method should be usually called when your page loads.
 
 
-### 4. Track Response Time of Methods/ API Calls
+### 5. Track Response Time of Methods/ API Calls
 
    UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
 
@@ -169,7 +199,7 @@
     UserExperior.endTimer("Load Money API call");
    ```
 
-### 5. Control Recording
+### 6. Control Recording
 
    UserExperior SDK has the following APIs which can be used to control the recording. The APIs `stopRecording`, `pauseRecording`, `resumeRecording` are optional and they should be only called when you explicitly want to override the default behavior. Basically, you can use `pauseRecording` and `resumeRecording` to bypass any user flow which you don't want UserExperior to capture.
 
@@ -191,7 +221,7 @@
 
    This API resumes the recording if it is paused.
 
-### 6. Opt In/ Opt Out
+### 7. Opt In/ Opt Out
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():
 
