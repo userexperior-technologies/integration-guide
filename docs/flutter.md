@@ -137,7 +137,7 @@ UserExperior SDK lets you log user message based on the scenario. A message can 
  ```
   Eg.
  ```
-   UserExperior.logMessageWithProperties("User Name or Password is incorrect");
+   UserExperior.logMessage("User Name or Password is incorrect");
  ```
   Note: Max `messageName` limit is 250 chars only
 
@@ -145,12 +145,12 @@ UserExperior SDK lets you log user message based on the scenario. A message can 
 
   Syntax:
  ```
-  UserExperior.logMessage("YOUR_MESSAGE", {"key1:"value1",
+  UserExperior.logMessageWithProperties("YOUR_MESSAGE", {"key1:"value1",
                                            "key2:"value2", ...})
  ```
   Eg.
  ```
-  UserExperior.logMessage("Login Error", {"status_code:400,
+  UserExperior.logMessageWithProperties("Login Error", {"status_code:400,
                                           "response_message":"invalid credentials"})
  ```
  Note:
