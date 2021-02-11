@@ -1,6 +1,6 @@
 ## Integration
 
-**Note**: 
+> **Note**:
 -  Perform testing only on Real devices.
 -  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 11 API Level 30!
 
@@ -20,8 +20,8 @@ UserExperior.startRecording(getApplicationContext(), "your-version-key-here");
 
 Call the above method in every activity that is an entry point to your app! Entry activities are usually those which have a custom `<intent-filter>` element in the AndroidManifest.xml file. Eg. MainActivity, Deep Linking Activity, etc. `</intent-filter>`
 
--   **Note** 
-  
+-   **Note**
+
     Now the integration is completed, build the apk. Install apk in your android device and use the application. After performing activities minimize the app. UserExperior will upload the data, which could be seen within 2-3 minutes on the UserExperior portal.
 
 -   **Proguard Rules**
@@ -42,28 +42,28 @@ Call the above method in every activity that is an entry point to your app! Entr
 UserExperior SDK by default takes device id as a user identifier. However, you can specify any unique user identifier of your choice (eg. Email Id, Phone Number, etc.) as a custom user identifier. This identifier will show up in the UserExperior portal.
 
    Syntax:
-    
+  ```
     UserExperior.setUserIdentifier("pass-your-user-id-here");
-    
-    
+  ```
+
    Eg.
-    
+  ```
     UserExperior.setUserIdentifier("abc@xyz.com");
-    
+  ```
 
 #### b. Send additional user information
 
    Syntax:
-    
+  ```
     HashMap<String, Object> userProperties = new HashMap<>();
     userProperties.put("key1", value1);
     userProperties.put("key2", value2);
     userProperties.put("key3", value3);
     userProperties.put("keyN", valueN);
     UserExperior.setUserProperties(userProperties);
-    
+  ```
    Eg.
-
+  ```
     HashMap<String, Object> userProperties = new HashMap<>();
     userProperties.put("USER_NAME", userName);
     userProperties.put("CITY", city);
@@ -71,8 +71,8 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
     userProperties.put("COUNTRY", country);
     userProperties.put("DOB", dob);
     UserExperior.setUserProperties(userProperties);
-    
-   Note: Please send the date property in "YYYY/MM/DD" format only, if any.
+  ```
+   Note: Please send the `date property` in ``"YYYY/MM/DD"`` format only, if any.
 
 ### 2. Log Event
 
@@ -81,28 +81,28 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
 #### a. Log event with name
 
    Syntax:
-    
+  ```
     UserExperior.logEvent("Pass-Your-Event-Name-Here");
-    
+  ```
    Eg.
-    
+  ```
     UserExperior.logEvent("Registration Successful");
-
+  ```
    Note: Max `eventName` limit is 250 chars only
-    
+
 #### b. Log event with name and properties
 
    Syntax:
-    
+  ```
     HashMap<String, Object> eventProp = new HashMap<>();
     eventProp.put("key1", val1);
     eventProp.put("key2", val2);
     eventProp.put("key3", val3);
     eventProp.put("keyN", valN);
     UserExperior.logEvent("Your-Event-Name", eventProp);
-    
+  ```
    Eg.
-    
+  ```
     HashMap<String, Object> eventProp = new HashMap<>();
     eventProp.put("Mobile_Number", mobileNum);
     eventProp.put("Service_Provider", serviceProvider);
@@ -110,38 +110,40 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
     eventProp.put("Amount", amount);
     eventProp.put("Date", date);
     UserExperior.logEvent("MOBILE_TOPUP", eventProp);        
-
-   Note: Max `eventName` limit is 250 chars only; Please send the date property in "YYYY/MM/DD" format only, if any.
+  ```
+   Note:
+   - Max `eventName` limit is 250 chars only.
+   - Please send the `date property` in `"YYYY/MM/DD"` format only, if any.
 
 ### 3. Log Message
 
-UserExperior SDK lets you log user meessage based on the scenario. A message can be any app message shown to the user, any response OR error message OR toast message OR validation messages OR messages shown on dialog boxes, etc. which indicates a response to the user by the app. LogMessage() can be used as follows
+UserExperior SDK lets you log user message based on the scenario. A message can be any app message shown to the user, any response OR error message OR toast message OR validation messages OR messages shown on dialog boxes, etc. which indicates a response to the user by the app. LogMessage() can be used as follows
 
 #### a. Log message with name
 
    Syntax:
-    
+  ```
     UserExperior.logMessage("Pass-Your-Message-Here");
-    
+  ```
    Eg.
-    
+  ```
     UserExperior.logMessage("User Name or Password is incorrect");
-
+  ```
    Note: Max `messageName` limit is 250 chars only
-    
+
 #### b. Log message with name and properties
 
    Syntax:
-    
+  ```
     HashMap<String, Object> messageProp = new HashMap<>();
     messageProp.put("key1", val1);
     messageProp.put("key2", val2);
     messageProp.put("key3", val3);
     messageProp.put("keyN", valN);
     UserExperior.logMessage("Your-Message", messageProp);
-    
+  ```
    Eg.
-    
+  ```
     HashMap<String, Object> messageProp = new HashMap<>();
     messageProp.put("Consumer_Number", consumerNum);
     messageProp.put("Electricity_Board", electricityBoard);
@@ -149,8 +151,11 @@ UserExperior SDK lets you log user meessage based on the scenario. A message can
     messageProp.put("Amount", amount);
     messageProp.put("Date", date);
     UserExperior.logMessage("Electricity Recharge Successfully Done!", messageProp);
-    
-  Note: Max `messageName` limit is 250 chars only; Please send the date property in "YYYY/MM/DD" format only, if any.
+  ```
+  Note:
+  - Max `messageName` limit is 250 chars only.
+  - Please send the `date property` in `"YYYY/MM/DD"` format only, if any.
+
 
 ### 4. Mask Sensitive Views
 
@@ -197,7 +202,7 @@ UserExperior SDK by default masks all the Edit Boxes of activities. If you wish 
 
 UserExperior SDK by default masks all the Edit Boxes of activities. If you don't want to mask any EditBox in your app, you can exclude it from being masked by:
 
--   **Using Tag ** - (Use Tag method only when you don't have any other tag already applied to your EditBox.)
+-   **Using Tag** - (Use Tag method only when you don't have any other tag already applied to your EditBox.)
 
     ```
     android:tag="com.userexperior.dontmask"
@@ -376,7 +381,7 @@ boolean getOptOutStatus()
 
 This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in.
 
-User recording resets to opt-in if the user un-installs and re-installs the app. 
+User recording resets to opt-in if the user un-installs and re-installs the app.
 
 ## FAQs
 
@@ -450,4 +455,3 @@ UserExperior SDK also writes some useful logs in the Android Studio IDE during r
 3.  In case OutOfMemoryError please add following in `<application>` tag
     android:[largeHeap]="true"
     ```
-
