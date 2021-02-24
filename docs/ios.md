@@ -12,35 +12,35 @@
     For Swift 5.3.+
 
     ```
-    pod 'UserExperior', '4.4.50'
+    pod 'UserExperior', '4.4.60'
 
     ```
 
     For Swift 5.3
 
     ```
-    pod 'UserExperior', '4.4.49'
+    pod 'UserExperior', '4.4.59'
 
     ```
 
     For Swift 5.2
 
     ```
-    pod 'UserExperior', '4.4.48'
+    pod 'UserExperior', '4.4.58'
 
     ```
 
     For Swift 5.1
 
     ```
-     pod 'UserExperior', '4.4.47'
+     pod 'UserExperior', '4.4.57'
 
     ```
 
     For Swift 5.0 & below
 
     ```
-    pod 'UserExperior', '4.4.46'
+    pod 'UserExperior', '4.4.56'
 
     ```
 
@@ -84,11 +84,11 @@
 ### Via Manual
 
 1. Follow the below link to download
-- [Download (For Swift 5.3.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.50/UserExperior.zip)
-- [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.49/UserExperior.zip)
-- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.48/UserExperior.zip)
-- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.47/UserExperior.zip)
-- [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.46/UserExperior.zip)
+- [Download (For Swift 5.3.+)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.60/UserExperior.zip)
+- [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.59/UserExperior.zip)
+- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.58/UserExperior.zip)
+- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.57/UserExperior.zip)
+- [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.56/UserExperior.zip)
 
 2. Unzip the file and drag the UserExperior.framework directory to the “Frameworks” in your XCode project tree.
 3. In your Xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
