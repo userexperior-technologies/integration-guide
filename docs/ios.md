@@ -41,7 +41,7 @@
 
 - 3. a. For Objective-C
     
-            @import UserExperiorSDK      // (For Swift 5.2 and above)
+            @import UserExperiorSDK;      // (For Swift 5.2 and above)
             #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
 
 -  3. b. For Swift
@@ -85,7 +85,7 @@
 
 - 8. a. For Objective-C
     
-            @import UserExperiorSDK       // (For Swift 5.2 and above)
+            @import UserExperiorSDK;       // (For Swift 5.2 and above)
             #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
 
 -  8. b. For Swift
