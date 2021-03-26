@@ -3,26 +3,27 @@
 > **Note**: 
 -  UserExperior supports os versions from iOS 10 and above!
 - You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
+- Starting `1st May 2021`, UserExperior will no longer be supporting `SWIFT 5.1 and below`. For continuing to use UserExperior, upgrade to `SWIFT 5.2 or above`.
 
 ### Via Cocoapods
 
 1.  Add to the pod file
 
-    For Swift 5.2 and above
+    For Swift 5.2 or above
     
     ```
     pod 'UserExperior', '4.5.1'
 
     ```
 
-    For Swift 5.1 `(The support for this version ends on 30th April 2021. Please update to the latest one at the earliest.)`
+    For Swift 5.1 `(The support for this version ends on 30th April 2021. Please update to the Swift 5.2 or above at the earliest.)`
 
     ```
      pod 'UserExperior', '4.4.57'
 
     ```
 
-    For Swift 5.0 `(The support for this version ends on 30th April 2021. Please update to the latest one at the earliest.)`
+    For Swift 5.0 `(The support for this version ends on 30th April 2021. Please update to the Swift 5.2 or above at the earliest)`
 
     ```
     pod 'UserExperior', '4.4.56'
@@ -31,7 +32,7 @@
 
 2.  From your terminal, type 
 
-    After the repo update perform the below command to install pod
+    After the repo update perform the below command to install the pod
 
     ```
     pod install
@@ -41,12 +42,12 @@
 
 - 3. a. For Objective-C
     
-            @import UserExperiorSDK;      // (For Swift 5.2 and above)
+            @import UserExperiorSDK;      // (For Swift 5.2 or above)
             #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
 
 -  3. b. For Swift
 
-            import UserExperiorSDK   // (For Swift 5.2 and above)
+            import UserExperiorSDK   // (For Swift 5.2 or above)
             import UserExperior                    // (For Swift 5.0 & 5.1)
 
 4. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
@@ -71,9 +72,9 @@
 ### Via Manual
 
 1. Follow the below link to download
-- [Download (For Swift 5.2 and above)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.5.1/UserExperior.zip)
+- [Download (For Swift 5.2 or above)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.5.1/UserExperior.zip)
 - [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.57/UserExperior.zip)
-- [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.56/UserExperior.zip)
+- [Download (For Swift 5.0 or below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.56/UserExperior.zip)
 
 2. Unzip the file and drag the `UserExperiorSDK.xcframework` directory to the “Frameworks” in your XCode project tree.
 3. In your Xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
@@ -85,12 +86,12 @@
 
 - 8. a. For Objective-C
     
-            @import UserExperiorSDK;       // (For Swift 5.2 and above)
+            @import UserExperiorSDK;       // (For Swift 5.2 or above)
             #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
 
 -  8. b. For Swift
 
-            import UserExperiorSDK   // (For Swift 5.2 and above)
+            import UserExperiorSDK   // (For Swift 5.2 or above)
             import UserExperior                    // (For Swift 5.0 & 5.1)
 
 
@@ -485,3 +486,6 @@ This method returns the status of the user whether the user is currently opted-i
 ## What is NSAllowsArbitraryLoads?
 
 A Boolean value used to disable App Transport Security for any domains not listed in the NSExceptionDomains dictionary. Listed domains use the settings specified for that domain. The default value of NO requires the default App Transport Security behavior for all connections.
+
+
+
