@@ -1,50 +1,35 @@
 ## Integration
 
-> **Note**:
--  Perform testing only on Real devices.
--  UserExperior supports os versions from iOS 8+!
+> **Note**: 
+-  UserExperior supports os versions from iOS 10 and above!
 - You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
 
 ### Via Cocoapods
 
 1.  Add to the pod file
 
-    For Swift 5.3.+
-
+    For Swift 5.2 and above
+    
     ```
-    pod 'UserExperior', '4.4.60'
-
-    ```
-
-    For Swift 5.3
-
-    ```
-    pod 'UserExperior', '4.4.59'
+    pod 'UserExperior', '4.5.1'
 
     ```
 
-    For Swift 5.2
-
-    ```
-    pod 'UserExperior', '4.4.58'
-
-    ```
-
-    For Swift 5.1
+    For Swift 5.1 `(The support for this version ends on 30th April 2021. Please update to the latest one at the earliest.)`
 
     ```
      pod 'UserExperior', '4.4.57'
 
     ```
 
-    For Swift 5.0 & below
+    For Swift 5.0 `(The support for this version ends on 30th April 2021. Please update to the latest one at the earliest.)`
 
     ```
     pod 'UserExperior', '4.4.56'
 
     ```
 
-2.  From your terminal, type
+2.  From your terminal, type 
 
     After the repo update perform the below command to install pod
 
@@ -55,14 +40,16 @@
 3. In your app delegate, include:
 
 - 3. a. For Objective-C
-
-            #import <UserExperior/UserExperior-Swift.h>
+    
+            @import UserExperiorSDK      // (For Swift 5.2 and above)
+            #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
 
 -  3. b. For Swift
 
-            import UserExperior
+            import UserExperiorSDK   // (For Swift 5.2 and above)
+            import UserExperior                    // (For Swift 5.0 & 5.1)
 
-4. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method.
+4. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
 
 - 4. a. For Objective-C
 
@@ -84,29 +71,30 @@
 ### Via Manual
 
 1. Follow the below link to download
-- [Download (For Swift 5.3.+)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.60/UserExperior.zip)
-- [Download (For Swift 5.3)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.59/UserExperior.zip)
-- [Download (For Swift 5.2)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.58/UserExperior.zip)
+- [Download (For Swift 5.2 and above)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.5.1/UserExperior.zip)
 - [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.57/UserExperior.zip)
 - [Download (For Swift 5.0 & Below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.56/UserExperior.zip)
 
-2. Unzip the file and drag the UserExperior.framework directory to the “Frameworks” in your XCode project tree.
+2. Unzip the file and drag the `UserExperiorSDK.xcframework` directory to the “Frameworks” in your XCode project tree.
 3. In your Xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
 4. In the tab bar at the top of that window, open the `General` panel.
-5. Click on the + button under the `Embedded Binaries` section.
-6. You will see UserExperior.framework nested inside a `Frameworks`.
-7. Select the UserExperior.framework and click `Add`.
+5. Click on the + button under the `Frameworks, Library and Embedded Content` section.
+6. You will see `UserExperiorSDK.xcframework` nested inside a `Frameworks`.
+7. Select the `UserExperiorSDK.xcframework` and click `Add` and make sure to select `Embed and Sign` option.
 8. In your app delegate, include:
 
 - 8. a. For Objective-C
-
-            #import <UserExperior/UserExperior-Swift.h>
+    
+            @import UserExperiorSDK       // (For Swift 5.2 and above)
+            #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
 
 -  8. b. For Swift
 
-            import UserExperior
+            import UserExperiorSDK   // (For Swift 5.2 and above)
+            import UserExperior                    // (For Swift 5.0 & 5.1)
 
-9. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method.
+
+9. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
 
 - 9. a. For Objective-C
 
@@ -480,7 +468,7 @@ SDK by default opts-in users for session recording on app installs. If the user 
         UserExperior.optIn()
     ```
 
-This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in.
+This method returns the status of the user whether the user is currently opted-in or opted-out. The boolean value true indicates that the user is opted-out and false indicates that the user is opted-in. 
 
 -   For Objective-C
 

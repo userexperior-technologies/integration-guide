@@ -1,8 +1,8 @@
 ## Integration
 
 >**Note**:
--  Perform testing only on Real devices.
--  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 11 API Level 30 & iOS 8+!
+-  UserExperior supports os versions from Android JellyBean (4.3) API Level 16 to Android 11 API Level 30 & iOS 10 and above!
+- XCode Support: 11.5 and above
 
 ### 1. Install & Link UserExperior Plugin
 
@@ -26,16 +26,6 @@
    ```
 
    Call the above method when your app starts (when your root component loads)
-
-  - **For iOS: Cocoapods**
-
-   Add the header path in `react-native-userExperior`
-
-   ```
-      ${PODS_ROOT}/UserExperior/UserExperior.framework/Headers/
-   ```
-
-   ![Automatic integration](https://i.ibb.co/JHRxhfj/Screenshot-2020-06-01-at-18-59-35.png)
 
 -   **For Android: Proguard Rules**
 
