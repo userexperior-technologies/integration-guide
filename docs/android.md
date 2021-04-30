@@ -267,7 +267,11 @@ UserExperior SDK allows you to track the load/response time of the components in
 
 ```
 void startTimer(String timerName)
+
 void endTimer(String timerName)
+or
+// Use below variant of endTimer method if you want to send additional information regarding your APIs
+void endTimer(String timerName, HashMap<String, String> properties)
 ```
 
 Note: Max `timerName` limit is 250 chars only
@@ -290,6 +294,22 @@ try {
 } catch (Exception e) {
     e.printStackTrace();
 }
+
+or
+
+HashMap<String, String> apiProperties = new HashMap<>();
+apiProperties.put("API_Name", apiName);
+apiProperties.put("Cart_Item_ID", itemID);
+apiProperties.put("Cart_Item_Name", "Adidas Sports Shoes");
+apiProperties.put("Money_Loaded", amount);
+try {
+    UserExperior.endTimer("Load Money API call", apiProperties);
+} catch (Exception e) {
+    e.printStackTrace();
+}
+
+Note:
+  - key-value limit is 250 chars only.
 ```
 
 ### 8. Control Recording
