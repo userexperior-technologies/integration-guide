@@ -71,7 +71,9 @@ UserExperior SDK by default takes device id as a user identifier. However, you c
     userProperties.put("DOB", dob);
     UserExperior.setUserProperties(userProperties);
   ```
-   Note: Please send the `date property` in ``"YYYY/MM/DD"`` format only, if any.
+   Note: 
+   - Please send the `date property` in ``"YYYY/MM/DD"`` format only, if any
+   - Max `key` & `value` limit is 250 chars only respectively
 
 ### 2. Log Event
 
@@ -293,9 +295,6 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
         e.printStackTrace();
     }
   ```
-   Note:
-   - Max `timerName` limit is 250 chars only
-   - Timer name has to be same for both start and end timer.
   
 #### b. Start and End Timer with Properties
 
