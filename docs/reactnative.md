@@ -185,23 +185,77 @@ UserExperior SDK by default masks all the Edit Boxes if Auto Masking is turned O
 
 ### 6. Track Response Time of Methods/ API Calls
 
-   UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time.
+UserExperior SDK allows you to track the load/response time of the components in your app using APIs called `startTimer` and endTimer. You can call `startTimer` API at any event on the app from which you want to track the load/response time and call an `endTimer` API at the event completion. These APIs will calculate the complete response time. You can also pass timer properties while tracking response time.
 
-   ```
-    void startTimer(String timerName)
-    void endTimer(String timerName)
-   ```
+Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when the screen resumes to the user and call `endTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any API call and an `endTimer` on API response.
 
-   Note: Max `timerName` limit is 250 chars only
+#### a. Start and End Timer
 
-   Eg: Suppose, you have a ListView on your screen which gets loaded with data you receive from the server. You can call `startTimer` API when the screen resumes to the user and call `endTimer` API when data gets successfully shown in the ListView. Now you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any API call and an `endTimer` on API response.
+   Syntax:
+  ```
+    UserExperior.startTimer(String timerName)
+    UserExperior.endTimer(String timerName)
+  ```
 
-   Code Example:
+   Eg.
+  ```
+    // Call this while sending API request
+    try {
+        UserExperior.startTimer("Load Money API call");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
 
-   ```
-    UserExperior.startTimer("Load Money API call");
-    UserExperior.endTimer("Load Money API call");
-   ```
+    // call this when API gives response
+    try {
+        UserExperior.endTimer("Load Money API call");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+  ```
+  
+#### b. Start and End Timer with Properties
+
+   Syntax:
+  ```
+    UserExperior.startTimer(String timerName)
+
+    HashMap<String, Object> timerProperties = new HashMap<>();
+    timerProperties.put("key1", value1);
+    timerProperties.put("key2", value2);
+    timerProperties.put("keyN", valueN);
+    
+    UserExperior.endTimer(String timerName, timerProperties);
+  ```
+
+   Eg.
+  ```
+    // Call this while sending API request
+    try {
+        UserExperior.startTimer("Load Money API call");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    // call this when API gives response
+    
+    HashMap<String, String> apiProperties = new HashMap<>();
+    apiProperties.put("API_Response", apiResponse);
+    apiProperties.put("Cart_Item_ID", itemID);
+    apiProperties.put("Cart_Item_Name", "Adidas Sports Shoes");
+    apiProperties.put("Money_Loaded", amount);
+    
+    try {
+        UserExperior.endTimer("Load Money API call", apiProperties);
+    } catch (Exception e) {
+        e.printStackTrace();
+    } 
+  ```
+   Note:
+   - Max `timerName` limit is 250 chars only
+   - Max `key` & `value` limit is 250 chars only respectively
+   - Timer name has to be same for both start and end timer.
+
 
 ### 7. Control Recording
 
