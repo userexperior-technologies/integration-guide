@@ -112,6 +112,7 @@ UserExperior SDK lets you log user events based on the scenario. An event is the
   ```
    Note:
    - Max `eventName` limit is 250 chars only.
+   - Max `key` & `value` limit is 250 chars only respectively
    - Please send the `date property` in `"YYYY/MM/DD"` format only, if any.
 
 ### 3. Log Message
@@ -153,6 +154,7 @@ UserExperior SDK lets you log user message based on the scenario. A message can 
   ```
   Note:
   - Max `messageName` limit is 250 chars only.
+  - Max `key` & `value` limit is 250 chars only respectively
   - Please send the `date property` in `"YYYY/MM/DD"` format only, if any.
 
 
@@ -334,6 +336,7 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
   ```
    Note:
    - Max `timerName` limit is 250 chars only
+   - Max `key` & `value` limit is 250 chars only respectively
    - Timer name has to be same for both start and end timer.
   
 
