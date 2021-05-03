@@ -371,7 +371,7 @@ Eg: Suppose, you have a `TableView` on your screen which gets loaded with data y
         [UserExperior stopTimer:@"TIMER_NAME"];
     ```
 
-Example:
+    Eg:
 
     ```
         // While data loading starts in TableView
@@ -390,8 +390,8 @@ Example:
         UserExperior.startTimer("TIMER_NAME")
         UserExperior.stopTimer("TIMER_NAME")
     ```
-
-Example:
+ 
+    Eg:
 
     ```
         // While data loading starts in TableView
