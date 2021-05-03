@@ -358,7 +358,11 @@ Note: Max screenName limit is 250 chars only
 
 ### 6. Track Response Time of Methods/ API Calls
 
-UserExperior SDK allows you to track the load/ response time of the components in your app using a method called `startTimer` and `stopTimer`. You can call `startTimer` method at any event on the app from which you want to track the load/ response time and call a `stopTimer` method at the event completion. This method will calculate the complete response time.
+UserExperior SDK allows you to track the load/ response time of the components in your app using a method called `startTimer` and `stopTimer`. You can call `startTimer` method at any event on the app from which you want to track the load/ response time and call a `stopTimer` method at the event completion. This method will calculate the complete response time. You can also pass timer properties while tracking response time.
+
+Eg: Suppose, you have a `TableView` on your screen which gets loaded with data you receive from the server. You can call `startTimer` method when the view resumes to the user and call `stopTimer` method when data gets successfully shown in `TableView`. Now, you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any method call and `endTimer` on method response.
+
+#### a. Start and End Timer
 
 -   For Objective-C
 
@@ -367,6 +371,19 @@ UserExperior SDK allows you to track the load/ response time of the components i
         [UserExperior stopTimer:@"TIMER_NAME"];
     ```
 
+Example:
+
+    ```
+        // While data loading starts in TableView
+        [UserExperior startTimer:@"Load Money API call"];
+        .
+        .
+        .
+        //  While data loaded completed in TableView
+        UserExperior stopTimer:@"Load Money API call"];
+    ```
+
+
 -   For Swift
 
     ```
@@ -374,40 +391,65 @@ UserExperior SDK allows you to track the load/ response time of the components i
         UserExperior.stopTimer("TIMER_NAME")
     ```
 
-Eg: Suppose, you have a `TableView` on your screen which gets loaded with data you receive from the server. You can call `startTimer` method when the view resumes to the user and call `stopTimer` method when data gets successfully shown in `TableView`. Now, you can know how much time it takes to load data after the screen is visible to the user. Similarly, you can use `startTimer` at any method call and `endTimer` on method response.
-
 Example:
+
+    ```
+        // While data loading starts in TableView
+        UserExperior.startTimer("Load Money API call")
+        .
+        .
+        .
+        //  While data loaded completed in TableView
+        UserExperior.stopTimer("Load Money API call")
+    ```
+
+#### b. Start and End Timer with Properties
 
 -   For Objective-C
 
-    -   While data loading starts in TableView:
+    ```
+        [UserExperior startTimer:@"TIMER_NAME"];
+        [UserExperior stopTimer:@"TIMER_NAME" properties:@{@"key1":@value1,
+                                                              @"key2":@value2, ...}];        
+    ```
 
-        ```
-            [UserExperior startTimer:@"Load Money API call"];
-        ```
-
-    -   While data loaded completed in TableView :
-
-        ```
-            [UserExperior stopTimer:@"Load Money API call"];
-        ```
+    Eg.
+    ```
+        // While data loading starts in TableView
+        UserExperior.startTimer("Load Money API call")
+        .
+        .
+        .
+        //  While data loaded completed in TableView
+        UserExperior stopTimer:@"Load Money API call" properties:@{@"status_code":@400,
+                                                            @"response_message":@"invalid credentials"}];
+    ```
 
 -   For Swift
 
-    -   While data loading starts in TableView:
+    ```
+        UserExperior.startTimer("TIMER_NAME")
+        UserExperior.stopTimer("TIMER_NAME", properties:["key1:"value1",
+                                                            "key2:"value2", ...])
+    ```
 
-        ```
-            UserExperior.startTimer("Load Money API call")
-        ```
+    Eg.
+    ```
+        // While data loading starts in TableView
+        UserExperior.startTimer("Load Money API call")
+        .
+        .
+        .
+        //  While data loaded completed in TableView
+        UserExperior.stopTimer("Load Money API call", properties:["status_code:400,
+                                                           "response_message":"invalid credentials"])
 
-    -   While data loaded completed in TableView :
+    ```
 
-        ```
-            UserExperior.stopTimer("Load Money API call")
-        ```
-
-    Note: Max `timerName` limit is 250 chars only
-
+   Note:
+   - Max `timerName` limit is 250 chars only
+   - Max `key` & `value` limit is 250 chars only respectively
+   - Timer name has to be same for both start and end timer.
 
 ### 7. Control Recording
 
