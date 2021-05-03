@@ -274,10 +274,7 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
     UserExperior.startTimer(String timerName)
     UserExperior.endTimer(String timerName)
   ```
-   Note:
-   - Max `timerName` limit is 250 chars only
-   - Timer name has to be same for both start and end timer.
-  
+
    Eg.
   ```
     // Call this while sending API request
@@ -294,8 +291,11 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
         e.printStackTrace();
     }
   ```
-
-#### b. Start and End Tiner with Properties
+   Note:
+   - Max `timerName` limit is 250 chars only
+   - Timer name has to be same for both start and end timer.
+  
+#### b. Start and End Timer with Properties
 
    Syntax:
   ```
@@ -308,10 +308,7 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
     
     UserExperior.endTimer(String timerName, timerProperties);
   ```
-   Note:
-   - Max `timerName` limit is 250 chars only
-   - Timer name has to be same for both start and end timer.
-  
+
    Eg.
   ```
     // Call this while sending API request
@@ -335,6 +332,11 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
         e.printStackTrace();
     } 
   ```
+   Note:
+   - Max `timerName` limit is 250 chars only
+   - Timer name has to be same for both start and end timer.
+  
+
 
 ### 8. Control Recording
 
