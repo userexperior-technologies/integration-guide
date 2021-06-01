@@ -3,7 +3,6 @@
 > **Note**: 
 -  UserExperior supports os versions from iOS 10 and above!
 - You can install the UserExperior iOS SDK through [CocoaPods](https://cocoapods.org/) (Install if you don't already have it) OR manually.
-- Starting `1st May 2021`, UserExperior will no longer be supporting `SWIFT 5.1 and below`. For continuing to use UserExperior, upgrade to `SWIFT 5.2 or above`.
 
 ### Via Cocoapods
 
@@ -16,23 +15,9 @@
 
     ```
 
-    For Swift 5.1 `(The support for this version ends on 30th April 2021. Please update to the Swift 5.2 or above at the earliest.)`
+2.  Install pod
 
-    ```
-     pod 'UserExperior', '4.4.57'
-
-    ```
-
-    For Swift 5.0 `(The support for this version ends on 30th April 2021. Please update to the Swift 5.2 or above at the earliest)`
-
-    ```
-    pod 'UserExperior', '4.4.56'
-
-    ```
-
-2.  From your terminal, type 
-
-    After the repo update perform the below command to install the pod
+    After, the repo update perform the below command to install the pod
 
     ```
     pod install
@@ -42,19 +27,17 @@
 
 - 3. a. For Objective-C
     
-            @import UserExperiorSDK;      // (For Swift 5.2 or above)
-            #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
+            @import UserExperiorSDK;
 
 -  3. b. For Swift
 
-            import UserExperiorSDK   // (For Swift 5.2 or above)
-            import UserExperior                    // (For Swift 5.0 & 5.1)
+            import UserExperiorSDK
 
 4. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
 
 - 4. a. For Objective-C
 
-            [UserExperior initialize:@"USER_KEY"];
+            [UserExperior startRecording:@"USER_KEY"];
 
       **Note:**
 
@@ -62,7 +45,7 @@
 
 - 4. b. For Swift
 
-            UserExperior.initialize("USER_KEY")
+            UserExperior.startRecording("USER_KEY")
 
         **Note:**
 
@@ -73,8 +56,6 @@
 
 1. Follow the below link to download
 - [Download (For Swift 5.2 or above)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.5.12/UserExperior.zip)
-- [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.57/UserExperior.zip)
-- [Download (For Swift 5.0 or below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.56/UserExperior.zip)
 
 2. Unzip the file and drag the `UserExperiorSDK.xcframework` directory to the “Frameworks” in your XCode project tree.
 3. In your Xcode project, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
@@ -86,20 +67,18 @@
 
 - 8. a. For Objective-C
     
-            @import UserExperiorSDK;       // (For Swift 5.2 or above)
-            #import <UserExperior/UserExperior-Swift.h>   // (For Swift 5.0 & 5.1)
+            @import UserExperiorSDK;
 
 -  8. b. For Swift
 
-            import UserExperiorSDK   // (For Swift 5.2 or above)
-            import UserExperior                    // (For Swift 5.0 & 5.1)
+            import UserExperiorSDK
 
 
 9. Add this call as the first line of your `application:didFinishLaunchingWithOptions:` method. 
 
 - 9. a. For Objective-C
 
-            [UserExperior initialize:@"USER_KEY"];
+            [UserExperior startRecording:@"USER_KEY"];
 
         **Note:**
 
@@ -107,7 +86,7 @@
 
 - 9. b. For Swift
 
-            UserExperior.initialize("USER_KEY")
+            UserExperior.startRecording("USER_KEY")
 
         **Note:**
 
@@ -500,7 +479,7 @@ By default, the recording stops automatically once the app goes to the backgroun
         UserExperior.resumeRecording()
     ```
 **isRecording**
-`isRecording()` method returns the status of the SDK recording whether the SDK is active mode or in-active mode. The boolean value true indicates that the SDK is active and false indicates that the user is in-active. 
+`isRecording()` method returns the status of the SDK recording whether the SDK is active mode or in-active mode. The boolean value `true` indicates that the SDK is active and `false` indicates that the SDK is in-active. 
 
 -   For Objective-C
 
