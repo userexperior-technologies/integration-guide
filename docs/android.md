@@ -361,6 +361,12 @@ void resumeRecording()
 
 This API resumes the recording if it is paused.
 
+`isRecording()` method returns the status of the SDK recording whether the SDK is active mode or in-active mode. The boolean value true indicates that the SDK is active and false indicates that the user is in-active. 
+
+```
+boolean isRecording()
+```
+
 ### 9. Get Precise User Location
 
 UserExperior SDK lets you track the location of your user. If your app has location permissions enabled and you wish to know the exact city and country of your users, you can use our API setDeviceLocation. You just have to pass us the location parameters latitude and longitude which you get from the GPS location in your app and through this data, we will only present City and Country on our dashboard which can be used for further analytics.

@@ -12,7 +12,7 @@
     For Swift 5.2 or above
     
     ```
-    pod 'UserExperior', '4.5.1'
+    pod 'UserExperior', '4.5.12'
 
     ```
 
@@ -72,7 +72,7 @@
 ### Via Manual
 
 1. Follow the below link to download
-- [Download (For Swift 5.2 or above)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.5.1/UserExperior.zip)
+- [Download (For Swift 5.2 or above)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.5.12/UserExperior.zip)
 - [Download (For Swift 5.1)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.57/UserExperior.zip)
 - [Download (For Swift 5.0 or below)](https://userexperior-e174e.firebaseapp.com/download/ios_sdk/4.4.56/UserExperior.zip)
 
@@ -498,6 +498,20 @@ By default, the recording stops automatically once the app goes to the backgroun
 
     ```
         UserExperior.resumeRecording()
+    ```
+**isRecording**
+`isRecording()` method returns the status of the SDK recording whether the SDK is active mode or in-active mode. The boolean value true indicates that the SDK is active and false indicates that the user is in-active. 
+
+-   For Objective-C
+
+    ```
+        [UserExperior isRecording];
+    ```
+
+-   For Swift
+
+    ```
+        UserExperior.isRecording()
     ```
 
 ### 8. Opt-In/Opt-Out

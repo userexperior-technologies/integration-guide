@@ -279,6 +279,12 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
 
    This API resumes the recording if it is paused.
 
+    `isRecording()` method returns the status of the SDK recording whether the SDK is active mode or in-active mode. The boolean value true indicates that the SDK is active and false indicates that the user is in-active. 
+
+    ```
+    boolean isRecording()
+    ```
+
 ### 8. Opt In/ Opt Out
 
 UserExperior by default opts-in users for session recording. If you want to enable or disable recording, you can use our APIs optIn()/optOut():

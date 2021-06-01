@@ -8,7 +8,7 @@
 
    ```
     dependencies:
-      user_experior: ^1.1.19
+      user_experior: ^1.1.25
    ```
 
 ### 2. Install UserExperior
@@ -279,6 +279,13 @@ Eg: Suppose, you have a ListView on your screen which gets loaded with data you 
    ```
 
    This API resumes the recording if it is paused.
+
+   `isRecording()` method returns the status of the SDK recording whether the SDK is active mode or in-active mode. The boolean value true indicates that the SDK is active and false indicates that the user is in-active. 
+
+    ```
+    boolean isRecording()
+    ```
+
 
 ### 7. Opt In/ Opt Out
 
