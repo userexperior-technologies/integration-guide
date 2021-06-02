@@ -8,7 +8,7 @@
 Note: If UserExperior is already integrated in your project, just re-sync the project with Gradle.
 
 ```
-implementation 'com.userexperior:userexperior-android:+'
+implementation 'com.userexperior:userexperior-android:6.0.6'
 ```
 
 ### 2. Start UserExperior SDK

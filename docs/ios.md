@@ -17,8 +17,12 @@
 
 2.  Install pod
 
-    After, the repo update perform the below command to install the pod
+    In the terminal, type
+    ```
+    pod repo update
 
+    ```
+    After, the repo update perform the below command to install the pod
     ```
     pod install
 
